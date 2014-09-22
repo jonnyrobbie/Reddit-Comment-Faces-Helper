@@ -19,12 +19,17 @@ Allows you to easily add comment faces from those subreddits:
 Screenshots:
 
 https://i.imgur.com/PFvasbf.png
+
 https://i.imgur.com/PFvasbfs.png
+
 https://i.imgur.com/p4Vk5r7.png
+
 https://i.imgur.com/p4Vk5r7s.png
 
 reddit discussion thread:
 
 http://www.reddit.com/r/awwnime/comments/1ft846/metacomment_faces_with_ease/
 
-The fastest way to contact me is through reddit PM (even for pull requests): http://reddit.com/user/JonnyRobbie/
+The fastest way to contact me is through reddit PM (even for pull requests):
+
+http://reddit.com/user/JonnyRobbie/

@@ -20,11 +20,11 @@ Screenshots:
 
 https://i.imgur.com/PFvasbf.png
 
-https://i.imgur.com/PFvasbfs.png
+https://i.imgur.com/PFvasbf.png
 
 https://i.imgur.com/p4Vk5r7.png
 
-https://i.imgur.com/p4Vk5r7s.png
+https://i.imgur.com/p4Vk5r7.png
 
 reddit discussion thread:
 

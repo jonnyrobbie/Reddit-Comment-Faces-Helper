@@ -1,5 +1,8 @@
 CHANGELOG:
 
+1.16
+-removed changelog from the main script
+-title text now automatically clears when adding a face
 1.15.1, 1.15.2
 -more to /r/awwnime, /r/OneTrueIdol and /r/LoveLive
 1.15

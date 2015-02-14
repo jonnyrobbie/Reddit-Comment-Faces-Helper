@@ -19,7 +19,7 @@
 // @include        http*://*.reddit.com/r/LoveLive/*
 // @include        http*://*.reddit.com/r/OneTrueIdol/*
 // @grant          none
-// @version        1.16
+// @version        1.17
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -818,31 +818,73 @@ function appendFaces() {
         objTo.appendChild(appendFaceThumb("SuperLewd", 78, 100)) //Two additional parametres force-resize the image. Try to fit it in 150px*100px
     }
     else if (subreddit == "anime") {
-        faceIdChar = "/";
+        faceIdChar = "#";
         wikiLink.href = "http://www.reddit.com/r/anime/comments/izxos/comment_faces_for_ranime/";
-        thumbDialWidth = "130px";
-        thumbDialHeight = "90px";
+        thumbDialWidth = "185px";
+        thumbDialHeight = "125px";
         bbCodeFunction = function(bbFace, bbTitle){
-            return "[](/" + bbFace + " \"" + bbTitle + "\")";
+            return "[](#" + bbFace + " \"" + bbTitle + "\")";
         };
-        objTo.appendChild(appendFaceThumb("yunocaine"));
-        objTo.appendChild(appendFaceThumb("somad"));
-        objTo.appendChild(appendFaceThumb("gununu"));
-        objTo.appendChild(appendFaceThumb("shocked"));
-        objTo.appendChild(appendFaceThumb("osaka"));
-        objTo.appendChild(appendFaceThumb("mad"));
-        objTo.appendChild(appendFaceThumb("confused"));
-        objTo.appendChild(appendFaceThumb("konahappy"));
-        objTo.appendChild(appendFaceThumb("pointandlaugh"));
-        objTo.appendChild(appendFaceThumb("wtfika"));
-        objTo.appendChild(appendFaceThumb("cat1"));
-        objTo.appendChild(appendFaceThumb("cat2"));
-        objTo.appendChild(appendFaceThumb("cry"));
-        objTo.appendChild(appendFaceThumb("konacat"));
-        objTo.appendChild(appendFaceThumb("toohappy"));
-        objTo.appendChild(appendFaceThumb("smug"));
-        objTo.appendChild(appendFaceThumb("um"));
-        objTo.appendChild(appendFaceThumb("yay"));
+		objTo.appendChild(appendFaceThumb("asuka-shouting"));
+		objTo.appendChild(appendFaceThumb("chiyo-uhh"));
+		objTo.appendChild(appendFaceThumb("she-ded"));
+		objTo.appendChild(appendFaceThumb("deko-cry"));
+		objTo.appendChild(appendFaceThumb("gendo-pls"));
+		objTo.appendChild(appendFaceThumb("haruhi-annoyed"));
+		objTo.appendChild(appendFaceThumb("k-on-hug"));
+		objTo.appendChild(appendFaceThumb("lewd"));
+		objTo.appendChild(appendFaceThumb("nanami-hug"));
+		objTo.appendChild(appendFaceThumb("pika-dead"));
+		objTo.appendChild(appendFaceThumb("super-happy"));
+		objTo.appendChild(appendFaceThumb("yui-crying"));
+		objTo.appendChild(appendFaceThumb("durr"));
+		objTo.appendChild(appendFaceThumb("mugi-fish"));
+		objTo.appendChild(appendFaceThumb("objection"));
+		objTo.appendChild(appendFaceThumb("chaika"));
+		objTo.appendChild(appendFaceThumb("chiho-wut"));
+		objTo.appendChild(appendFaceThumb("disapproval"));
+		objTo.appendChild(appendFaceThumb("grrrr"));
+		objTo.appendChild(appendFaceThumb("im-listening"));
+		objTo.appendChild(appendFaceThumb("om-nom"));
+		objTo.appendChild(appendFaceThumb("stare"));
+		objTo.appendChild(appendFaceThumb("u-wat-m8"));
+		objTo.appendChild(appendFaceThumb("what"));
+		objTo.appendChild(appendFaceThumb("wide-face"));
+		objTo.appendChild(appendFaceThumb("ehehehe"));
+		objTo.appendChild(appendFaceThumb("mandom"));
+		objTo.appendChild(appendFaceThumb("pointandlaugh"));
+		objTo.appendChild(appendFaceThumb("smug"));
+		objTo.appendChild(appendFaceThumb("confused"));
+		objTo.appendChild(appendFaceThumb("yunocaine"));
+		objTo.appendChild(appendFaceThumb("konahappy"));
+		objTo.appendChild(appendFaceThumb("konacat"));
+		objTo.appendChild(appendFaceThumb("gununu"));
+		objTo.appendChild(appendFaceThumb("cat1"));
+		objTo.appendChild(appendFaceThumb("somad"));
+		objTo.appendChild(appendFaceThumb("mad"));
+		objTo.appendChild(appendFaceThumb("cry"));
+		objTo.appendChild(appendFaceThumb("cat2"));
+		objTo.appendChild(appendFaceThumb("um"));
+		objTo.appendChild(appendFaceThumb("facepalm"));
+		objTo.appendChild(appendFaceThumb("wtfika"));
+		objTo.appendChild(appendFaceThumb("kanie-disgust"));
+		objTo.appendChild(appendFaceThumb("nerrr"));
+		objTo.appendChild(appendFaceThumb("nico-heart"));
+		objTo.appendChild(appendFaceThumb("sonico-wink"));
+		objTo.appendChild(appendFaceThumb("sparkle-ika"));
+		objTo.appendChild(appendFaceThumb("suave"));
+		objTo.appendChild(appendFaceThumb("super-blush"));
+		objTo.appendChild(appendFaceThumb("shocked"));
+		objTo.appendChild(appendFaceThumb("surprised-blush"));
+		objTo.appendChild(appendFaceThumb("thumbs-up"));
+		objTo.appendChild(appendFaceThumb("u-dont-say"));
+		objTo.appendChild(appendFaceThumb("ugh-peasants"));
+		objTo.appendChild(appendFaceThumb("uhhh"));
+		objTo.appendChild(appendFaceThumb("yay"));
+		objTo.appendChild(appendFaceThumb("you-bore-me"));
+		objTo.appendChild(appendFaceThumb("osaka"));
+		objTo.appendChild(appendFaceThumb("kukuku"));
+		objTo.appendChild(appendFaceThumb("toohappy"));
     }
     else if (subreddit == "kemonomimi") {
         faceIdChar = "#";

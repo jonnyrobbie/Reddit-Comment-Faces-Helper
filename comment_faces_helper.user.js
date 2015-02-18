@@ -19,7 +19,7 @@
 // @include        http*://*.reddit.com/r/LoveLive/*
 // @include        http*://*.reddit.com/r/OneTrueIdol/*
 // @grant          none
-// @version        1.17.1
+// @version        1.18
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -29,6 +29,7 @@ var thumbDialHeight = "100px";
 var divAlreadyShown = false;
 var settingsAlreadyShown = false;
 var bbCodeFunction = null;
+var textBoxNr = 1;
 var selectedText = {
     start: 0, lenghth: 0, boxIndex: 0
 };
@@ -305,13 +306,23 @@ function changeSize(top, left, width, height){
 	//console.log(textSett["awwSettingsLeft"].value);
 	//console.log(textSett["awwSettingsWidth"].value);
 	//console.log(textSett["awwSettingsHeight"].value);
-	
+	if (width < 350) width = 350;
+	if (height < 100) height = 100;
+	width = Math.floor((parseInt(width, 10) - 37)/(parseInt(thumbDialWidth, 10)+10))*(parseInt(thumbDialWidth, 10)+10)+37;
 	awwFacedDialogObj.style.top = top + "px";
 	awwFacedDialogObj.style.left = left + "px";
 	awwFacedDialogObj.style.width = width + "px";
 	awwFacedDialogObj.style.height = height + "px";
-    tableWrap.style.height = (height - 62) + "px";
-	titleFace.style.width = (width - 448) + "px";
+    tableWrap.style.height = (height - 72) + "px";
+	if (textBoxNr == 1) {
+		titleFace.style.width = (width - 295) + "px";
+	} else if (textBoxNr == 3) {
+		titleFace.style.width = ((width - 291)/3)-12 + "px";
+		upperCaption.style.width = ((width - 291)/3)-12 + "px";
+		lowerCaption.style.width = ((width - 291)/3)-12 + "px";
+		upperCaption.style.display = "inline";
+		lowerCaption.style.display = "inline";
+	}
 }
 
 function createFacesDiv() {
@@ -324,48 +335,85 @@ function createFacesDiv() {
     //tableWrap.style.height = (455 + dialogHeight) + "px";
     tableWrap.id = "awwFacesTableWrapper";
     tableWrap.style.overflowY = "scroll";
-    tableWrap.style.margin = "10px";
+    tableWrap.style.margin = "10px 10px 5px 10px";
+	tableWrap.style.padding = "10px 0px";
+	//tableWrap.style.border = "1px solid #abadb3";
     awwFacedDialogObj.appendChild(tableWrap);
+	
+	/*var fadeShadow = document.createElement("div");
+	fadeShadow.position = "absolute";
+	fadeShadow.top = "0px";
+	fadeShadow.right = "0px";
+	fadeShadow.bottom = "0px";
+	fadeShadow.left = "0px";
+	fadeShadow.id = "wrapShadow";
+	tableWrap.appendChild(fadeShadow);*/
     
-    var titleCapt = document.createElement("span");
+    /*var titleCapt = document.createElement("span");
     titleCapt.innerHTML = "Mouse hover title:";
     titleCapt.style.margin = "10px";
-    controls.appendChild(titleCapt);
+    controls.appendChild(titleCapt);*/
     
     window.titleFace = document.createElement("input");
     titleFace.type = "text";
     titleFace.id = "awwFaceId";
     //titleFace.style.width = "387px";
-    titleFace.style.margin = "10px";
+    titleFace.style.margin = "5px 5px 10px 10px";
+	titleFace.placeholder = "Mouse-over text";
+	titleFace.style.height = "20px";
+	titleFace.style.paddingLeft = "3px";
     controls.appendChild(titleFace);
+	
+	window.upperCaption = document.createElement("input");
+    upperCaption.type = "text";
+    upperCaption.id = "upperCaption";
+    //titleFace.style.width = "387px";
+    upperCaption.style.margin = "5px 5px 10px 5px";
+	upperCaption.placeholder = "Top caption";
+	upperCaption.style.height = "20px";
+	upperCaption.style.paddingLeft = "3px";
+	upperCaption.style.display = "none";
+    controls.appendChild(upperCaption);
+	
+	window.lowerCaption = document.createElement("input");
+    lowerCaption.type = "text";
+    lowerCaption.id = "lowerCaption";
+    //titleFace.style.width = "387px";
+    lowerCaption.style.margin = "5px 5px 10px 5px";
+	lowerCaption.placeholder = "Bottom caption";
+	lowerCaption.style.height = "20px";
+	lowerCaption.style.paddingLeft = "3px";
+	lowerCaption.style.display = "none";
+    controls.appendChild(lowerCaption);
     
     var addFaceB = document.createElement("input");
     addFaceB.type = "button";
     addFaceB.value = "Add face"
-    addFaceB.style.margin = "10px";
+    addFaceB.style.margin = "2px 5px 7px 5px";
     addFaceB.style.width = "80px";
     addFaceB.onclick = function(){addFace();return false;};
+	addFaceB.style.padding = "2px";
     controls.appendChild(addFaceB);
     
     var cancel = document.createElement("input");
     cancel.type = "button";
     cancel.value = "Cancel"
-    cancel.style.margin = "10px";
+    cancel.style.margin = "2px 5px 7px 5px";
     cancel.style.width = "80px";
     cancel.onclick = function(){hideSelect()};
+	cancel.style.padding = "2px";
     controls.appendChild(cancel);
     
     window.wikiLink = document.createElement("a");
     wikiLink.href = "http://www.reddit.com/r/awwnime/wiki/commentfaces";
     wikiLink.innerHTML = "Faces wiki";
-    wikiLink.style.margin = "10px";
+    wikiLink.style.margin = "9px 5px 14px 5px";
     controls.appendChild(wikiLink);
 	
 	var settings = document.createElement("img");
 	settings.src = settingsIcon;
 	settings.alt = "settings";
-	settings.style.margin = "13px";
-	settings.style.marginLeft = "0px";
+	settings.style.margin = "8px 10px 13px 5px";
 	settings.style.position = "absolute";
 	settings.title = "Settings...";
 	settings.onclick = function(){initializeSettings();}
@@ -382,6 +430,7 @@ function createFacesDiv() {
     awwFacedDialogObj.style.display = "none"; //diaply none
     awwFacedDialogObj.style.boxShadow = "0px 0px 20px 2px #000000";
     awwFacedDialogObj.style.zIndex = "200";
+	
     appendFaces();
     divAlreadyShown = true;
 }
@@ -390,22 +439,21 @@ function addFace() {
     var faceCode = "";
     var inputEvent = new Event('input');
     var title = document.getElementById("awwFaceId").value;
+	var upperCapt = document.getElementById("upperCaption").value;
+	var lowerCapt = document.getElementById("lowerCaption").value;
+	if (selectedFace == "") {
+        alert("You have not selected any face.");
+        return;
+    }
 	document.getElementById("awwFaceId").value = "";
+	document.getElementById("upperCaption").value = "";
+	document.getElementById("lowerCaption").value = "";
 	console.log("title reset");
      //[](#name_of_face "Your text")
     var bbCode = ""
     var startText = document.getElementsByTagName("textarea")[selectedText.boxIndex].value;
-    if (selectedFace == "") {
-        alert("You have not selected any face.");
-        return;
-    }
-    if (title == "") {
-        bbCode = "[](" + faceIdChar + selectedFace + ")";
-    }
-    else {
-        //bbCode = "[](" + faceIdChar + selectedFace + " \"" + title + "\")";
-		bbCode = bbCodeFunction(selectedFace, title);
-    }
+
+    bbCode = bbCodeFunction(selectedFace, title, upperCapt, lowerCapt);
     console.log(bbCode);
     var endText = startText.substr(0, selectedText.start) + bbCode + startText.substring(selectedText.start + selectedText.length, startText.length);
     console.log(endText);
@@ -486,7 +534,11 @@ function appendFaces() {
         thumbDialWidth = "150px";
         thumbDialHeight = "100px";
         bbCodeFunction = function(bbFace, bbTitle){
-            return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
         };
         objTo.appendChild(appendFaceThumb("grr"));
         objTo.appendChild(appendFaceThumb("o-o"));
@@ -562,7 +614,11 @@ function appendFaces() {
         thumbDialWidth = "170px";
         thumbDialHeight = "140px";
         bbCodeFunction = function(bbFace, bbTitle){
-            return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
         };
         objTo.appendChild(appendFaceThumb("lovemyhat"));
         objTo.appendChild(appendFaceThumb("blush"));
@@ -581,7 +637,11 @@ function appendFaces() {
         thumbDialWidth = "200px";
         thumbDialHeight = "160px";
         bbCodeFunction = function(bbFace, bbTitle){
-            return "[](//#" + bbFace + " \"" + bbTitle + "\")";
+			if (bbTitle == "") {
+				return "[](//#" + bbFace + ")";
+			} else {
+				return "[](//#" + bbFace + " \"" + bbTitle + "\")";
+			}
         };
         objTo.appendChild(appendFaceThumb("lolwut"));
         objTo.appendChild(appendFaceThumb("yotsuba"));
@@ -601,7 +661,11 @@ function appendFaces() {
         thumbDialWidth = "150px";
         thumbDialHeight = "100px";
         bbCodeFunction = function(bbFace, bbTitle){
-            return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
         };
         objTo.appendChild(appendFaceThumb("grr"));
         objTo.appendChild(appendFaceThumb("o-o"));
@@ -677,7 +741,11 @@ function appendFaces() {
         thumbDialWidth = "150px";
         thumbDialHeight = "100px";
         bbCodeFunction = function(bbFace, bbTitle){
-            return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
         };
         objTo.appendChild(appendFaceThumb("grr"));
         objTo.appendChild(appendFaceThumb("o-o"));
@@ -753,7 +821,11 @@ function appendFaces() {
         thumbDialWidth = "150px";
         thumbDialHeight = "100px";
         bbCodeFunction = function(bbFace, bbTitle){
-            return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
         };
         objTo.appendChild(appendFaceThumb("grr"));
         objTo.appendChild(appendFaceThumb("o-o"));
@@ -819,11 +891,23 @@ function appendFaces() {
     }
     else if (subreddit == "anime") {
         faceIdChar = "#";
+		textBoxNr = 3;
         wikiLink.href = "http://www.reddit.com/r/anime/comments/izxos/comment_faces_for_ranime/";
         thumbDialWidth = "185px";
         thumbDialHeight = "135px";
-        bbCodeFunction = function(bbFace, bbTitle){
-            return "[](#" + bbFace + " \"" + bbTitle + "\")";
+        bbCodeFunction = function(bbFace, bbTitle, bbUpper, bbLower){
+			var bbHover = "";
+			var bbCapt = "";
+			if (bbTitle != "") {
+				bbHover = " \"" + bbTitle + "\"";
+			}
+			if (bbLower != "") {
+				bbCapt = "**" + bbLower + "**";
+			}
+			if (bbUpper != "") {
+				bbCapt = bbCapt + bbUpper;
+			}
+			return "[" + bbCapt + "](#" + bbFace + bbHover + ")";
         };
 		objTo.appendChild(appendFaceThumb("asuka-shouting"));
 		objTo.appendChild(appendFaceThumb("chiyo-uhh"));
@@ -897,7 +981,7 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("deadpan"));
 		objTo.appendChild(appendFaceThumb("exuberant-shu"));
 		objTo.appendChild(appendFaceThumb("dead-eyed-stare"));
-		objTo.appendChild(appendFaceThumb("gamagiri-hnng"));
+		objTo.appendChild(appendFaceThumb("gamagori-hnng"));
 		objTo.appendChild(appendFaceThumb("glasses-push"));
 		objTo.appendChild(appendFaceThumb("head-tilt"));
 		objTo.appendChild(appendFaceThumb("jiii"));
@@ -916,7 +1000,11 @@ function appendFaces() {
         thumbDialWidth = "180px";
         thumbDialHeight = "160px";
         bbCodeFunction = function(bbFace, bbTitle){
-            return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
         };
         objTo.appendChild(appendFaceThumb("catsmile"));
         objTo.appendChild(appendFaceThumb("cry"));
@@ -958,7 +1046,11 @@ function appendFaces() {
         thumbDialWidth = "150px";
         thumbDialHeight = "110px";
         bbCodeFunction = function(bbFace, bbTitle){
-            return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
         };
         objTo.appendChild(appendFaceThumb("ballin"));
         objTo.appendChild(appendFaceThumb("hnng"));
@@ -977,7 +1069,11 @@ function appendFaces() {
         thumbDialWidth = "140px";
         thumbDialHeight = "140px";
         bbCodeFunction = function(bbFace, bbTitle){
-            return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
         };
         objTo.appendChild(appendFaceThumb("happy"));
         objTo.appendChild(appendFaceThumb("kungfu"));
@@ -1098,7 +1194,11 @@ function appendFaces() {
                 return "[](" + bbTitle + "#" + bbFace + ")";
             }
             else {
-                return "[](#" + bbFace + " \"" + bbTitle + "\")";
+				if (bbTitle == "") {
+					return "[](#" + bbFace + ")";
+				} else {
+					return "[](#" + bbFace + " \"" + bbTitle + "\")";
+				}
             }
         };
         objTo.appendChild(appendFaceThumb("happy"));
@@ -1213,7 +1313,11 @@ function appendFaces() {
                 return "[](" + bbTitle + "#" + bbFace + ")";
             }
             else {
-                return "[](#" + bbFace + " \"" + bbTitle + "\")";
+				if (bbTitle == "") {
+					return "[](#" + bbFace + ")";
+				} else {
+					return "[](#" + bbFace + " \"" + bbTitle + "\")";
+				}
             }
         };
         objTo.appendChild(appendFaceThumb("happy"));
@@ -1324,7 +1428,11 @@ function appendFaces() {
         thumbDialWidth = "240px";
         thumbDialHeight = "150px";
         bbCodeFunction = function(bbFace, bbTitle){
-            return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
         };
         objTo.appendChild(appendFaceThumb("umida"));
         objTo.appendChild(appendFaceThumb("iyada"));
@@ -1355,7 +1463,11 @@ function appendFaces() {
         thumbDialWidth = "190px";
         thumbDialHeight = "115px";
         bbCodeFunction = function(bbFace, bbTitle){
-            return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
         };
         objTo.appendChild(appendFaceThumb("harasho"));
         objTo.appendChild(appendFaceThumb("weird"));
@@ -1374,7 +1486,11 @@ function appendFaces() {
         thumbDialWidth = "260px";
         thumbDialHeight = "155px";
         bbCodeFunction = function(bbFace, bbTitle){
-            return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
         };
         objTo.appendChild(appendFaceThumb("makibday"));
         objTo.appendChild(appendFaceThumb("makigif"));

@@ -1,5 +1,8 @@
 CHANGELOG:
 
+1.18
+-suppot for /r/anime's top and bottom captions
+-some minor style changes
 1.17, 1.17.1
 -buch of new to /r/anime
 1.16
@@ -80,4 +83,3 @@ CHANGELOG:
 -added some settings to more easily change size and position of the dialog.
 -added [](#pout) face
 -support for autoupdating
-*/

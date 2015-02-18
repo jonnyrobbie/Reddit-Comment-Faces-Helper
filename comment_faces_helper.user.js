@@ -19,7 +19,7 @@
 // @include        http*://*.reddit.com/r/LoveLive/*
 // @include        http*://*.reddit.com/r/OneTrueIdol/*
 // @grant          none
-// @version        1.17
+// @version        1.17.1
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -821,7 +821,7 @@ function appendFaces() {
         faceIdChar = "#";
         wikiLink.href = "http://www.reddit.com/r/anime/comments/izxos/comment_faces_for_ranime/";
         thumbDialWidth = "185px";
-        thumbDialHeight = "125px";
+        thumbDialHeight = "135px";
         bbCodeFunction = function(bbFace, bbTitle){
             return "[](#" + bbFace + " \"" + bbTitle + "\")";
         };
@@ -884,7 +884,31 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("you-bore-me"));
 		objTo.appendChild(appendFaceThumb("osaka"));
 		objTo.appendChild(appendFaceThumb("kukuku"));
-		objTo.appendChild(appendFaceThumb("toohappy"));
+		objTo.appendChild(appendFaceThumb("toohappy"));	
+		objTo.appendChild(appendFaceThumb("chitoge-smile"));
+		objTo.appendChild(appendFaceThumb("kininarimasu"));
+		objTo.appendChild(appendFaceThumb("kotori"));
+		objTo.appendChild(appendFaceThumb("kyon-facepalm"));
+		objTo.appendChild(appendFaceThumb("araragi-1"));
+		objTo.appendChild(appendFaceThumb("araragi-2"));
+		objTo.appendChild(appendFaceThumb("blank-stare"));
+		objTo.appendChild(appendFaceThumb("chaika-smile"));
+		objTo.appendChild(appendFaceThumb("chitoge-pissed"));
+		objTo.appendChild(appendFaceThumb("deadpan"));
+		objTo.appendChild(appendFaceThumb("exuberant-shu"));
+		objTo.appendChild(appendFaceThumb("dead-eyed-stare"));
+		objTo.appendChild(appendFaceThumb("gamagiri-hnng"));
+		objTo.appendChild(appendFaceThumb("glasses-push"));
+		objTo.appendChild(appendFaceThumb("head-tilt"));
+		objTo.appendChild(appendFaceThumb("jiii"));
+		objTo.appendChild(appendFaceThumb("manly-tears"));
+		objTo.appendChild(appendFaceThumb("not-raining"));
+		objTo.appendChild(appendFaceThumb("ohmygod"));
+		objTo.appendChild(appendFaceThumb("shock"));
+		objTo.appendChild(appendFaceThumb("heart-thumbs-up"));
+		objTo.appendChild(appendFaceThumb("worried"));
+		objTo.appendChild(appendFaceThumb("wow-really"));
+		
     }
     else if (subreddit == "kemonomimi") {
         faceIdChar = "#";

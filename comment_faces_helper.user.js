@@ -19,7 +19,7 @@
 // @include        http*://*.reddit.com/r/LoveLive/*
 // @include        http*://*.reddit.com/r/OneTrueIdol/*
 // @grant          none
-// @version        1.18
+// @version        1.18.1
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -340,14 +340,7 @@ function createFacesDiv() {
 	//tableWrap.style.border = "1px solid #abadb3";
     awwFacedDialogObj.appendChild(tableWrap);
 	
-	/*var fadeShadow = document.createElement("div");
-	fadeShadow.position = "absolute";
-	fadeShadow.top = "0px";
-	fadeShadow.right = "0px";
-	fadeShadow.bottom = "0px";
-	fadeShadow.left = "0px";
-	fadeShadow.id = "wrapShadow";
-	tableWrap.appendChild(fadeShadow);*/
+	
     
     /*var titleCapt = document.createElement("span");
     titleCapt.innerHTML = "Mouse hover title:";
@@ -430,8 +423,17 @@ function createFacesDiv() {
     awwFacedDialogObj.style.display = "none"; //diaply none
     awwFacedDialogObj.style.boxShadow = "0px 0px 20px 2px #000000";
     awwFacedDialogObj.style.zIndex = "200";
-	
     appendFaces();
+	/*var fadeShadow = document.createElement("div");
+	fadeShadow.style.position = "absolute";
+	fadeShadow.style.top = "0px";
+	fadeShadow.style.right = "0px";
+	fadeShadow.style.bottom = "0px";
+	fadeShadow.style.left = "0px";
+	fadeShadow.style.boxShadow = "inset 0 0 10px #F00";
+	fadeShadow.style.pointerEvents = "none";
+	fadeShadow.id = "wrapShadow";
+	tableWrap.appendChild(fadeShadow);*/
     divAlreadyShown = true;
 }
 
@@ -1261,6 +1263,34 @@ function appendFaces() {
         objTo.appendChild(appendFaceThumb("fall"));
         objTo.appendChild(appendFaceThumb("dance"));
         objTo.appendChild(appendFaceThumb("swing"));
+		
+		objTo.appendChild(appendFaceThumb("blink"));
+		objTo.appendChild(appendFaceThumb("ablink2"));
+		objTo.appendChild(appendFaceThumb("swing"));
+		
+		objTo.appendChild(appendFaceThumb("AR"));
+		objTo.appendChild(appendFaceThumb("AS"));
+		objTo.appendChild(appendFaceThumb("AV"));
+		objTo.appendChild(appendFaceThumb("AVG"));
+		objTo.appendChild(appendFaceThumb("AY"));
+		objTo.appendChild(appendFaceThumb("BB"));
+		objTo.appendChild(appendFaceThumb("BBV"));
+		objTo.appendChild(appendFaceThumb("CA"));
+		objTo.appendChild(appendFaceThumb("CAV"));
+		objTo.appendChild(appendFaceThumb("CL"));
+		objTo.appendChild(appendFaceThumb("CLT"));
+		objTo.appendChild(appendFaceThumb("CV"));
+		objTo.appendChild(appendFaceThumb("CVL"));
+		objTo.appendChild(appendFaceThumb("DD"));
+		objTo.appendChild(appendFaceThumb("SS"));
+		objTo.appendChild(appendFaceThumb("SSV"));
+		objTo.appendChild(appendFaceThumb("Naval"));
+		objTo.appendChild(appendFaceThumb("Other"));
+		objTo.appendChild(appendFaceThumb("PlateKongou"));
+		objTo.appendChild(appendFaceThumb("PlateBBKongou"));
+		objTo.appendChild(appendFaceThumb("PlateKongouFace"));
+		objTo.appendChild(appendFaceThumb("PlateKongouAnim"));
+		objTo.appendChild(appendFaceThumb("PlateWPFace"));
         //SOURCES
         objTo.appendChild(appendFaceThumb("source"));
         objTo.appendChild(appendFaceThumb("album"));
@@ -1380,11 +1410,35 @@ function appendFaces() {
         objTo.appendChild(appendFaceThumb("fall"));
         objTo.appendChild(appendFaceThumb("dance"));
         objTo.appendChild(appendFaceThumb("swing"));
+		
+		objTo.appendChild(appendFaceThumb("blink"));
+		
+		objTo.appendChild(appendFaceThumb("AR"));
+		objTo.appendChild(appendFaceThumb("AS"));
+		objTo.appendChild(appendFaceThumb("AV"));
+		objTo.appendChild(appendFaceThumb("AVG"));
+		objTo.appendChild(appendFaceThumb("AY"));
+		objTo.appendChild(appendFaceThumb("BB"));
+		objTo.appendChild(appendFaceThumb("BBV"));
+		objTo.appendChild(appendFaceThumb("CA"));
+		objTo.appendChild(appendFaceThumb("CAV"));
+		objTo.appendChild(appendFaceThumb("CL"));
+		objTo.appendChild(appendFaceThumb("CLT"));
+		objTo.appendChild(appendFaceThumb("CV"));
+		objTo.appendChild(appendFaceThumb("CVL"));
+		objTo.appendChild(appendFaceThumb("DD"));
+		objTo.appendChild(appendFaceThumb("SS"));
+		objTo.appendChild(appendFaceThumb("SSV"));
+		objTo.appendChild(appendFaceThumb("Naval"));
+		objTo.appendChild(appendFaceThumb("Other"));
+		
+		objTo.appendChild(appendFaceThumb("PlateFubukiFace"));
         //SOURCES
         objTo.appendChild(appendFaceThumb("source"));
         objTo.appendChild(appendFaceThumb("album"));
         objTo.appendChild(appendFaceThumb("sourcensfw"));
         objTo.appendChild(appendFaceThumb("albumnsfw"));
+		
         //SIMPLE SOURCE
         objTo.appendChild(appendFaceThumb("BBSource"));
         objTo.appendChild(appendFaceThumb("CASource"));

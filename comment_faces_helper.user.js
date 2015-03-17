@@ -20,7 +20,7 @@
 // @include        http*://*.reddit.com/r/OneTrueIdol/*
 // @include        http*://*.reddit.com/r/fatestaynight/*
 // @grant          none
-// @version        1.19
+// @version        1.19.1
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -1555,7 +1555,7 @@ function appendFaces() {
 	else if (subreddit == "fatestaynight") {
         faceIdChar = "#";
 		textBoxNr = 3;
-        wikiLink.href = "http://www.reddit.com/r/anime/comments/izxos/comment_faces_for_ranime/";
+        wikiLink.href = "http://www.reddit.com/r/fatestaynight/comments/2vuwdc/comment_faces_guide_v2/";
         thumbDialWidth = "160px";
         thumbDialHeight = "160px";
         bbCodeFunction = function(bbFace, bbTitle, bbUpper, bbLower){

@@ -18,8 +18,9 @@
 // @include        http*://*.reddit.com/r/SchoolIdolFestival/*
 // @include        http*://*.reddit.com/r/LoveLive/*
 // @include        http*://*.reddit.com/r/OneTrueIdol/*
+// @include        http*://*.reddit.com/r/fatestaynight/*
 // @grant          none
-// @version        1.18.1
+// @version        1.19
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -994,7 +995,6 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("heart-thumbs-up"));
 		objTo.appendChild(appendFaceThumb("worried"));
 		objTo.appendChild(appendFaceThumb("wow-really"));
-		
     }
     else if (subreddit == "kemonomimi") {
         faceIdChar = "#";
@@ -1551,6 +1551,80 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("bang"));
 		objTo.appendChild(appendFaceThumb("makilove"));
 		objTo.appendChild(appendFaceThumb("makipout"));
+    }
+	else if (subreddit == "fatestaynight") {
+        faceIdChar = "#";
+		textBoxNr = 3;
+        wikiLink.href = "http://www.reddit.com/r/anime/comments/izxos/comment_faces_for_ranime/";
+        thumbDialWidth = "160px";
+        thumbDialHeight = "160px";
+        bbCodeFunction = function(bbFace, bbTitle, bbUpper, bbLower){
+			var bbHover = "";
+			var bbCapt = "";
+			if (bbTitle != "") {
+				bbHover = " \"" + bbTitle + "\"";
+			}
+			if (bbLower != "") {
+				bbCapt = "**" + bbLower + "**";
+			}
+			if (bbUpper != "") {
+				bbCapt = bbCapt + bbUpper;
+			}
+			return "[" + bbCapt + "](#" + bbFace + bbHover + ")";
+        };
+		objTo.appendChild(appendFaceThumb("lmao"));
+		objTo.appendChild(appendFaceThumb("fistpump"));
+		objTo.appendChild(appendFaceThumb("smirk"));
+		objTo.appendChild(appendFaceThumb("skeptical"));
+		objTo.appendChild(appendFaceThumb("engarde"));
+		objTo.appendChild(appendFaceThumb("armorengarde"));
+		objTo.appendChild(appendFaceThumb("hmm"));
+		objTo.appendChild(appendFaceThumb("hurt"));
+		objTo.appendChild(appendFaceThumb("notamused"));
+		objTo.appendChild(appendFaceThumb("angry"));
+		objTo.appendChild(appendFaceThumb("bored"));
+		objTo.appendChild(appendFaceThumb("roar"));
+		objTo.appendChild(appendFaceThumb("raspberry"));
+		objTo.appendChild(appendFaceThumb("infodump"));
+		objTo.appendChild(appendFaceThumb("senpainoticedme"));
+		objTo.appendChild(appendFaceThumb("smile"));
+		objTo.appendChild(appendFaceThumb("seriously"));
+		objTo.appendChild(appendFaceThumb("crying"));
+		objTo.appendChild(appendFaceThumb("rejoice"));
+		objTo.appendChild(appendFaceThumb("yorokobe"));
+		objTo.appendChild(appendFaceThumb("trouble"));
+		objTo.appendChild(appendFaceThumb("tooearly"));
+		objTo.appendChild(appendFaceThumb("pleased"));
+		objTo.appendChild(appendFaceThumb("lol"));
+		objTo.appendChild(appendFaceThumb("scared"));
+		objTo.appendChild(appendFaceThumb("facepalm"));
+		objTo.appendChild(appendFaceThumb("meanie"));
+		objTo.appendChild(appendFaceThumb("shocked"));
+		objTo.appendChild(appendFaceThumb("coat"));
+		objTo.appendChild(appendFaceThumb("cough"));
+		objTo.appendChild(appendFaceThumb("pray"));
+		objTo.appendChild(appendFaceThumb("blush"));
+		objTo.appendChild(appendFaceThumb("denied"));
+		objTo.appendChild(appendFaceThumb("eyyy"));
+		objTo.appendChild(appendFaceThumb("haha"));
+		objTo.appendChild(appendFaceThumb("hug"));
+		objTo.appendChild(appendFaceThumb("ohoho"));
+		objTo.appendChild(appendFaceThumb("please"));
+		objTo.appendChild(appendFaceThumb("realization"));
+		objTo.appendChild(appendFaceThumb("tch"));
+		objTo.appendChild(appendFaceThumb("baka"));
+		objTo.appendChild(appendFaceThumb("sigh"));
+		objTo.appendChild(appendFaceThumb("success"));
+		objTo.appendChild(appendFaceThumb("andmyaxe"));
+		objTo.appendChild(appendFaceThumb("messyeater"));
+		objTo.appendChild(appendFaceThumb("surpriseblush"));
+		objTo.appendChild(appendFaceThumb("wink"));
+		objTo.appendChild(appendFaceThumb("moar"));
+		objTo.appendChild(appendFaceThumb("sly"));
+		objTo.appendChild(appendFaceThumb("tickmark"));
+		objTo.appendChild(appendFaceThumb("ugh"));
+		objTo.appendChild(appendFaceThumb("rip"));
+		objTo.appendChild(appendFaceThumb("scary"));
     }
 }
 

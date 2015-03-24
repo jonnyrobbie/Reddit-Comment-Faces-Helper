@@ -19,8 +19,9 @@
 // @include        http*://*.reddit.com/r/LoveLive/*
 // @include        http*://*.reddit.com/r/OneTrueIdol/*
 // @include        http*://*.reddit.com/r/fatestaynight/*
+// @include        http*://*.reddit.com/r/saber/*
 // @grant          none
-// @version        1.19.1
+// @version        1.20
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -39,7 +40,6 @@ var settingsIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAA
 //elements section
 
 function initializeSettings() {
-	//alert("Settings comming soon...");
 	if (!settingsAlreadyShown) buildSettingsDiv();
 	textSett["awwSettingsHeight"].value = parseInt(awwFacedDialogObj.style.height, 10);
 	textSett["awwSettingsWidth"].value = parseInt(awwFacedDialogObj.style.width, 10);
@@ -58,7 +58,6 @@ function addSettRow(description, elemName) {
 	spanSettWr = document.createElement("td");
 		spanSettWr.style.width = "180px";
 	textSettWr = document.createElement("td");
-		//textSettWr.style.width = "50%";
 		textSettWr.style.padding = "5px";
 	spanSett = document.createElement("span");
 		spanSett.innerHTML = description;
@@ -68,7 +67,6 @@ function addSettRow(description, elemName) {
 		textSett[elemName].id = elemName;
 		textSett[elemName].style.width = "100%";
 		textSett[elemName].oninput = function(){settingTextChange(this);};
-	//window.textSett = textSett;
 	spanSettWr.appendChild(spanSett);
 	textSettWr.appendChild(textSett[elemName]);
 	rowSett.appendChild(spanSettWr);
@@ -177,11 +175,6 @@ function buildSettingsDiv() {
 		settingsTable.appendChild(addSettRow("Dialog height (px): ", "awwSettingsHeight"));
 		settingsTable.appendChild(addSettRow("Position form left (px): ", "awwSettingsLeft"));
 		settingsTable.appendChild(addSettRow("Position from top (px): ", "awwSettingsTop"));
-		/*settingsTable.appendChild(addSettRow("Background color (hex): 0x", "awwSettingsBgC")); //may implement later
-		settingsTable.appendChild(addSettRow("Text color (hex): 0x", "awwSettingsTxtC"));
-		settingsTable.appendChild(addSettRow("Selection color (hex): 0x", "awwSettingsSelC"));*/
-		// /table
-		//buttons wrapper
 		var settingsButtonWrapper = document.createElement("div");
 		
 		var settingsOK = document.createElement("input");
@@ -265,7 +258,6 @@ function okchangeSize() {
 	else {
 		textSett["awwSettingsHeight"].style.color = "#000000";
 	}
-	
 	if (parseInt(textSett["awwSettingsHeight"].value, 10) + parseInt(textSett["awwSettingsTop"].value, 10) > window.innerHeight) {
 		errorMsg = errorMsg + "Dialog cannot be out of borders.\n";
 		textSett["awwSettingsHeight"].style.color = "#FF0000";
@@ -286,7 +278,6 @@ function okchangeSize() {
 		textSett["awwSettingsWidth"].style.color = "#000000";
 		textSett["awwSettingsLeft"].style.color = "#000000";
 	}
-		
 	if (throwErr == false) {
 		changeSize(parseInt(textSett["awwSettingsTop"].value, 10), parseInt(textSett["awwSettingsLeft"].value, 10), parseInt(textSett["awwSettingsWidth"].value, 10), parseInt(textSett["awwSettingsHeight"].value, 10));
 		localStorage.setItem("aww2_width", parseInt(textSett["awwSettingsWidth"].value, 10));
@@ -303,10 +294,6 @@ function okchangeSize() {
 
 function changeSize(top, left, width, height){
 	console.log("changing size...");
-	//console.log(textSett["awwSettingsTop"].value);
-	//console.log(textSett["awwSettingsLeft"].value);
-	//console.log(textSett["awwSettingsWidth"].value);
-	//console.log(textSett["awwSettingsHeight"].value);
 	if (width < 350) width = 350;
 	if (height < 100) height = 100;
 	width = Math.floor((parseInt(width, 10) - 37)/(parseInt(thumbDialWidth, 10)+10))*(parseInt(thumbDialWidth, 10)+10)+37;
@@ -327,31 +314,20 @@ function changeSize(top, left, width, height){
 }
 
 function createFacesDiv() {
-    //alert("Loaded...");
     console.log("AWWFACES");
     var objTo = document.body;
     window.awwFacedDialogObj = document.createElement("div");
     window.tableWrap = document.createElement("div");
     var controls = document.createElement("div");
-    //tableWrap.style.height = (455 + dialogHeight) + "px";
     tableWrap.id = "awwFacesTableWrapper";
     tableWrap.style.overflowY = "scroll";
     tableWrap.style.margin = "10px 10px 5px 10px";
 	tableWrap.style.padding = "10px 0px";
-	//tableWrap.style.border = "1px solid #abadb3";
     awwFacedDialogObj.appendChild(tableWrap);
-	
-	
-    
-    /*var titleCapt = document.createElement("span");
-    titleCapt.innerHTML = "Mouse hover title:";
-    titleCapt.style.margin = "10px";
-    controls.appendChild(titleCapt);*/
     
     window.titleFace = document.createElement("input");
     titleFace.type = "text";
     titleFace.id = "awwFaceId";
-    //titleFace.style.width = "387px";
     titleFace.style.margin = "5px 5px 10px 10px";
 	titleFace.placeholder = "Mouse-over text";
 	titleFace.style.height = "20px";
@@ -361,7 +337,6 @@ function createFacesDiv() {
 	window.upperCaption = document.createElement("input");
     upperCaption.type = "text";
     upperCaption.id = "upperCaption";
-    //titleFace.style.width = "387px";
     upperCaption.style.margin = "5px 5px 10px 5px";
 	upperCaption.placeholder = "Top caption";
 	upperCaption.style.height = "20px";
@@ -372,7 +347,6 @@ function createFacesDiv() {
 	window.lowerCaption = document.createElement("input");
     lowerCaption.type = "text";
     lowerCaption.id = "lowerCaption";
-    //titleFace.style.width = "387px";
     lowerCaption.style.margin = "5px 5px 10px 5px";
 	lowerCaption.placeholder = "Bottom caption";
 	lowerCaption.style.height = "20px";
@@ -419,22 +393,11 @@ function createFacesDiv() {
     awwFacedDialogObj.style.position = "fixed";
     awwFacedDialogObj.style.top = "200px";
     awwFacedDialogObj.style.width = "835px";
-    //awwFacedDialogObj.style.height = (500 + dialogHeight) + "px";
     awwFacedDialogObj.style.backgroundColor = "#FFFFFF";
     awwFacedDialogObj.style.display = "none"; //diaply none
     awwFacedDialogObj.style.boxShadow = "0px 0px 20px 2px #000000";
     awwFacedDialogObj.style.zIndex = "200";
     appendFaces();
-	/*var fadeShadow = document.createElement("div");
-	fadeShadow.style.position = "absolute";
-	fadeShadow.style.top = "0px";
-	fadeShadow.style.right = "0px";
-	fadeShadow.style.bottom = "0px";
-	fadeShadow.style.left = "0px";
-	fadeShadow.style.boxShadow = "inset 0 0 10px #F00";
-	fadeShadow.style.pointerEvents = "none";
-	fadeShadow.id = "wrapShadow";
-	tableWrap.appendChild(fadeShadow);*/
     divAlreadyShown = true;
 }
 
@@ -463,7 +426,6 @@ function addFace() {
     document.getElementsByTagName("textarea")[selectedText.boxIndex].value = endText;
     awwFacedDialogObj.style.display = "none";
     document.getElementsByTagName("textarea")[selectedText.boxIndex].dispatchEvent(inputEvent);
-    //var element = document.getElementsByTagName("textarea")[selectedText.boxIndex];
 }
 
 function appendFaceThumb(name, new_width, new_height) {
@@ -480,35 +442,21 @@ function appendFaceThumb(name, new_width, new_height) {
 	divtest.style.left = "0px";
 	divtest.style.right = "0px";
 	divtest.style.bottom = "0px";
-    //test
     if (new_width != "" && new_height != "") {
         divtest.style.setProperty("background-size", new_width + "px " + new_height + "px", "important");
         divtest.style.setProperty("height", new_height + "px", "important");
         divtest.style.setProperty("width", new_width + "px", "important");
     }
-    //divtest.style.height = 78;
-    //divtest.verticalAlign = "middle";
     divtest.onclick=function(){faceClick(divtest.id);return false;};
     divtest.ondblclick=function(){faceClick(divtest.id);addFace();return false;};
 	var gifLoad = document.createElement("img");
 	gifLoad.src = loadingIcon;
 	gifLoad.style.position = "absolute";
-	/*
-	thumbDialWidth = "200px";
-		thumbDialHeight
-		Math.round(x)
-		parseInt("10",10)
-		
-		*/
-	/*gifLoad.style.top = "42px";
-	gifLoad.style.left = "67px";*/
 	gifLoad.style.top = (Math.round((parseInt(thumbDialHeight.substr(0, thumbDialHeight.length-2), 10)/2)-8)) +"px";
 	gifLoad.style.left = (Math.round((parseInt(thumbDialWidth.substr(0, thumbDialWidth.length-2), 10)/2)-8)) +"px";
 	gifLoad.style.zIndex = "-1";
     col.appendChild(divtest);
 	col.appendChild(gifLoad);
-	/*thumbDialWidth = "150px";
-		thumbDialHeight*/
     col.style.width = thumbDialWidth;
     col.style.height = thumbDialHeight;
 	col.style.position = "relative";
@@ -1626,6 +1574,67 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("rip"));
 		objTo.appendChild(appendFaceThumb("scary"));
     }
+	else if (subreddit == "saber") {
+        faceIdChar = "#";
+		textBoxNr = 3;
+        wikiLink.href = "http://www.reddit.com/r/Saber/comments/2w1g5n/rejoice_you_can_now_have_text_on_sabers_lovely/";
+        thumbDialWidth = "160px";
+        thumbDialHeight = "160px";
+        bbCodeFunction = function(bbFace, bbTitle, bbUpper, bbLower){
+			var bbHover = "";
+			var bbCapt = "";
+			if (bbTitle != "") {
+				bbHover = " \"" + bbTitle + "\"";
+			}
+			if (bbLower != "") {
+				bbCapt = "**" + bbLower + "**";
+			}
+			if (bbUpper != "") {
+				bbCapt = bbCapt + bbUpper;
+			}
+			return "[" + bbCapt + "](#" + bbFace + bbHover + ")";
+        };
+		objTo.appendChild(appendFaceThumb("saber"));
+		objTo.appendChild(appendFaceThumb("hidden"));
+		objTo.appendChild(appendFaceThumb("sad"));
+		objTo.appendChild(appendFaceThumb("surprised"));
+		objTo.appendChild(appendFaceThumb("annoyed"));
+		objTo.appendChild(appendFaceThumb("sigh"));
+		objTo.appendChild(appendFaceThumb("blush"));
+		objTo.appendChild(appendFaceThumb("sweat"));
+		objTo.appendChild(appendFaceThumb("struggle"));
+		objTo.appendChild(appendFaceThumb("no"));
+		objTo.appendChild(appendFaceThumb("embarrassed"));
+		objTo.appendChild(appendFaceThumb("angry"));
+		objTo.appendChild(appendFaceThumb("smile"));
+		objTo.appendChild(appendFaceThumb("lecture"));
+		objTo.appendChild(appendFaceThumb("ashamed"));
+		objTo.appendChild(appendFaceThumb("anxious"));
+		objTo.appendChild(appendFaceThumb("skeptical"));
+		objTo.appendChild(appendFaceThumb("speechless"));
+		objTo.appendChild(appendFaceThumb("engarde"));
+		objTo.appendChild(appendFaceThumb("alter"));
+		objTo.appendChild(appendFaceThumb("ehehe"));
+		objTo.appendChild(appendFaceThumb("lion"));
+		objTo.appendChild(appendFaceThumb("hmm"));
+		objTo.appendChild(appendFaceThumb("wary"));
+		objTo.appendChild(appendFaceThumb("shocked"));
+		objTo.appendChild(appendFaceThumb("worried"));
+		objTo.appendChild(appendFaceThumb("bashful"));
+		objTo.appendChild(appendFaceThumb("casual"));
+		objTo.appendChild(appendFaceThumb("dayum"));
+		objTo.appendChild(appendFaceThumb("disappointed"));
+		objTo.appendChild(appendFaceThumb("flustered"));
+		objTo.appendChild(appendFaceThumb("furious"));
+		objTo.appendChild(appendFaceThumb("graceful"));
+		objTo.appendChild(appendFaceThumb("hurt"));
+		objTo.appendChild(appendFaceThumb("irritated"));
+		objTo.appendChild(appendFaceThumb("sad2"));
+		objTo.appendChild(appendFaceThumb("smile2"));
+		objTo.appendChild(appendFaceThumb("uninterested"));
+		objTo.appendChild(appendFaceThumb("wink"));
+		objTo.appendChild(appendFaceThumb("cry"));
+    }
 }
 
 function hideSelect() {
@@ -1641,40 +1650,11 @@ function showSelect(thisLink) {
     selectedText.length = inputTextFields[selectedText.boxIndex].selectionEnd - inputTextFields[selectedText.boxIndex].selectionStart;
     console.log("Box index: " + selectedText.boxIndex + ", selection start: " + selectedText.start + ", selection length: " + selectedText.length);
     if (divAlreadyShown == false) createFacesDiv();
-    //document.getElementById("awwFacesDialog").style.left = ((window.innerWidth/2))-417 + "px";
-    //document.getElementById("awwFacesDialog").style.left = ((window.innerWidth/2))-417 + "px";
-    //divtest.style.left = "200px";
-	/*
-    if (window.innerWidth <= 1100 ) {
-        awwFacedDialogObj.style.top = (dialogTop + 200) + "px";
-        awwFacedDialogObj.style.left = (dialogLeft + 10) + "px";
-        awwFacedDialogObj.style.width = (dialogWidth + 835) + "px";
-        awwFacedDialogObj.style.height = (dialogHeight + 275) + "px";
-        tableWrap.style.height = (dialogHeight + 218) + "px";
-    }
-    else if (window.innerWidth >= 1700) {
-        awwFacedDialogObj.style.top = (dialogTop + 200) + "px";
-        awwFacedDialogObj.style.left = (dialogLeft + 300) + "px";
-        awwFacedDialogObj.style.width = (dialogWidth + 835) + "px";
-        awwFacedDialogObj.style.height = (dialogHeight + 745) + "px";
-        tableWrap.style.height = (dialogHeight + 693) + "px";
-    }
-    else {
-        awwFacedDialogObj.style.top = (dialogTop + 200) + "px";
-        awwFacedDialogObj.style.left = (dialogLeft + 200) + "px";
-        awwFacedDialogObj.style.width = (dialogWidth + 835) + "px";
-        awwFacedDialogObj.style.height = (dialogHeight + 500) + "px";
-        tableWrap.style.height = (dialogHeight + 448) + "px";
-    }
-	*/
 	if (localStorage.getItem("aww2_top") == null || localStorage.getItem("aww2_left") == null || localStorage.getItem("aww2_width") == null || localStorage.getItem("aww2_height") == null) {
 		localStorage.setItem("aww2_width", 842);
 		localStorage.setItem("aww2_height", 500);
 		localStorage.setItem("aww2_top", Math.round((window.innerHeight-500)/2));
 		localStorage.setItem("aww2_left", Math.round((window.innerWidth-842)/2));
-		/*localStorage.setItem("aww2_bgc", "FFFFFF"); //may implement later
-		localStorage.setItem("aww2_txtc", "000000");
-		localStorage.setItem("aww2_sc", "F9401A");*/
 		changeSize(localStorage.getItem("aww2_top"), localStorage.getItem("aww2_left"), localStorage.getItem("aww2_width"), localStorage.getItem("aww2_height"));
 	}
 	else if (((parseInt(localStorage.getItem("aww2_top"), 10) + parseInt(localStorage.getItem("aww2_height"), 10)) < window.innerHeight) && ((parseInt(localStorage.getItem("aww2_left"), 10) + parseInt(localStorage.getItem("aww2_width"), 10)) < window.innerWidth)) {
@@ -1691,49 +1671,11 @@ function showSelect(thisLink) {
 function main() {
     //if user changed dialog properties...
     console.log("Awwfaces begin")
-    /*if (dialogTop != 0 || dialogLeft != 0 || dialogWidth != 0 || dialogHeight != 0) {
-        console.log("LocalStorage not set, but user dialog size detected. Creating localStorage...");
-        //...create localstorege
-        localStorage.setItem("aww_top", dialogTop);
-        localStorage.setItem("aww_left", dialogLeft);
-        localStorage.setItem("aww_width", dialogWidth);
-        localStorage.setItem("aww_height", dialogHeight);
-    }
-    //check if localStorage is already set, but properties are to default 0's (because of script update)...
-    if (localStorage.getItem("aww_left") != null && localStorage.getItem("aww_top") != null && localStorage.getItem("aww_height") != null && localStorage.getItem("aww_width") != null && dialogTop == 0 && dialogLeft == 0 && dialogHeight == 0 && dialogWidth == 0) {
-        console.log("localStorage detected. changing dialog size.")
-        //...overwrite those zeroes.
-        dialogTop = parseInt(localStorage.getItem("aww_top"));
-        dialogLeft = parseInt(localStorage.getItem("aww_left"));
-        dialogWidth = parseInt(localStorage.getItem("aww_width"));
-        dialogHeight = parseInt(localStorage.getItem("aww_height"));
-    }
-    //if user sets delete flag to 1
-    if (deleteDialogPositionData == 1) {
-        //delete localstorage
-        console.log("deleting localstorage");
-        alert("Position data deleted. Turn the flag back to 0, save and reload.");
-        localStorage.removeItem("aww_top");
-        localStorage.removeItem("aww_left");
-        localStorage.removeItem("aww_width");
-        localStorage.removeItem("aww_height");
-    }
-    //log developement
-    console.log(localStorage.getItem("aww_top"));
-    console.log(localStorage.getItem("aww_left"));
-    console.log(localStorage.getItem("aww_width"));
-    console.log(localStorage.getItem("aww_height"));
-    */
     var bottomArea = document.getElementsByClassName("bottom-area");
     console.log("bottom area: " + bottomArea.length);
     for (var i = 0; i < bottomArea.length; i++) {
         var showDialogLink = document.createElement("a");
         showDialogLink.innerHTML = "Add a comment face";
-        /*showDialogLink.style.fontSize = "smaller";
-        showDialogLink.style.color = "#336699";
-        showDialogLink.style.margin = "5px 0px 0px 10px";
-        showDialogLink.style.display = "block";
-        showDialogLink.style.cssFloat = "right";*/
         showDialogLink.style.cursor = "pointer";
         showDialogLink.className = "addFaceLink reddiquette";
         bottomArea[i].insertBefore(showDialogLink, bottomArea[i].childNodes[3]);

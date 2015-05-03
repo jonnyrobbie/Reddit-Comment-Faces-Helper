@@ -20,8 +20,9 @@
 // @include        http*://*.reddit.com/r/OneTrueIdol/*
 // @include        http*://*.reddit.com/r/fatestaynight/*
 // @include        http*://*.reddit.com/r/saber/*
+// @include        http*://*.reddit.com/r/Nisekoi/*
 // @grant          none
-// @version        1.20
+// @version        1.21
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -1634,6 +1635,49 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("uninterested"));
 		objTo.appendChild(appendFaceThumb("wink"));
 		objTo.appendChild(appendFaceThumb("cry"));
+    } else if (subreddit == "nisekoi") {
+        faceIdChar = "#";
+		textBoxNr = 1;
+        wikiLink.href = "http://www.reddit.com/r/Saber/comments/2w1g5n/rejoice_you_can_now_have_text_on_sabers_lovely/";
+        thumbDialWidth = "180px";
+        thumbDialHeight = "230px";
+        bbCodeFunction = function(bbFace, bbTitle){
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
+        };
+		objTo.appendChild(appendFaceThumb("cute"));
+		objTo.appendChild(appendFaceThumb("blaze"));
+		objTo.appendChild(appendFaceThumb("nono"));
+		objTo.appendChild(appendFaceThumb("blushing"));
+		objTo.appendChild(appendFaceThumb("pff"));
+		objTo.appendChild(appendFaceThumb("eh"));
+		objTo.appendChild(appendFaceThumb("smirk"));
+		objTo.appendChild(appendFaceThumb("rain"));
+		objTo.appendChild(appendFaceThumb("misunderstood"));
+		objTo.appendChild(appendFaceThumb("flustered"));
+		objTo.appendChild(appendFaceThumb("embarrassed"));
+		objTo.appendChild(appendFaceThumb("alright"));
+		objTo.appendChild(appendFaceThumb("stutter"));
+		objTo.appendChild(appendFaceThumb("moping"));
+		objTo.appendChild(appendFaceThumb("mmmm"));
+		objTo.appendChild(appendFaceThumb("kawaii"));
+		objTo.appendChild(appendFaceThumb("couch"));
+		objTo.appendChild(appendFaceThumb("ohmy"));
+		objTo.appendChild(appendFaceThumb("chibi"));
+		objTo.appendChild(appendFaceThumb("ontheway"));
+		objTo.appendChild(appendFaceThumb("tooembarrassed"));
+		objTo.appendChild(appendFaceThumb("turnaround"));
+		objTo.appendChild(appendFaceThumb("shush"));
+		objTo.appendChild(appendFaceThumb("outofit"));
+		objTo.appendChild(appendFaceThumb("smile"));
+		objTo.appendChild(appendFaceThumb("thumbsup"));
+		objTo.appendChild(appendFaceThumb("grin"));
+		objTo.appendChild(appendFaceThumb("yougotthis"));
+		objTo.appendChild(appendFaceThumb("ah"));
+		objTo.appendChild(appendFaceThumb("yay"));
     }
 }
 

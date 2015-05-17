@@ -22,7 +22,7 @@
 // @include        http*://*.reddit.com/r/saber/*
 // @include        http*://*.reddit.com/r/Nisekoi/*
 // @grant          none
-// @version        1.21
+// @version        1.21.1
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -484,13 +484,13 @@ function appendFaces() {
         faceIdChar = "#";
         wikiLink.href = "http://www.reddit.com/r/awwnime/wiki/commentfaces";
         thumbDialWidth = "150px";
-        thumbDialHeight = "100px";
+        thumbDialHeight = "115px";
         bbCodeFunction = function(bbFace, bbTitle){
-			if (bbTitle == "") {
-				return "[](#" + bbFace + ")";
-			} else {
-				return "[](#" + bbFace + " \"" + bbTitle + "\")";
-			}
+                        if (bbTitle == "") {
+                                return "[](#" + bbFace + ")";
+                        } else {
+                                return "[](#" + bbFace + " \"" + bbTitle + "\")";
+                        }
         };
         objTo.appendChild(appendFaceThumb("grr"));
         objTo.appendChild(appendFaceThumb("o-o"));
@@ -556,8 +556,20 @@ function appendFaces() {
         objTo.appendChild(appendFaceThumb("curious"));
         objTo.appendChild(appendFaceThumb("clap"));
         objTo.appendChild(appendFaceThumb("Tiriniz"));
-		objTo.appendChild(appendFaceThumb("silence"));
-		objTo.appendChild(appendFaceThumb("doteyes"));
+        objTo.appendChild(appendFaceThumb("silence"));
+        objTo.appendChild(appendFaceThumb("doteyes"));
+        objTo.appendChild(appendFaceThumb("renge"));
+        objTo.appendChild(appendFaceThumb("dontmesswithrenge"));
+        objTo.appendChild(appendFaceThumb("asuka"));
+        objTo.appendChild(appendFaceThumb("nooo"));
+        objTo.appendChild(appendFaceThumb("ah"));
+        objTo.appendChild(appendFaceThumb("ehehe"));
+        objTo.appendChild(appendFaceThumb("robot"));
+        objTo.appendChild(appendFaceThumb("shinobu"));
+        objTo.appendChild(appendFaceThumb("oniichan_anim"));
+        objTo.appendChild(appendFaceThumb("jumpforjoy"));
+        objTo.appendChild(appendFaceThumb("doteyes"));
+        objTo.appendChild(appendFaceThumb("funky"));
         objTo.appendChild(appendFaceThumb("SuperLewd", 78, 100)) //Two additional parametres force-resize the image. Try to fit it in 150px*100px
     }
     else if (subreddit == "pantsu") {
@@ -566,11 +578,11 @@ function appendFaces() {
         thumbDialWidth = "170px";
         thumbDialHeight = "140px";
         bbCodeFunction = function(bbFace, bbTitle){
-			if (bbTitle == "") {
-				return "[](#" + bbFace + ")";
-			} else {
-				return "[](#" + bbFace + " \"" + bbTitle + "\")";
-			}
+                        if (bbTitle == "") {
+                                return "[](#" + bbFace + ")";
+                        } else {
+                                return "[](#" + bbFace + " \"" + bbTitle + "\")";
+                        }
         };
         objTo.appendChild(appendFaceThumb("lovemyhat"));
         objTo.appendChild(appendFaceThumb("blush"));
@@ -589,11 +601,11 @@ function appendFaces() {
         thumbDialWidth = "200px";
         thumbDialHeight = "160px";
         bbCodeFunction = function(bbFace, bbTitle){
-			if (bbTitle == "") {
-				return "[](//#" + bbFace + ")";
-			} else {
-				return "[](//#" + bbFace + " \"" + bbTitle + "\")";
-			}
+                        if (bbTitle == "") {
+                                return "[](//#" + bbFace + ")";
+                        } else {
+                                return "[](//#" + bbFace + " \"" + bbTitle + "\")";
+                        }
         };
         objTo.appendChild(appendFaceThumb("lolwut"));
         objTo.appendChild(appendFaceThumb("yotsuba"));
@@ -611,13 +623,13 @@ function appendFaces() {
         faceIdChar = "#";
         wikiLink.href = "http://www.reddit.com/r/awwnime/wiki/commentfaces";
         thumbDialWidth = "150px";
-        thumbDialHeight = "100px";
+        thumbDialHeight = "115px";
         bbCodeFunction = function(bbFace, bbTitle){
-			if (bbTitle == "") {
-				return "[](#" + bbFace + ")";
-			} else {
-				return "[](#" + bbFace + " \"" + bbTitle + "\")";
-			}
+                        if (bbTitle == "") {
+                                return "[](#" + bbFace + ")";
+                        } else {
+                                return "[](#" + bbFace + " \"" + bbTitle + "\")";
+                        }
         };
         objTo.appendChild(appendFaceThumb("grr"));
         objTo.appendChild(appendFaceThumb("o-o"));
@@ -683,21 +695,32 @@ function appendFaces() {
         objTo.appendChild(appendFaceThumb("curious"));
         objTo.appendChild(appendFaceThumb("clap"));
         objTo.appendChild(appendFaceThumb("Tiriniz"));
-		objTo.appendChild(appendFaceThumb("silence"));
-		objTo.appendChild(appendFaceThumb("doteyes"));
-        objTo.appendChild(appendFaceThumb("SuperLewd", 78, 100)) //Two additional parametres force-resize the image. Try to fit it in 150px*100px
+        objTo.appendChild(appendFaceThumb("silence"));
+        objTo.appendChild(appendFaceThumb("doteyes"));
+        objTo.appendChild(appendFaceThumb("renge"));
+        objTo.appendChild(appendFaceThumb("dontmesswithrenge"));
+        objTo.appendChild(appendFaceThumb("asuka"));
+        objTo.appendChild(appendFaceThumb("nooo"));
+        objTo.appendChild(appendFaceThumb("ah"));
+        objTo.appendChild(appendFaceThumb("ehehe"));
+        objTo.appendChild(appendFaceThumb("robot"));
+        objTo.appendChild(appendFaceThumb("shinobu"));
+        objTo.appendChild(appendFaceThumb("oniichan_anim"));
+        objTo.appendChild(appendFaceThumb("jumpforjoy"));
+        objTo.appendChild(appendFaceThumb("doteyes"));
+        objTo.appendChild(appendFaceThumb("funky"));
     }
     else if (subreddit == "twodeeart") {
         faceIdChar = "#";
         wikiLink.href = "http://www.reddit.com/r/awwnime/wiki/commentfaces";
         thumbDialWidth = "150px";
-        thumbDialHeight = "100px";
+        thumbDialHeight = "115px";
         bbCodeFunction = function(bbFace, bbTitle){
-			if (bbTitle == "") {
-				return "[](#" + bbFace + ")";
-			} else {
-				return "[](#" + bbFace + " \"" + bbTitle + "\")";
-			}
+                        if (bbTitle == "") {
+                                return "[](#" + bbFace + ")";
+                        } else {
+                                return "[](#" + bbFace + " \"" + bbTitle + "\")";
+                        }
         };
         objTo.appendChild(appendFaceThumb("grr"));
         objTo.appendChild(appendFaceThumb("o-o"));
@@ -763,9 +786,20 @@ function appendFaces() {
         objTo.appendChild(appendFaceThumb("curious"));
         objTo.appendChild(appendFaceThumb("clap"));
         objTo.appendChild(appendFaceThumb("Tiriniz"));
-		objTo.appendChild(appendFaceThumb("silence"));
-		objTo.appendChild(appendFaceThumb("doteyes"));
-        objTo.appendChild(appendFaceThumb("SuperLewd", 78, 100)) //Two additional parametres force-resize the image. Try to fit it in 150px*100px
+        objTo.appendChild(appendFaceThumb("silence"));
+        objTo.appendChild(appendFaceThumb("doteyes"));
+        objTo.appendChild(appendFaceThumb("renge"));
+        objTo.appendChild(appendFaceThumb("dontmesswithrenge"));
+        objTo.appendChild(appendFaceThumb("asuka"));
+        objTo.appendChild(appendFaceThumb("nooo"));
+        objTo.appendChild(appendFaceThumb("ah"));
+        objTo.appendChild(appendFaceThumb("ehehe"));
+        objTo.appendChild(appendFaceThumb("robot"));
+        objTo.appendChild(appendFaceThumb("shinobu"));
+        objTo.appendChild(appendFaceThumb("oniichan_anim"));
+        objTo.appendChild(appendFaceThumb("jumpforjoy"));
+        objTo.appendChild(appendFaceThumb("doteyes"));
+        objTo.appendChild(appendFaceThumb("funky"));
     }
     else if (subreddit == "patchuu") {
         faceIdChar = "#";
@@ -773,11 +807,11 @@ function appendFaces() {
         thumbDialWidth = "150px";
         thumbDialHeight = "100px";
         bbCodeFunction = function(bbFace, bbTitle){
-			if (bbTitle == "") {
-				return "[](#" + bbFace + ")";
-			} else {
-				return "[](#" + bbFace + " \"" + bbTitle + "\")";
-			}
+                        if (bbTitle == "") {
+                                return "[](#" + bbFace + ")";
+                        } else {
+                                return "[](#" + bbFace + " \"" + bbTitle + "\")";
+                        }
         };
         objTo.appendChild(appendFaceThumb("grr"));
         objTo.appendChild(appendFaceThumb("o-o"));
@@ -837,113 +871,113 @@ function appendFaces() {
         objTo.appendChild(appendFaceThumb("sigh"));
         objTo.appendChild(appendFaceThumb("trynottopurr"));
         objTo.appendChild(appendFaceThumb("uguu"));
-		objTo.appendChild(appendFaceThumb("silence"));
-		objTo.appendChild(appendFaceThumb("doteyes"));
+                objTo.appendChild(appendFaceThumb("silence"));
+                objTo.appendChild(appendFaceThumb("doteyes"));
         objTo.appendChild(appendFaceThumb("SuperLewd", 78, 100)) //Two additional parametres force-resize the image. Try to fit it in 150px*100px
     }
     else if (subreddit == "anime") {
         faceIdChar = "#";
-		textBoxNr = 3;
+                textBoxNr = 3;
         wikiLink.href = "http://www.reddit.com/r/anime/comments/izxos/comment_faces_for_ranime/";
         thumbDialWidth = "185px";
         thumbDialHeight = "135px";
         bbCodeFunction = function(bbFace, bbTitle, bbUpper, bbLower){
-			var bbHover = "";
-			var bbCapt = "";
-			if (bbTitle != "") {
-				bbHover = " \"" + bbTitle + "\"";
-			}
-			if (bbLower != "") {
-				bbCapt = "**" + bbLower + "**";
-			}
-			if (bbUpper != "") {
-				bbCapt = bbCapt + bbUpper;
-			}
-			return "[" + bbCapt + "](#" + bbFace + bbHover + ")";
+                        var bbHover = "";
+                        var bbCapt = "";
+                        if (bbTitle != "") {
+                                bbHover = " \"" + bbTitle + "\"";
+                        }
+                        if (bbLower != "") {
+                                bbCapt = "**" + bbLower + "**";
+                        }
+                        if (bbUpper != "") {
+                                bbCapt = bbCapt + bbUpper;
+                        }
+                        return "[" + bbCapt + "](#" + bbFace + bbHover + ")";
         };
-		objTo.appendChild(appendFaceThumb("asuka-shouting"));
-		objTo.appendChild(appendFaceThumb("chiyo-uhh"));
-		objTo.appendChild(appendFaceThumb("she-ded"));
-		objTo.appendChild(appendFaceThumb("deko-cry"));
-		objTo.appendChild(appendFaceThumb("gendo-pls"));
-		objTo.appendChild(appendFaceThumb("haruhi-annoyed"));
-		objTo.appendChild(appendFaceThumb("k-on-hug"));
-		objTo.appendChild(appendFaceThumb("lewd"));
-		objTo.appendChild(appendFaceThumb("nanami-hug"));
-		objTo.appendChild(appendFaceThumb("pika-dead"));
-		objTo.appendChild(appendFaceThumb("super-happy"));
-		objTo.appendChild(appendFaceThumb("yui-crying"));
-		objTo.appendChild(appendFaceThumb("durr"));
-		objTo.appendChild(appendFaceThumb("mugi-fish"));
-		objTo.appendChild(appendFaceThumb("objection"));
-		objTo.appendChild(appendFaceThumb("chaika"));
-		objTo.appendChild(appendFaceThumb("chiho-wut"));
-		objTo.appendChild(appendFaceThumb("disapproval"));
-		objTo.appendChild(appendFaceThumb("grrrr"));
-		objTo.appendChild(appendFaceThumb("im-listening"));
-		objTo.appendChild(appendFaceThumb("om-nom"));
-		objTo.appendChild(appendFaceThumb("stare"));
-		objTo.appendChild(appendFaceThumb("u-wat-m8"));
-		objTo.appendChild(appendFaceThumb("what"));
-		objTo.appendChild(appendFaceThumb("wide-face"));
-		objTo.appendChild(appendFaceThumb("ehehehe"));
-		objTo.appendChild(appendFaceThumb("mandom"));
-		objTo.appendChild(appendFaceThumb("pointandlaugh"));
-		objTo.appendChild(appendFaceThumb("smug"));
-		objTo.appendChild(appendFaceThumb("confused"));
-		objTo.appendChild(appendFaceThumb("yunocaine"));
-		objTo.appendChild(appendFaceThumb("konahappy"));
-		objTo.appendChild(appendFaceThumb("konacat"));
-		objTo.appendChild(appendFaceThumb("gununu"));
-		objTo.appendChild(appendFaceThumb("cat1"));
-		objTo.appendChild(appendFaceThumb("somad"));
-		objTo.appendChild(appendFaceThumb("mad"));
-		objTo.appendChild(appendFaceThumb("cry"));
-		objTo.appendChild(appendFaceThumb("cat2"));
-		objTo.appendChild(appendFaceThumb("um"));
-		objTo.appendChild(appendFaceThumb("facepalm"));
-		objTo.appendChild(appendFaceThumb("wtfika"));
-		objTo.appendChild(appendFaceThumb("kanie-disgust"));
-		objTo.appendChild(appendFaceThumb("nerrr"));
-		objTo.appendChild(appendFaceThumb("nico-heart"));
-		objTo.appendChild(appendFaceThumb("sonico-wink"));
-		objTo.appendChild(appendFaceThumb("sparkle-ika"));
-		objTo.appendChild(appendFaceThumb("suave"));
-		objTo.appendChild(appendFaceThumb("super-blush"));
-		objTo.appendChild(appendFaceThumb("shocked"));
-		objTo.appendChild(appendFaceThumb("surprised-blush"));
-		objTo.appendChild(appendFaceThumb("thumbs-up"));
-		objTo.appendChild(appendFaceThumb("u-dont-say"));
-		objTo.appendChild(appendFaceThumb("ugh-peasants"));
-		objTo.appendChild(appendFaceThumb("uhhh"));
-		objTo.appendChild(appendFaceThumb("yay"));
-		objTo.appendChild(appendFaceThumb("you-bore-me"));
-		objTo.appendChild(appendFaceThumb("osaka"));
-		objTo.appendChild(appendFaceThumb("kukuku"));
-		objTo.appendChild(appendFaceThumb("toohappy"));	
-		objTo.appendChild(appendFaceThumb("chitoge-smile"));
-		objTo.appendChild(appendFaceThumb("kininarimasu"));
-		objTo.appendChild(appendFaceThumb("kotori"));
-		objTo.appendChild(appendFaceThumb("kyon-facepalm"));
-		objTo.appendChild(appendFaceThumb("araragi-1"));
-		objTo.appendChild(appendFaceThumb("araragi-2"));
-		objTo.appendChild(appendFaceThumb("blank-stare"));
-		objTo.appendChild(appendFaceThumb("chaika-smile"));
-		objTo.appendChild(appendFaceThumb("chitoge-pissed"));
-		objTo.appendChild(appendFaceThumb("deadpan"));
-		objTo.appendChild(appendFaceThumb("exuberant-shu"));
-		objTo.appendChild(appendFaceThumb("dead-eyed-stare"));
-		objTo.appendChild(appendFaceThumb("gamagori-hnng"));
-		objTo.appendChild(appendFaceThumb("glasses-push"));
-		objTo.appendChild(appendFaceThumb("head-tilt"));
-		objTo.appendChild(appendFaceThumb("jiii"));
-		objTo.appendChild(appendFaceThumb("manly-tears"));
-		objTo.appendChild(appendFaceThumb("not-raining"));
-		objTo.appendChild(appendFaceThumb("ohmygod"));
-		objTo.appendChild(appendFaceThumb("shock"));
-		objTo.appendChild(appendFaceThumb("heart-thumbs-up"));
-		objTo.appendChild(appendFaceThumb("worried"));
-		objTo.appendChild(appendFaceThumb("wow-really"));
+                objTo.appendChild(appendFaceThumb("asuka-shouting"));
+                objTo.appendChild(appendFaceThumb("chiyo-uhh"));
+                objTo.appendChild(appendFaceThumb("she-ded"));
+                objTo.appendChild(appendFaceThumb("deko-cry"));
+                objTo.appendChild(appendFaceThumb("gendo-pls"));
+                objTo.appendChild(appendFaceThumb("haruhi-annoyed"));
+                objTo.appendChild(appendFaceThumb("k-on-hug"));
+                objTo.appendChild(appendFaceThumb("lewd"));
+                objTo.appendChild(appendFaceThumb("nanami-hug"));
+                objTo.appendChild(appendFaceThumb("pika-dead"));
+                objTo.appendChild(appendFaceThumb("super-happy"));
+                objTo.appendChild(appendFaceThumb("yui-crying"));
+                objTo.appendChild(appendFaceThumb("durr"));
+                objTo.appendChild(appendFaceThumb("mugi-fish"));
+                objTo.appendChild(appendFaceThumb("objection"));
+                objTo.appendChild(appendFaceThumb("chaika"));
+                objTo.appendChild(appendFaceThumb("chiho-wut"));
+                objTo.appendChild(appendFaceThumb("disapproval"));
+                objTo.appendChild(appendFaceThumb("grrrr"));
+                objTo.appendChild(appendFaceThumb("im-listening"));
+                objTo.appendChild(appendFaceThumb("om-nom"));
+                objTo.appendChild(appendFaceThumb("stare"));
+                objTo.appendChild(appendFaceThumb("u-wat-m8"));
+                objTo.appendChild(appendFaceThumb("what"));
+                objTo.appendChild(appendFaceThumb("wide-face"));
+                objTo.appendChild(appendFaceThumb("ehehehe"));
+                objTo.appendChild(appendFaceThumb("mandom"));
+                objTo.appendChild(appendFaceThumb("pointandlaugh"));
+                objTo.appendChild(appendFaceThumb("smug"));
+                objTo.appendChild(appendFaceThumb("confused"));
+                objTo.appendChild(appendFaceThumb("yunocaine"));
+                objTo.appendChild(appendFaceThumb("konahappy"));
+                objTo.appendChild(appendFaceThumb("konacat"));
+                objTo.appendChild(appendFaceThumb("gununu"));
+                objTo.appendChild(appendFaceThumb("cat1"));
+                objTo.appendChild(appendFaceThumb("somad"));
+                objTo.appendChild(appendFaceThumb("mad"));
+                objTo.appendChild(appendFaceThumb("cry"));
+                objTo.appendChild(appendFaceThumb("cat2"));
+                objTo.appendChild(appendFaceThumb("um"));
+                objTo.appendChild(appendFaceThumb("facepalm"));
+                objTo.appendChild(appendFaceThumb("wtfika"));
+                objTo.appendChild(appendFaceThumb("kanie-disgust"));
+                objTo.appendChild(appendFaceThumb("nerrr"));
+                objTo.appendChild(appendFaceThumb("nico-heart"));
+                objTo.appendChild(appendFaceThumb("sonico-wink"));
+                objTo.appendChild(appendFaceThumb("sparkle-ika"));
+                objTo.appendChild(appendFaceThumb("suave"));
+                objTo.appendChild(appendFaceThumb("super-blush"));
+                objTo.appendChild(appendFaceThumb("shocked"));
+                objTo.appendChild(appendFaceThumb("surprised-blush"));
+                objTo.appendChild(appendFaceThumb("thumbs-up"));
+                objTo.appendChild(appendFaceThumb("u-dont-say"));
+                objTo.appendChild(appendFaceThumb("ugh-peasants"));
+                objTo.appendChild(appendFaceThumb("uhhh"));
+                objTo.appendChild(appendFaceThumb("yay"));
+                objTo.appendChild(appendFaceThumb("you-bore-me"));
+                objTo.appendChild(appendFaceThumb("osaka"));
+                objTo.appendChild(appendFaceThumb("kukuku"));
+                objTo.appendChild(appendFaceThumb("toohappy"));	
+                objTo.appendChild(appendFaceThumb("chitoge-smile"));
+                objTo.appendChild(appendFaceThumb("kininarimasu"));
+                objTo.appendChild(appendFaceThumb("kotori"));
+                objTo.appendChild(appendFaceThumb("kyon-facepalm"));
+                objTo.appendChild(appendFaceThumb("araragi-1"));
+                objTo.appendChild(appendFaceThumb("araragi-2"));
+                objTo.appendChild(appendFaceThumb("blank-stare"));
+                objTo.appendChild(appendFaceThumb("chaika-smile"));
+                objTo.appendChild(appendFaceThumb("chitoge-pissed"));
+                objTo.appendChild(appendFaceThumb("deadpan"));
+                objTo.appendChild(appendFaceThumb("exuberant-shu"));
+                objTo.appendChild(appendFaceThumb("dead-eyed-stare"));
+                objTo.appendChild(appendFaceThumb("gamagori-hnng"));
+                objTo.appendChild(appendFaceThumb("glasses-push"));
+                objTo.appendChild(appendFaceThumb("head-tilt"));
+                objTo.appendChild(appendFaceThumb("jiii"));
+                objTo.appendChild(appendFaceThumb("manly-tears"));
+                objTo.appendChild(appendFaceThumb("not-raining"));
+                objTo.appendChild(appendFaceThumb("ohmygod"));
+                objTo.appendChild(appendFaceThumb("shock"));
+                objTo.appendChild(appendFaceThumb("heart-thumbs-up"));
+                objTo.appendChild(appendFaceThumb("worried"));
+                objTo.appendChild(appendFaceThumb("wow-really"));
     }
     else if (subreddit == "kemonomimi") {
         faceIdChar = "#";
@@ -951,11 +985,11 @@ function appendFaces() {
         thumbDialWidth = "180px";
         thumbDialHeight = "160px";
         bbCodeFunction = function(bbFace, bbTitle){
-			if (bbTitle == "") {
-				return "[](#" + bbFace + ")";
-			} else {
-				return "[](#" + bbFace + " \"" + bbTitle + "\")";
-			}
+                        if (bbTitle == "") {
+                                return "[](#" + bbFace + ")";
+                        } else {
+                                return "[](#" + bbFace + " \"" + bbTitle + "\")";
+                        }
         };
         objTo.appendChild(appendFaceThumb("catsmile"));
         objTo.appendChild(appendFaceThumb("cry"));
@@ -997,11 +1031,11 @@ function appendFaces() {
         thumbDialWidth = "150px";
         thumbDialHeight = "110px";
         bbCodeFunction = function(bbFace, bbTitle){
-			if (bbTitle == "") {
-				return "[](#" + bbFace + ")";
-			} else {
-				return "[](#" + bbFace + " \"" + bbTitle + "\")";
-			}
+                        if (bbTitle == "") {
+                                return "[](#" + bbFace + ")";
+                        } else {
+                                return "[](#" + bbFace + " \"" + bbTitle + "\")";
+                        }
         };
         objTo.appendChild(appendFaceThumb("ballin"));
         objTo.appendChild(appendFaceThumb("hnng"));
@@ -1020,11 +1054,11 @@ function appendFaces() {
         thumbDialWidth = "140px";
         thumbDialHeight = "140px";
         bbCodeFunction = function(bbFace, bbTitle){
-			if (bbTitle == "") {
-				return "[](#" + bbFace + ")";
-			} else {
-				return "[](#" + bbFace + " \"" + bbTitle + "\")";
-			}
+                        if (bbTitle == "") {
+                                return "[](#" + bbFace + ")";
+                        } else {
+                                return "[](#" + bbFace + " \"" + bbTitle + "\")";
+                        }
         };
         objTo.appendChild(appendFaceThumb("happy"));
         objTo.appendChild(appendFaceThumb("kungfu"));
@@ -1145,11 +1179,11 @@ function appendFaces() {
                 return "[](" + bbTitle + "#" + bbFace + ")";
             }
             else {
-				if (bbTitle == "") {
-					return "[](#" + bbFace + ")";
-				} else {
-					return "[](#" + bbFace + " \"" + bbTitle + "\")";
-				}
+                                if (bbTitle == "") {
+                                        return "[](#" + bbFace + ")";
+                                } else {
+                                        return "[](#" + bbFace + " \"" + bbTitle + "\")";
+                                }
             }
         };
         objTo.appendChild(appendFaceThumb("happy"));
@@ -1212,34 +1246,34 @@ function appendFaces() {
         objTo.appendChild(appendFaceThumb("fall"));
         objTo.appendChild(appendFaceThumb("dance"));
         objTo.appendChild(appendFaceThumb("swing"));
-		
-		objTo.appendChild(appendFaceThumb("blink"));
-		objTo.appendChild(appendFaceThumb("ablink2"));
-		objTo.appendChild(appendFaceThumb("swing"));
-		
-		objTo.appendChild(appendFaceThumb("AR"));
-		objTo.appendChild(appendFaceThumb("AS"));
-		objTo.appendChild(appendFaceThumb("AV"));
-		objTo.appendChild(appendFaceThumb("AVG"));
-		objTo.appendChild(appendFaceThumb("AY"));
-		objTo.appendChild(appendFaceThumb("BB"));
-		objTo.appendChild(appendFaceThumb("BBV"));
-		objTo.appendChild(appendFaceThumb("CA"));
-		objTo.appendChild(appendFaceThumb("CAV"));
-		objTo.appendChild(appendFaceThumb("CL"));
-		objTo.appendChild(appendFaceThumb("CLT"));
-		objTo.appendChild(appendFaceThumb("CV"));
-		objTo.appendChild(appendFaceThumb("CVL"));
-		objTo.appendChild(appendFaceThumb("DD"));
-		objTo.appendChild(appendFaceThumb("SS"));
-		objTo.appendChild(appendFaceThumb("SSV"));
-		objTo.appendChild(appendFaceThumb("Naval"));
-		objTo.appendChild(appendFaceThumb("Other"));
-		objTo.appendChild(appendFaceThumb("PlateKongou"));
-		objTo.appendChild(appendFaceThumb("PlateBBKongou"));
-		objTo.appendChild(appendFaceThumb("PlateKongouFace"));
-		objTo.appendChild(appendFaceThumb("PlateKongouAnim"));
-		objTo.appendChild(appendFaceThumb("PlateWPFace"));
+                
+                objTo.appendChild(appendFaceThumb("blink"));
+                objTo.appendChild(appendFaceThumb("ablink2"));
+                objTo.appendChild(appendFaceThumb("swing"));
+                
+                objTo.appendChild(appendFaceThumb("AR"));
+                objTo.appendChild(appendFaceThumb("AS"));
+                objTo.appendChild(appendFaceThumb("AV"));
+                objTo.appendChild(appendFaceThumb("AVG"));
+                objTo.appendChild(appendFaceThumb("AY"));
+                objTo.appendChild(appendFaceThumb("BB"));
+                objTo.appendChild(appendFaceThumb("BBV"));
+                objTo.appendChild(appendFaceThumb("CA"));
+                objTo.appendChild(appendFaceThumb("CAV"));
+                objTo.appendChild(appendFaceThumb("CL"));
+                objTo.appendChild(appendFaceThumb("CLT"));
+                objTo.appendChild(appendFaceThumb("CV"));
+                objTo.appendChild(appendFaceThumb("CVL"));
+                objTo.appendChild(appendFaceThumb("DD"));
+                objTo.appendChild(appendFaceThumb("SS"));
+                objTo.appendChild(appendFaceThumb("SSV"));
+                objTo.appendChild(appendFaceThumb("Naval"));
+                objTo.appendChild(appendFaceThumb("Other"));
+                objTo.appendChild(appendFaceThumb("PlateKongou"));
+                objTo.appendChild(appendFaceThumb("PlateBBKongou"));
+                objTo.appendChild(appendFaceThumb("PlateKongouFace"));
+                objTo.appendChild(appendFaceThumb("PlateKongouAnim"));
+                objTo.appendChild(appendFaceThumb("PlateWPFace"));
         //SOURCES
         objTo.appendChild(appendFaceThumb("source"));
         objTo.appendChild(appendFaceThumb("album"));
@@ -1292,11 +1326,11 @@ function appendFaces() {
                 return "[](" + bbTitle + "#" + bbFace + ")";
             }
             else {
-				if (bbTitle == "") {
-					return "[](#" + bbFace + ")";
-				} else {
-					return "[](#" + bbFace + " \"" + bbTitle + "\")";
-				}
+                                if (bbTitle == "") {
+                                        return "[](#" + bbFace + ")";
+                                } else {
+                                        return "[](#" + bbFace + " \"" + bbTitle + "\")";
+                                }
             }
         };
         objTo.appendChild(appendFaceThumb("happy"));
@@ -1359,35 +1393,35 @@ function appendFaces() {
         objTo.appendChild(appendFaceThumb("fall"));
         objTo.appendChild(appendFaceThumb("dance"));
         objTo.appendChild(appendFaceThumb("swing"));
-		
-		objTo.appendChild(appendFaceThumb("blink"));
-		
-		objTo.appendChild(appendFaceThumb("AR"));
-		objTo.appendChild(appendFaceThumb("AS"));
-		objTo.appendChild(appendFaceThumb("AV"));
-		objTo.appendChild(appendFaceThumb("AVG"));
-		objTo.appendChild(appendFaceThumb("AY"));
-		objTo.appendChild(appendFaceThumb("BB"));
-		objTo.appendChild(appendFaceThumb("BBV"));
-		objTo.appendChild(appendFaceThumb("CA"));
-		objTo.appendChild(appendFaceThumb("CAV"));
-		objTo.appendChild(appendFaceThumb("CL"));
-		objTo.appendChild(appendFaceThumb("CLT"));
-		objTo.appendChild(appendFaceThumb("CV"));
-		objTo.appendChild(appendFaceThumb("CVL"));
-		objTo.appendChild(appendFaceThumb("DD"));
-		objTo.appendChild(appendFaceThumb("SS"));
-		objTo.appendChild(appendFaceThumb("SSV"));
-		objTo.appendChild(appendFaceThumb("Naval"));
-		objTo.appendChild(appendFaceThumb("Other"));
-		
-		objTo.appendChild(appendFaceThumb("PlateFubukiFace"));
+                
+                objTo.appendChild(appendFaceThumb("blink"));
+                
+                objTo.appendChild(appendFaceThumb("AR"));
+                objTo.appendChild(appendFaceThumb("AS"));
+                objTo.appendChild(appendFaceThumb("AV"));
+                objTo.appendChild(appendFaceThumb("AVG"));
+                objTo.appendChild(appendFaceThumb("AY"));
+                objTo.appendChild(appendFaceThumb("BB"));
+                objTo.appendChild(appendFaceThumb("BBV"));
+                objTo.appendChild(appendFaceThumb("CA"));
+                objTo.appendChild(appendFaceThumb("CAV"));
+                objTo.appendChild(appendFaceThumb("CL"));
+                objTo.appendChild(appendFaceThumb("CLT"));
+                objTo.appendChild(appendFaceThumb("CV"));
+                objTo.appendChild(appendFaceThumb("CVL"));
+                objTo.appendChild(appendFaceThumb("DD"));
+                objTo.appendChild(appendFaceThumb("SS"));
+                objTo.appendChild(appendFaceThumb("SSV"));
+                objTo.appendChild(appendFaceThumb("Naval"));
+                objTo.appendChild(appendFaceThumb("Other"));
+                
+                objTo.appendChild(appendFaceThumb("PlateFubukiFace"));
         //SOURCES
         objTo.appendChild(appendFaceThumb("source"));
         objTo.appendChild(appendFaceThumb("album"));
         objTo.appendChild(appendFaceThumb("sourcensfw"));
         objTo.appendChild(appendFaceThumb("albumnsfw"));
-		
+                
         //SIMPLE SOURCE
         objTo.appendChild(appendFaceThumb("BBSource"));
         objTo.appendChild(appendFaceThumb("CASource"));
@@ -1431,11 +1465,11 @@ function appendFaces() {
         thumbDialWidth = "240px";
         thumbDialHeight = "150px";
         bbCodeFunction = function(bbFace, bbTitle){
-			if (bbTitle == "") {
-				return "[](#" + bbFace + ")";
-			} else {
-				return "[](#" + bbFace + " \"" + bbTitle + "\")";
-			}
+                        if (bbTitle == "") {
+                                return "[](#" + bbFace + ")";
+                        } else {
+                                return "[](#" + bbFace + " \"" + bbTitle + "\")";
+                        }
         };
         objTo.appendChild(appendFaceThumb("umida"));
         objTo.appendChild(appendFaceThumb("iyada"));
@@ -1445,239 +1479,239 @@ function appendFaces() {
         objTo.appendChild(appendFaceThumb("rekt"));
         objTo.appendChild(appendFaceThumb("wink"));
         objTo.appendChild(appendFaceThumb("niconi"));
-		objTo.appendChild(appendFaceThumb("rinya"));
-		objTo.appendChild(appendFaceThumb("nope"));
-		objTo.appendChild(appendFaceThumb("baka"));
-		objTo.appendChild(appendFaceThumb("haa"));
-		objTo.appendChild(appendFaceThumb("flick"));
-		objTo.appendChild(appendFaceThumb("nrekt"));
-		objTo.appendChild(appendFaceThumb("dere"));
-		objTo.appendChild(appendFaceThumb("ikinya"));
-		objTo.appendChild(appendFaceThumb("pillow"));
-		objTo.appendChild(appendFaceThumb("fine"));
-		objTo.appendChild(appendFaceThumb("clap"));
-		objTo.appendChild(appendFaceThumb("pengi"));
-		objTo.appendChild(appendFaceThumb("waa"));
-		objTo.appendChild(appendFaceThumb("huhu"));
+                objTo.appendChild(appendFaceThumb("rinya"));
+                objTo.appendChild(appendFaceThumb("nope"));
+                objTo.appendChild(appendFaceThumb("baka"));
+                objTo.appendChild(appendFaceThumb("haa"));
+                objTo.appendChild(appendFaceThumb("flick"));
+                objTo.appendChild(appendFaceThumb("nrekt"));
+                objTo.appendChild(appendFaceThumb("dere"));
+                objTo.appendChild(appendFaceThumb("ikinya"));
+                objTo.appendChild(appendFaceThumb("pillow"));
+                objTo.appendChild(appendFaceThumb("fine"));
+                objTo.appendChild(appendFaceThumb("clap"));
+                objTo.appendChild(appendFaceThumb("pengi"));
+                objTo.appendChild(appendFaceThumb("waa"));
+                objTo.appendChild(appendFaceThumb("huhu"));
     }
-	else if (subreddit == "lovelive") {
+        else if (subreddit == "lovelive") {
         faceIdChar = "#";
         wikiLink.href = "http://www.reddit.com/r/LoveLive/wiki/index";
         thumbDialWidth = "190px";
         thumbDialHeight = "115px";
         bbCodeFunction = function(bbFace, bbTitle){
-			if (bbTitle == "") {
-				return "[](#" + bbFace + ")";
-			} else {
-				return "[](#" + bbFace + " \"" + bbTitle + "\")";
-			}
+                        if (bbTitle == "") {
+                                return "[](#" + bbFace + ")";
+                        } else {
+                                return "[](#" + bbFace + " \"" + bbTitle + "\")";
+                        }
         };
         objTo.appendChild(appendFaceThumb("harasho"));
         objTo.appendChild(appendFaceThumb("weird"));
         objTo.appendChild(appendFaceThumb("strange"));
         objTo.appendChild(appendFaceThumb("rinwink"));
         objTo.appendChild(appendFaceThumb("predictable"));
-		objTo.appendChild(appendFaceThumb("snack"));
-		objTo.appendChild(appendFaceThumb("bang"));
-		objTo.appendChild(appendFaceThumb("niconii"));
-		objTo.appendChild(appendFaceThumb("washi"));
-		objTo.appendChild(appendFaceThumb("rice"));
+                objTo.appendChild(appendFaceThumb("snack"));
+                objTo.appendChild(appendFaceThumb("bang"));
+                objTo.appendChild(appendFaceThumb("niconii"));
+                objTo.appendChild(appendFaceThumb("washi"));
+                objTo.appendChild(appendFaceThumb("rice"));
     }
-	else if (subreddit == "onetrueidol") {
+        else if (subreddit == "onetrueidol") {
         faceIdChar = "#";
         wikiLink.href = "http://www.reddit.com/r/LoveLive/wiki/index";
         thumbDialWidth = "260px";
         thumbDialHeight = "155px";
         bbCodeFunction = function(bbFace, bbTitle){
-			if (bbTitle == "") {
-				return "[](#" + bbFace + ")";
-			} else {
-				return "[](#" + bbFace + " \"" + bbTitle + "\")";
-			}
+                        if (bbTitle == "") {
+                                return "[](#" + bbFace + ")";
+                        } else {
+                                return "[](#" + bbFace + " \"" + bbTitle + "\")";
+                        }
         };
         objTo.appendChild(appendFaceThumb("makibday"));
         objTo.appendChild(appendFaceThumb("makigif"));
-		objTo.appendChild(appendFaceThumb("bang"));
-		objTo.appendChild(appendFaceThumb("makilove"));
-		objTo.appendChild(appendFaceThumb("makipout"));
+                objTo.appendChild(appendFaceThumb("bang"));
+                objTo.appendChild(appendFaceThumb("makilove"));
+                objTo.appendChild(appendFaceThumb("makipout"));
     }
-	else if (subreddit == "fatestaynight") {
+        else if (subreddit == "fatestaynight") {
         faceIdChar = "#";
-		textBoxNr = 3;
+                textBoxNr = 3;
         wikiLink.href = "http://www.reddit.com/r/fatestaynight/comments/2vuwdc/comment_faces_guide_v2/";
         thumbDialWidth = "160px";
         thumbDialHeight = "160px";
         bbCodeFunction = function(bbFace, bbTitle, bbUpper, bbLower){
-			var bbHover = "";
-			var bbCapt = "";
-			if (bbTitle != "") {
-				bbHover = " \"" + bbTitle + "\"";
-			}
-			if (bbLower != "") {
-				bbCapt = "**" + bbLower + "**";
-			}
-			if (bbUpper != "") {
-				bbCapt = bbCapt + bbUpper;
-			}
-			return "[" + bbCapt + "](#" + bbFace + bbHover + ")";
+                        var bbHover = "";
+                        var bbCapt = "";
+                        if (bbTitle != "") {
+                                bbHover = " \"" + bbTitle + "\"";
+                        }
+                        if (bbLower != "") {
+                                bbCapt = "**" + bbLower + "**";
+                        }
+                        if (bbUpper != "") {
+                                bbCapt = bbCapt + bbUpper;
+                        }
+                        return "[" + bbCapt + "](#" + bbFace + bbHover + ")";
         };
-		objTo.appendChild(appendFaceThumb("lmao"));
-		objTo.appendChild(appendFaceThumb("fistpump"));
-		objTo.appendChild(appendFaceThumb("smirk"));
-		objTo.appendChild(appendFaceThumb("skeptical"));
-		objTo.appendChild(appendFaceThumb("engarde"));
-		objTo.appendChild(appendFaceThumb("armorengarde"));
-		objTo.appendChild(appendFaceThumb("hmm"));
-		objTo.appendChild(appendFaceThumb("hurt"));
-		objTo.appendChild(appendFaceThumb("notamused"));
-		objTo.appendChild(appendFaceThumb("angry"));
-		objTo.appendChild(appendFaceThumb("bored"));
-		objTo.appendChild(appendFaceThumb("roar"));
-		objTo.appendChild(appendFaceThumb("raspberry"));
-		objTo.appendChild(appendFaceThumb("infodump"));
-		objTo.appendChild(appendFaceThumb("senpainoticedme"));
-		objTo.appendChild(appendFaceThumb("smile"));
-		objTo.appendChild(appendFaceThumb("seriously"));
-		objTo.appendChild(appendFaceThumb("crying"));
-		objTo.appendChild(appendFaceThumb("rejoice"));
-		objTo.appendChild(appendFaceThumb("yorokobe"));
-		objTo.appendChild(appendFaceThumb("trouble"));
-		objTo.appendChild(appendFaceThumb("tooearly"));
-		objTo.appendChild(appendFaceThumb("pleased"));
-		objTo.appendChild(appendFaceThumb("lol"));
-		objTo.appendChild(appendFaceThumb("scared"));
-		objTo.appendChild(appendFaceThumb("facepalm"));
-		objTo.appendChild(appendFaceThumb("meanie"));
-		objTo.appendChild(appendFaceThumb("shocked"));
-		objTo.appendChild(appendFaceThumb("coat"));
-		objTo.appendChild(appendFaceThumb("cough"));
-		objTo.appendChild(appendFaceThumb("pray"));
-		objTo.appendChild(appendFaceThumb("blush"));
-		objTo.appendChild(appendFaceThumb("denied"));
-		objTo.appendChild(appendFaceThumb("eyyy"));
-		objTo.appendChild(appendFaceThumb("haha"));
-		objTo.appendChild(appendFaceThumb("hug"));
-		objTo.appendChild(appendFaceThumb("ohoho"));
-		objTo.appendChild(appendFaceThumb("please"));
-		objTo.appendChild(appendFaceThumb("realization"));
-		objTo.appendChild(appendFaceThumb("tch"));
-		objTo.appendChild(appendFaceThumb("baka"));
-		objTo.appendChild(appendFaceThumb("sigh"));
-		objTo.appendChild(appendFaceThumb("success"));
-		objTo.appendChild(appendFaceThumb("andmyaxe"));
-		objTo.appendChild(appendFaceThumb("messyeater"));
-		objTo.appendChild(appendFaceThumb("surpriseblush"));
-		objTo.appendChild(appendFaceThumb("wink"));
-		objTo.appendChild(appendFaceThumb("moar"));
-		objTo.appendChild(appendFaceThumb("sly"));
-		objTo.appendChild(appendFaceThumb("tickmark"));
-		objTo.appendChild(appendFaceThumb("ugh"));
-		objTo.appendChild(appendFaceThumb("rip"));
-		objTo.appendChild(appendFaceThumb("scary"));
+                objTo.appendChild(appendFaceThumb("lmao"));
+                objTo.appendChild(appendFaceThumb("fistpump"));
+                objTo.appendChild(appendFaceThumb("smirk"));
+                objTo.appendChild(appendFaceThumb("skeptical"));
+                objTo.appendChild(appendFaceThumb("engarde"));
+                objTo.appendChild(appendFaceThumb("armorengarde"));
+                objTo.appendChild(appendFaceThumb("hmm"));
+                objTo.appendChild(appendFaceThumb("hurt"));
+                objTo.appendChild(appendFaceThumb("notamused"));
+                objTo.appendChild(appendFaceThumb("angry"));
+                objTo.appendChild(appendFaceThumb("bored"));
+                objTo.appendChild(appendFaceThumb("roar"));
+                objTo.appendChild(appendFaceThumb("raspberry"));
+                objTo.appendChild(appendFaceThumb("infodump"));
+                objTo.appendChild(appendFaceThumb("senpainoticedme"));
+                objTo.appendChild(appendFaceThumb("smile"));
+                objTo.appendChild(appendFaceThumb("seriously"));
+                objTo.appendChild(appendFaceThumb("crying"));
+                objTo.appendChild(appendFaceThumb("rejoice"));
+                objTo.appendChild(appendFaceThumb("yorokobe"));
+                objTo.appendChild(appendFaceThumb("trouble"));
+                objTo.appendChild(appendFaceThumb("tooearly"));
+                objTo.appendChild(appendFaceThumb("pleased"));
+                objTo.appendChild(appendFaceThumb("lol"));
+                objTo.appendChild(appendFaceThumb("scared"));
+                objTo.appendChild(appendFaceThumb("facepalm"));
+                objTo.appendChild(appendFaceThumb("meanie"));
+                objTo.appendChild(appendFaceThumb("shocked"));
+                objTo.appendChild(appendFaceThumb("coat"));
+                objTo.appendChild(appendFaceThumb("cough"));
+                objTo.appendChild(appendFaceThumb("pray"));
+                objTo.appendChild(appendFaceThumb("blush"));
+                objTo.appendChild(appendFaceThumb("denied"));
+                objTo.appendChild(appendFaceThumb("eyyy"));
+                objTo.appendChild(appendFaceThumb("haha"));
+                objTo.appendChild(appendFaceThumb("hug"));
+                objTo.appendChild(appendFaceThumb("ohoho"));
+                objTo.appendChild(appendFaceThumb("please"));
+                objTo.appendChild(appendFaceThumb("realization"));
+                objTo.appendChild(appendFaceThumb("tch"));
+                objTo.appendChild(appendFaceThumb("baka"));
+                objTo.appendChild(appendFaceThumb("sigh"));
+                objTo.appendChild(appendFaceThumb("success"));
+                objTo.appendChild(appendFaceThumb("andmyaxe"));
+                objTo.appendChild(appendFaceThumb("messyeater"));
+                objTo.appendChild(appendFaceThumb("surpriseblush"));
+                objTo.appendChild(appendFaceThumb("wink"));
+                objTo.appendChild(appendFaceThumb("moar"));
+                objTo.appendChild(appendFaceThumb("sly"));
+                objTo.appendChild(appendFaceThumb("tickmark"));
+                objTo.appendChild(appendFaceThumb("ugh"));
+                objTo.appendChild(appendFaceThumb("rip"));
+                objTo.appendChild(appendFaceThumb("scary"));
     }
-	else if (subreddit == "saber") {
+        else if (subreddit == "saber") {
         faceIdChar = "#";
-		textBoxNr = 3;
+                textBoxNr = 3;
         wikiLink.href = "http://www.reddit.com/r/Saber/comments/2w1g5n/rejoice_you_can_now_have_text_on_sabers_lovely/";
         thumbDialWidth = "160px";
         thumbDialHeight = "160px";
         bbCodeFunction = function(bbFace, bbTitle, bbUpper, bbLower){
-			var bbHover = "";
-			var bbCapt = "";
-			if (bbTitle != "") {
-				bbHover = " \"" + bbTitle + "\"";
-			}
-			if (bbLower != "") {
-				bbCapt = "**" + bbLower + "**";
-			}
-			if (bbUpper != "") {
-				bbCapt = bbCapt + bbUpper;
-			}
-			return "[" + bbCapt + "](#" + bbFace + bbHover + ")";
+                        var bbHover = "";
+                        var bbCapt = "";
+                        if (bbTitle != "") {
+                                bbHover = " \"" + bbTitle + "\"";
+                        }
+                        if (bbLower != "") {
+                                bbCapt = "**" + bbLower + "**";
+                        }
+                        if (bbUpper != "") {
+                                bbCapt = bbCapt + bbUpper;
+                        }
+                        return "[" + bbCapt + "](#" + bbFace + bbHover + ")";
         };
-		objTo.appendChild(appendFaceThumb("saber"));
-		objTo.appendChild(appendFaceThumb("hidden"));
-		objTo.appendChild(appendFaceThumb("sad"));
-		objTo.appendChild(appendFaceThumb("surprised"));
-		objTo.appendChild(appendFaceThumb("annoyed"));
-		objTo.appendChild(appendFaceThumb("sigh"));
-		objTo.appendChild(appendFaceThumb("blush"));
-		objTo.appendChild(appendFaceThumb("sweat"));
-		objTo.appendChild(appendFaceThumb("struggle"));
-		objTo.appendChild(appendFaceThumb("no"));
-		objTo.appendChild(appendFaceThumb("embarrassed"));
-		objTo.appendChild(appendFaceThumb("angry"));
-		objTo.appendChild(appendFaceThumb("smile"));
-		objTo.appendChild(appendFaceThumb("lecture"));
-		objTo.appendChild(appendFaceThumb("ashamed"));
-		objTo.appendChild(appendFaceThumb("anxious"));
-		objTo.appendChild(appendFaceThumb("skeptical"));
-		objTo.appendChild(appendFaceThumb("speechless"));
-		objTo.appendChild(appendFaceThumb("engarde"));
-		objTo.appendChild(appendFaceThumb("alter"));
-		objTo.appendChild(appendFaceThumb("ehehe"));
-		objTo.appendChild(appendFaceThumb("lion"));
-		objTo.appendChild(appendFaceThumb("hmm"));
-		objTo.appendChild(appendFaceThumb("wary"));
-		objTo.appendChild(appendFaceThumb("shocked"));
-		objTo.appendChild(appendFaceThumb("worried"));
-		objTo.appendChild(appendFaceThumb("bashful"));
-		objTo.appendChild(appendFaceThumb("casual"));
-		objTo.appendChild(appendFaceThumb("dayum"));
-		objTo.appendChild(appendFaceThumb("disappointed"));
-		objTo.appendChild(appendFaceThumb("flustered"));
-		objTo.appendChild(appendFaceThumb("furious"));
-		objTo.appendChild(appendFaceThumb("graceful"));
-		objTo.appendChild(appendFaceThumb("hurt"));
-		objTo.appendChild(appendFaceThumb("irritated"));
-		objTo.appendChild(appendFaceThumb("sad2"));
-		objTo.appendChild(appendFaceThumb("smile2"));
-		objTo.appendChild(appendFaceThumb("uninterested"));
-		objTo.appendChild(appendFaceThumb("wink"));
-		objTo.appendChild(appendFaceThumb("cry"));
+                objTo.appendChild(appendFaceThumb("saber"));
+                objTo.appendChild(appendFaceThumb("hidden"));
+                objTo.appendChild(appendFaceThumb("sad"));
+                objTo.appendChild(appendFaceThumb("surprised"));
+                objTo.appendChild(appendFaceThumb("annoyed"));
+                objTo.appendChild(appendFaceThumb("sigh"));
+                objTo.appendChild(appendFaceThumb("blush"));
+                objTo.appendChild(appendFaceThumb("sweat"));
+                objTo.appendChild(appendFaceThumb("struggle"));
+                objTo.appendChild(appendFaceThumb("no"));
+                objTo.appendChild(appendFaceThumb("embarrassed"));
+                objTo.appendChild(appendFaceThumb("angry"));
+                objTo.appendChild(appendFaceThumb("smile"));
+                objTo.appendChild(appendFaceThumb("lecture"));
+                objTo.appendChild(appendFaceThumb("ashamed"));
+                objTo.appendChild(appendFaceThumb("anxious"));
+                objTo.appendChild(appendFaceThumb("skeptical"));
+                objTo.appendChild(appendFaceThumb("speechless"));
+                objTo.appendChild(appendFaceThumb("engarde"));
+                objTo.appendChild(appendFaceThumb("alter"));
+                objTo.appendChild(appendFaceThumb("ehehe"));
+                objTo.appendChild(appendFaceThumb("lion"));
+                objTo.appendChild(appendFaceThumb("hmm"));
+                objTo.appendChild(appendFaceThumb("wary"));
+                objTo.appendChild(appendFaceThumb("shocked"));
+                objTo.appendChild(appendFaceThumb("worried"));
+                objTo.appendChild(appendFaceThumb("bashful"));
+                objTo.appendChild(appendFaceThumb("casual"));
+                objTo.appendChild(appendFaceThumb("dayum"));
+                objTo.appendChild(appendFaceThumb("disappointed"));
+                objTo.appendChild(appendFaceThumb("flustered"));
+                objTo.appendChild(appendFaceThumb("furious"));
+                objTo.appendChild(appendFaceThumb("graceful"));
+                objTo.appendChild(appendFaceThumb("hurt"));
+                objTo.appendChild(appendFaceThumb("irritated"));
+                objTo.appendChild(appendFaceThumb("sad2"));
+                objTo.appendChild(appendFaceThumb("smile2"));
+                objTo.appendChild(appendFaceThumb("uninterested"));
+                objTo.appendChild(appendFaceThumb("wink"));
+                objTo.appendChild(appendFaceThumb("cry"));
     } else if (subreddit == "nisekoi") {
         faceIdChar = "#";
-		textBoxNr = 1;
+                textBoxNr = 1;
         wikiLink.href = "http://www.reddit.com/r/Saber/comments/2w1g5n/rejoice_you_can_now_have_text_on_sabers_lovely/";
         thumbDialWidth = "180px";
         thumbDialHeight = "230px";
         bbCodeFunction = function(bbFace, bbTitle){
-			if (bbTitle == "") {
-				return "[](#" + bbFace + ")";
-			} else {
-				return "[](#" + bbFace + " \"" + bbTitle + "\")";
-			}
+                        if (bbTitle == "") {
+                                return "[](#" + bbFace + ")";
+                        } else {
+                                return "[](#" + bbFace + " \"" + bbTitle + "\")";
+                        }
         };
-		objTo.appendChild(appendFaceThumb("cute"));
-		objTo.appendChild(appendFaceThumb("blaze"));
-		objTo.appendChild(appendFaceThumb("nono"));
-		objTo.appendChild(appendFaceThumb("blushing"));
-		objTo.appendChild(appendFaceThumb("pff"));
-		objTo.appendChild(appendFaceThumb("eh"));
-		objTo.appendChild(appendFaceThumb("smirk"));
-		objTo.appendChild(appendFaceThumb("rain"));
-		objTo.appendChild(appendFaceThumb("misunderstood"));
-		objTo.appendChild(appendFaceThumb("flustered"));
-		objTo.appendChild(appendFaceThumb("embarrassed"));
-		objTo.appendChild(appendFaceThumb("alright"));
-		objTo.appendChild(appendFaceThumb("stutter"));
-		objTo.appendChild(appendFaceThumb("moping"));
-		objTo.appendChild(appendFaceThumb("mmmm"));
-		objTo.appendChild(appendFaceThumb("kawaii"));
-		objTo.appendChild(appendFaceThumb("couch"));
-		objTo.appendChild(appendFaceThumb("ohmy"));
-		objTo.appendChild(appendFaceThumb("chibi"));
-		objTo.appendChild(appendFaceThumb("ontheway"));
-		objTo.appendChild(appendFaceThumb("tooembarrassed"));
-		objTo.appendChild(appendFaceThumb("turnaround"));
-		objTo.appendChild(appendFaceThumb("shush"));
-		objTo.appendChild(appendFaceThumb("outofit"));
-		objTo.appendChild(appendFaceThumb("smile"));
-		objTo.appendChild(appendFaceThumb("thumbsup"));
-		objTo.appendChild(appendFaceThumb("grin"));
-		objTo.appendChild(appendFaceThumb("yougotthis"));
-		objTo.appendChild(appendFaceThumb("ah"));
-		objTo.appendChild(appendFaceThumb("yay"));
+                objTo.appendChild(appendFaceThumb("cute"));
+                objTo.appendChild(appendFaceThumb("blaze"));
+                objTo.appendChild(appendFaceThumb("nono"));
+                objTo.appendChild(appendFaceThumb("blushing"));
+                objTo.appendChild(appendFaceThumb("pff"));
+                objTo.appendChild(appendFaceThumb("eh"));
+                objTo.appendChild(appendFaceThumb("smirk"));
+                objTo.appendChild(appendFaceThumb("rain"));
+                objTo.appendChild(appendFaceThumb("misunderstood"));
+                objTo.appendChild(appendFaceThumb("flustered"));
+                objTo.appendChild(appendFaceThumb("embarrassed"));
+                objTo.appendChild(appendFaceThumb("alright"));
+                objTo.appendChild(appendFaceThumb("stutter"));
+                objTo.appendChild(appendFaceThumb("moping"));
+                objTo.appendChild(appendFaceThumb("mmmm"));
+                objTo.appendChild(appendFaceThumb("kawaii"));
+                objTo.appendChild(appendFaceThumb("couch"));
+                objTo.appendChild(appendFaceThumb("ohmy"));
+                objTo.appendChild(appendFaceThumb("chibi"));
+                objTo.appendChild(appendFaceThumb("ontheway"));
+                objTo.appendChild(appendFaceThumb("tooembarrassed"));
+                objTo.appendChild(appendFaceThumb("turnaround"));
+                objTo.appendChild(appendFaceThumb("shush"));
+                objTo.appendChild(appendFaceThumb("outofit"));
+                objTo.appendChild(appendFaceThumb("smile"));
+                objTo.appendChild(appendFaceThumb("thumbsup"));
+                objTo.appendChild(appendFaceThumb("grin"));
+                objTo.appendChild(appendFaceThumb("yougotthis"));
+                objTo.appendChild(appendFaceThumb("ah"));
+                objTo.appendChild(appendFaceThumb("yay"));
     }
 }
 

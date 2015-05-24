@@ -22,7 +22,7 @@
 // @include        http*://*.reddit.com/r/saber/*
 // @include        http*://*.reddit.com/r/Nisekoi/*
 // @grant          none
-// @version        1.21.1
+// @version        1.21.2
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -558,15 +558,15 @@ function appendFaces() {
         objTo.appendChild(appendFaceThumb("Tiriniz"));
         objTo.appendChild(appendFaceThumb("silence"));
         objTo.appendChild(appendFaceThumb("doteyes"));
-        objTo.appendChild(appendFaceThumb("renge"));
-        objTo.appendChild(appendFaceThumb("dontmesswithrenge"));
+        objTo.appendChild(appendFaceThumb("oi!"));
+        objTo.appendChild(appendFaceThumb("dontmesswithme"));
         objTo.appendChild(appendFaceThumb("asuka"));
         objTo.appendChild(appendFaceThumb("nooo"));
         objTo.appendChild(appendFaceThumb("ah"));
         objTo.appendChild(appendFaceThumb("ehehe"));
         objTo.appendChild(appendFaceThumb("robot"));
-        objTo.appendChild(appendFaceThumb("shinobu"));
-        objTo.appendChild(appendFaceThumb("oniichan_anim"));
+        objTo.appendChild(appendFaceThumb("crying"));
+        objTo.appendChild(appendFaceThumb("oniichan"));
         objTo.appendChild(appendFaceThumb("jumpforjoy"));
         objTo.appendChild(appendFaceThumb("doteyes"));
         objTo.appendChild(appendFaceThumb("funky"));

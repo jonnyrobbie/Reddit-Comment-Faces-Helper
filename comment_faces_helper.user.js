@@ -22,7 +22,7 @@
 // @include        http*://*.reddit.com/r/saber/*
 // @include        http*://*.reddit.com/r/Nisekoi/*
 // @grant          none
-// @version        1.21.2
+// @version        1.21.3
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -560,7 +560,6 @@ function appendFaces() {
         objTo.appendChild(appendFaceThumb("doteyes"));
         objTo.appendChild(appendFaceThumb("oi!"));
         objTo.appendChild(appendFaceThumb("dontmesswithme"));
-        objTo.appendChild(appendFaceThumb("asuka"));
         objTo.appendChild(appendFaceThumb("nooo"));
         objTo.appendChild(appendFaceThumb("ah"));
         objTo.appendChild(appendFaceThumb("ehehe"));

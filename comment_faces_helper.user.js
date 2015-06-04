@@ -22,7 +22,7 @@
 // @include        http*://*.reddit.com/r/saber/*
 // @include        http*://*.reddit.com/r/Nisekoi/*
 // @grant          none
-// @version        1.21.4
+// @version        1.21.5
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -1316,8 +1316,8 @@ function appendFaces() {
     else if (subreddit == "kanmusunights") {
         faceIdChar = "#";
         wikiLink.href = "http://www.reddit.com/r/kanmusu/wiki/commentfaces";
-        thumbDialWidth = "170px";
-        thumbDialHeight = "150px";
+        thumbDialWidth = "180px";
+        thumbDialHeight = "180px";
         bbCodeFunction = function(bbFace, bbTitle){
             if (bbFace == "source" || bbFace == "album" || bbFace == "sourcensfw" || bbFace == "albumnsfw" || bbFace == "BBSource" || bbFace == "BBAlbum" || bbFace == "BBNSFW" || bbFace == "BBNSFWAlbum" || bbFace == "CASource" || bbFace == "CAAlbum" || bbFace == "CANSFW" || bbFace == "CANSFWAlbum" || bbFace == "CLSource" || bbFace == "CLAlbum" || bbFace == "CLNSFW" || bbFace == "CLNSFWAlbum" || bbFace == "CVSource" || bbFace == "CVAlbum" || bbFace == "CVNSFW" || bbFace == "CVNSFWAlbum" || bbFace == "DDSource" || bbFace == "DDAlbum" || bbFace == "DDNSFW" || bbFace == "DDNSFWAlbum" || bbFace == "AVSource" || bbFace == "AVAlbum" || bbFace == "AVNSFW" || bbFace == "AVNSFWAlbum" || bbFace == "SSSource" || bbFace == "SSAlbum" || bbFace == "SSNSFW" || bbFace == "SSNSFWAlbum" || bbFace == "OtherSource" || bbFace == "OtherAlbum" || bbFace == "OtherNSFW" || bbFace == "OtherNSFWAlbum") {
                 return "[](" + bbTitle + "#" + bbFace + ")";
@@ -1392,7 +1392,8 @@ function appendFaces() {
         objTo.appendChild(appendFaceThumb("swing"));
                 
                 objTo.appendChild(appendFaceThumb("blink"));
-                
+                objTo.appendChild(appendFaceThumb("blink2"));
+                /*
                 objTo.appendChild(appendFaceThumb("AR"));
                 objTo.appendChild(appendFaceThumb("AS"));
                 objTo.appendChild(appendFaceThumb("AV"));
@@ -1412,7 +1413,7 @@ function appendFaces() {
                 objTo.appendChild(appendFaceThumb("Naval"));
                 objTo.appendChild(appendFaceThumb("Other"));
                 
-                objTo.appendChild(appendFaceThumb("PlateFubukiFace"));
+                objTo.appendChild(appendFaceThumb("PlateFubukiFace"));*/
         //SOURCES
         objTo.appendChild(appendFaceThumb("source"));
         objTo.appendChild(appendFaceThumb("album"));

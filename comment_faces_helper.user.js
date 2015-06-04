@@ -22,7 +22,7 @@
 // @include        http*://*.reddit.com/r/saber/*
 // @include        http*://*.reddit.com/r/Nisekoi/*
 // @grant          none
-// @version        1.21.3
+// @version        1.21.4
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -565,10 +565,9 @@ function appendFaces() {
         objTo.appendChild(appendFaceThumb("ehehe"));
         objTo.appendChild(appendFaceThumb("robot"));
         objTo.appendChild(appendFaceThumb("crying"));
-        objTo.appendChild(appendFaceThumb("oniichan"));
         objTo.appendChild(appendFaceThumb("jumpforjoy"));
-        objTo.appendChild(appendFaceThumb("doteyes"));
         objTo.appendChild(appendFaceThumb("funky"));
+        objTo.appendChild(appendFaceThumb("grin"));
         objTo.appendChild(appendFaceThumb("SuperLewd", 78, 100)) //Two additional parametres force-resize the image. Try to fit it in 150px*100px
     }
     else if (subreddit == "pantsu") {
@@ -1171,11 +1170,11 @@ function appendFaces() {
     else if (subreddit == "kanmusu") {
         faceIdChar = "#";
         wikiLink.href = "http://www.reddit.com/r/kanmusu/wiki/commentfaces";
-        thumbDialWidth = "170px";
-        thumbDialHeight = "150px";
+        thumbDialWidth = "180px";
+        thumbDialHeight = "180px";
         bbCodeFunction = function(bbFace, bbTitle){
             if (bbFace == "source" || bbFace == "album" || bbFace == "sourcensfw" || bbFace == "albumnsfw" || bbFace == "BBSource" || bbFace == "BBAlbum" || bbFace == "BBNSFW" || bbFace == "BBNSFWAlbum" || bbFace == "CASource" || bbFace == "CAAlbum" || bbFace == "CANSFW" || bbFace == "CANSFWAlbum" || bbFace == "CLSource" || bbFace == "CLAlbum" || bbFace == "CLNSFW" || bbFace == "CLNSFWAlbum" || bbFace == "CVSource" || bbFace == "CVAlbum" || bbFace == "CVNSFW" || bbFace == "CVNSFWAlbum" || bbFace == "DDSource" || bbFace == "DDAlbum" || bbFace == "DDNSFW" || bbFace == "DDNSFWAlbum" || bbFace == "AVSource" || bbFace == "AVAlbum" || bbFace == "AVNSFW" || bbFace == "AVNSFWAlbum" || bbFace == "SSSource" || bbFace == "SSAlbum" || bbFace == "SSNSFW" || bbFace == "SSNSFWAlbum" || bbFace == "OtherSource" || bbFace == "OtherAlbum" || bbFace == "OtherNSFW" || bbFace == "OtherNSFWAlbum") {
-                return "[](" + bbTitle + "#" + bbFace + ")";
+                return "[Source](" + bbTitle + "#" + bbFace + ")";
             }
             else {
                                 if (bbTitle == "") {
@@ -1247,9 +1246,8 @@ function appendFaces() {
         objTo.appendChild(appendFaceThumb("swing"));
                 
                 objTo.appendChild(appendFaceThumb("blink"));
-                objTo.appendChild(appendFaceThumb("ablink2"));
-                objTo.appendChild(appendFaceThumb("swing"));
-                
+                objTo.appendChild(appendFaceThumb("blink2"));
+                /*
                 objTo.appendChild(appendFaceThumb("AR"));
                 objTo.appendChild(appendFaceThumb("AS"));
                 objTo.appendChild(appendFaceThumb("AV"));
@@ -1272,7 +1270,7 @@ function appendFaces() {
                 objTo.appendChild(appendFaceThumb("PlateBBKongou"));
                 objTo.appendChild(appendFaceThumb("PlateKongouFace"));
                 objTo.appendChild(appendFaceThumb("PlateKongouAnim"));
-                objTo.appendChild(appendFaceThumb("PlateWPFace"));
+                objTo.appendChild(appendFaceThumb("PlateWPFace"));*/
         //SOURCES
         objTo.appendChild(appendFaceThumb("source"));
         objTo.appendChild(appendFaceThumb("album"));
@@ -1628,46 +1626,57 @@ function appendFaces() {
                         }
                         return "[" + bbCapt + "](#" + bbFace + bbHover + ")";
         };
-                objTo.appendChild(appendFaceThumb("saber"));
-                objTo.appendChild(appendFaceThumb("hidden"));
-                objTo.appendChild(appendFaceThumb("sad"));
-                objTo.appendChild(appendFaceThumb("surprised"));
-                objTo.appendChild(appendFaceThumb("annoyed"));
-                objTo.appendChild(appendFaceThumb("sigh"));
-                objTo.appendChild(appendFaceThumb("blush"));
-                objTo.appendChild(appendFaceThumb("sweat"));
-                objTo.appendChild(appendFaceThumb("struggle"));
-                objTo.appendChild(appendFaceThumb("no"));
-                objTo.appendChild(appendFaceThumb("embarrassed"));
-                objTo.appendChild(appendFaceThumb("angry"));
-                objTo.appendChild(appendFaceThumb("smile"));
-                objTo.appendChild(appendFaceThumb("lecture"));
-                objTo.appendChild(appendFaceThumb("ashamed"));
-                objTo.appendChild(appendFaceThumb("anxious"));
-                objTo.appendChild(appendFaceThumb("skeptical"));
-                objTo.appendChild(appendFaceThumb("speechless"));
-                objTo.appendChild(appendFaceThumb("engarde"));
-                objTo.appendChild(appendFaceThumb("alter"));
-                objTo.appendChild(appendFaceThumb("ehehe"));
-                objTo.appendChild(appendFaceThumb("lion"));
-                objTo.appendChild(appendFaceThumb("hmm"));
-                objTo.appendChild(appendFaceThumb("wary"));
-                objTo.appendChild(appendFaceThumb("shocked"));
-                objTo.appendChild(appendFaceThumb("worried"));
-                objTo.appendChild(appendFaceThumb("bashful"));
-                objTo.appendChild(appendFaceThumb("casual"));
-                objTo.appendChild(appendFaceThumb("dayum"));
-                objTo.appendChild(appendFaceThumb("disappointed"));
-                objTo.appendChild(appendFaceThumb("flustered"));
-                objTo.appendChild(appendFaceThumb("furious"));
-                objTo.appendChild(appendFaceThumb("graceful"));
-                objTo.appendChild(appendFaceThumb("hurt"));
-                objTo.appendChild(appendFaceThumb("irritated"));
-                objTo.appendChild(appendFaceThumb("sad2"));
-                objTo.appendChild(appendFaceThumb("smile2"));
-                objTo.appendChild(appendFaceThumb("uninterested"));
-                objTo.appendChild(appendFaceThumb("wink"));
-                objTo.appendChild(appendFaceThumb("cry"));
+        objTo.appendChild(appendFaceThumb("saber"));
+        objTo.appendChild(appendFaceThumb("hidden"));
+        objTo.appendChild(appendFaceThumb("sad"));
+        objTo.appendChild(appendFaceThumb("surprised"));
+        objTo.appendChild(appendFaceThumb("annoyed"));
+        objTo.appendChild(appendFaceThumb("sigh"));
+        objTo.appendChild(appendFaceThumb("blush"));
+        objTo.appendChild(appendFaceThumb("sweat"));
+        objTo.appendChild(appendFaceThumb("struggle"));
+        objTo.appendChild(appendFaceThumb("no"));
+        objTo.appendChild(appendFaceThumb("embarrassed"));
+        objTo.appendChild(appendFaceThumb("angry"));
+        objTo.appendChild(appendFaceThumb("smile"));
+        objTo.appendChild(appendFaceThumb("lecture"));
+        objTo.appendChild(appendFaceThumb("shocked"));
+        objTo.appendChild(appendFaceThumb("worried"));
+        objTo.appendChild(appendFaceThumb("casual"));
+        objTo.appendChild(appendFaceThumb("bashful"));
+        objTo.appendChild(appendFaceThumb("smile2"));
+        objTo.appendChild(appendFaceThumb("dayum"));
+        objTo.appendChild(appendFaceThumb("flustered"));
+        objTo.appendChild(appendFaceThumb("graceful"));
+        objTo.appendChild(appendFaceThumb("uninterested"));
+        objTo.appendChild(appendFaceThumb("irritated"));
+        objTo.appendChild(appendFaceThumb("disappointed"));
+        objTo.appendChild(appendFaceThumb("moar"));
+        objTo.appendChild(appendFaceThumb("cry"));
+        objTo.appendChild(appendFaceThumb("wink"));
+        objTo.appendChild(appendFaceThumb("furious"));
+        objTo.appendChild(appendFaceThumb("hurt"));
+        objTo.appendChild(appendFaceThumb("anxious"));
+        objTo.appendChild(appendFaceThumb("ashamed"));
+        objTo.appendChild(appendFaceThumb("hmm"));
+        objTo.appendChild(appendFaceThumb("speechless"));
+        objTo.appendChild(appendFaceThumb("engarde"));
+        objTo.appendChild(appendFaceThumb("skeptical"));
+        objTo.appendChild(appendFaceThumb("ehehe"));
+        objTo.appendChild(appendFaceThumb("wary"));
+        objTo.appendChild(appendFaceThumb("sad2"));
+        objTo.appendChild(appendFaceThumb("saber2"));
+        objTo.appendChild(appendFaceThumb("solemn"));
+        objTo.appendChild(appendFaceThumb("shocked2"));
+        objTo.appendChild(appendFaceThumb("irked"));
+        objTo.appendChild(appendFaceThumb("angry2"));
+        objTo.appendChild(appendFaceThumb("annoyed2"));
+        objTo.appendChild(appendFaceThumb("lecture2"));
+        objTo.appendChild(appendFaceThumb("worried2"));
+        objTo.appendChild(appendFaceThumb("irritated2"));
+        objTo.appendChild(appendFaceThumb("sweat2"));
+        objTo.appendChild(appendFaceThumb("smirk"));
+        objTo.appendChild(appendFaceThumb("alter"));
     } else if (subreddit == "nisekoi") {
         faceIdChar = "#";
                 textBoxNr = 1;

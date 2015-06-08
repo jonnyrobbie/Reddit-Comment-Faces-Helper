@@ -22,7 +22,7 @@
 // @include        http*://*.reddit.com/r/saber/*
 // @include        http*://*.reddit.com/r/Nisekoi/*
 // @grant          none
-// @version        1.21.5
+// @version        1.21.6
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -1320,7 +1320,7 @@ function appendFaces() {
         thumbDialHeight = "180px";
         bbCodeFunction = function(bbFace, bbTitle){
             if (bbFace == "source" || bbFace == "album" || bbFace == "sourcensfw" || bbFace == "albumnsfw" || bbFace == "BBSource" || bbFace == "BBAlbum" || bbFace == "BBNSFW" || bbFace == "BBNSFWAlbum" || bbFace == "CASource" || bbFace == "CAAlbum" || bbFace == "CANSFW" || bbFace == "CANSFWAlbum" || bbFace == "CLSource" || bbFace == "CLAlbum" || bbFace == "CLNSFW" || bbFace == "CLNSFWAlbum" || bbFace == "CVSource" || bbFace == "CVAlbum" || bbFace == "CVNSFW" || bbFace == "CVNSFWAlbum" || bbFace == "DDSource" || bbFace == "DDAlbum" || bbFace == "DDNSFW" || bbFace == "DDNSFWAlbum" || bbFace == "AVSource" || bbFace == "AVAlbum" || bbFace == "AVNSFW" || bbFace == "AVNSFWAlbum" || bbFace == "SSSource" || bbFace == "SSAlbum" || bbFace == "SSNSFW" || bbFace == "SSNSFWAlbum" || bbFace == "OtherSource" || bbFace == "OtherAlbum" || bbFace == "OtherNSFW" || bbFace == "OtherNSFWAlbum") {
-                return "[](" + bbTitle + "#" + bbFace + ")";
+                return "[Source](" + bbTitle + "#" + bbFace + ")";
             }
             else {
                                 if (bbTitle == "") {
@@ -1678,6 +1678,8 @@ function appendFaces() {
         objTo.appendChild(appendFaceThumb("sweat2"));
         objTo.appendChild(appendFaceThumb("smirk"));
         objTo.appendChild(appendFaceThumb("alter"));
+        objTo.appendChild(appendFaceThumb("unamused"));
+        objTo.appendChild(appendFaceThumb("yesplease"));
     } else if (subreddit == "nisekoi") {
         faceIdChar = "#";
                 textBoxNr = 1;

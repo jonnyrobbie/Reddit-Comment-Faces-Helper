@@ -1,6 +1,6 @@
 Allows you to easily add comment faces from those subreddits:
 
-/r/awwnime, /r/pantsu, /r/Moescape, /r/TwoDeeArt, /r/Patchuu, /r/anime, /r/visualnovels, /r/kemonomimi, /r/manga, /r/SuperSonico, /r/KanMusu, /r/SchoolIdolFestival, /r/KanMusuNights, /r/LoveLive, /r/OneTrueIdol, /r/fatestaynight/, /r/saber/, /r/Nisekoi
+/r/awwnime, /r/pantsu, /r/Moescape, /r/TwoDeeArt, /r/Patchuu, /r/anime, /r/visualnovels, /r/kemonomimi, /r/manga, /r/SuperSonico, /r/KanMusu, /r/SchoolIdolFestival, /r/KanMusuNights, /r/LoveLive, /r/OneTrueIdol, /r/fatestaynight/, /r/saber/, /r/Nisekoi, /r/gamindustri, /r/OneTrueBiribiri
 
 Screenshots:
 

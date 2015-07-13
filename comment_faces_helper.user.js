@@ -23,6 +23,8 @@
 // @include		http*://*.reddit.com/r/Nisekoi/*
 // @include		http*://*.reddit.com/r/OneTrueBiribiri/*
 // @include		http*://*.reddit.com/r/gamindustri/*
+// @include		http*://*.reddit.com/r/Esdeath/*
+// @include		http*://*.reddit.com/r/OneTrueTohsaka/*
 // @grant		  none
 // @version		1.22.1
 // ==/UserScript==
@@ -33,13 +35,27 @@ var thumbDialWidth = "150px";
 var thumbDialHeight = "100px";
 var divAlreadyShown = false;
 var settingsAlreadyShown = false;
+var showSearch = false;
 var bbCodeFunction = null;
 var textBoxNr = 1;
 var selectedText = {
 	start: 0, lenghth: 0, boxIndex: 0
 };
+
+var storageSettings = {
+	top: Math.round((window.innerHeight-500)/2),
+	left: Math.round((window.innerWidth-842)/2),
+	width: 842,
+	height: 500,
+	bg: "white",
+	text: "#31363B",
+	high: "#F9401A",
+	colA: "#EFF0F1",
+	colB: "gray"
+};
 var loadingIcon = "data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH+GkNyZWF0ZWQgd2l0aCBhamF4bG9hZC5pbmZvACH5BAAKAAAAIf8LTkVUU0NBUEUyLjADAQAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQACgABACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkEAAoAAgAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkEAAoAAwAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkEAAoABAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQACgAFACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQACgAGACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAAKAAcALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==";
 var settingsIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIxSURBVHjapFO5iiJRFL3l1iIq7hi4NIgKIjSCiqCgDYbm/oCYGhqq/2Bi2KGZgaHgDAqtKEhj5pooiLuRuE+dh8oMMx3Ng1t16t5zXt165xZXKBTom5XlI3PHufvzX0twvV4pGo0Sf8/yUQW+P2e+wVVw75i4fD7/fJvP56PhcEgajYbUajVptVq63W60Xq9ps9mwu81mo1ar9exKdLlc8BD2er2k0+lIqVQy4mKxYBgLGBtarVaSSCTk8Xio3W6H2Sdgg1gs9t7v92m/35NAIGBku91OYrGYBTByqIEDLjTQis7nM3uLQqGg+XxOer2eXl5eqNFoUL1eZ7VQKESBQIAOhwPrBlwsaAX8JVssFm9IoigUCtEe4kc6neYQwMih9tgAGmixQSYej5PRaCSz2UwikYi63S6lUqn3h1XAyKEGDrjQQCs6nU40mUz+8PbR4r9y4MMRBLAwGAxyg8EgghOfTqdkMBhILpfT5+dnxOFwfEBULperbrf7VSqVsu5weLVaDXOQY2eQSCS45XLJhLvdjtnlcrkilUrlhgBGDjVwwIUG2qcLOByTycQcmM1mzDZMGxbaRU4mk7ENYOPDBaHf76dms1l1Op2vGKbRaMTIvV6Pjscjs/br64tZiNb5T6HtdkulUinCT+nHYxJ/8jZFgMfjMXu7SqWi32dktVoRf1as/U6nwzTPSQyHw1n+noPfb29vnMVigffsZ0EAI4caOODeNcQlk8n/+p1/CTAASVxppUgA6l4AAAAASUVORK5CYII=";
+var searchIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAsJJREFUeNqMk8tPE1EUxu+dmU6n04dDKVAaQBowBYq0RDAQGkOC0QRjoujCx14TV8Z/gLB0Z8CNunGJJhJdGd8pkKALSdVoIIISiOE1JWPbofO6cz2jYKR1wUm+nJm53/nlnjvnYkopcmJkZEKCdB10BpRAf+ID6DHo1vDwkIL+E9gBQHHSMQYqA1VH+9rUrvZwFYMxmv2yJk+9+uhRc6rsgAGSKQWwGHdIAEm39bZJxwcS3vqw3yu6GcyxGAUl0ROLH+Tymo3ktexQOj13v7+/VfsXwJimdsMX8oWi0TqfQahtWNQqGralgXSTmvButiebAi6BCzne0h0wur59vqalUdFMuq2bdhYK5YJG5FyRyADaBMCGSehGJNa47nhLARwhRmsR+3Nyzlx0u7DOscTEmGVZBiGLUKKZtqVqNkuFQMTxlgEMYxvxbqysyHqGYVDeK3gE6F90sZiFdcMmNLe6ZWxvbqmd4G0qAxQKyiKmP4nbJa0GRK4AB4i8AsvzHGZMixKT2Hq15EKzk59Nx1t2Boqy/vrTi5d1VUHGV1vB03AF7zkgsrUenmkOiGykRuLFoMd2Z5fnjjneMkAmM3V7ZX4+J8tfLzCsVQmFHvheD3L6rbd0vWJ8Yuxa12lZTFx+23f1Lk7uGSSnjXi8+2IslrgZaYr6U6dOLCSboiyPsHdy5v369Jt0ezH4UGg8rLnODp5DT54/UNezq6k7V2jm7yRijH2hULgnmUxd8vulXvgHLc4iIWQun1dmvjOPBlq7aUNHp4AGTzagp8+W1c2s9huCd+8CQDhIdaAQyLezwwJIrj2CUmI1utccR0JHN0Y9KRa9myaqotAUt9sLgCxISzvae2EwlmsSSFhAaEw3qADDhiKHRG/R0KY5tI8AeAEg487zCkAMzRZ+rGrIz9Nv+wKUQmDERtUcWfJxaPSXAAMAqY5Ou20jwNAAAAAASUVORK5CYII=";
 //elements section
 
 function initializeSettings() {
@@ -49,17 +65,23 @@ function initializeSettings() {
 	textSett["awwSettingsTop"].value = parseInt(awwFacedDialogObj.style.top, 10);
 	textSett["awwSettingsLeft"].value = parseInt(awwFacedDialogObj.style.left, 10);
 	
-	textSett["awwSettingsLeft"].style.color = "#000000";
-	textSett["awwSettingsTop"].style.color = "#000000";
-	textSett["awwSettingsHeight"].style.color = "#000000";
-	textSett["awwSettingsWidth"].style.color = "#000000";
+	textSett["awwSettingsLeft"].style.color = "#31363B";
+	textSett["awwSettingsTop"].style.color = "#31363B";
+	textSett["awwSettingsHeight"].style.color = "#31363B";
+	textSett["awwSettingsWidth"].style.color = "#31363B";
+	
+	textSett["awwSettingsBGCol"].value = storageSettings.bg;
+	textSett["awwSettingsTextCol"].value = storageSettings.text;
+	textSett["awwSettingsHighCol"].value = storageSettings.high;
+	textSett["awwSettingsACol"].value = storageSettings.colA;
+	textSett["awwSettingsBCol"].value = storageSettings.colB;
 	window.settingsWrapper.style.display = "inline";
 }
 
 function addSettRow(description, elemName) {
 	rowSett = document.createElement("tr");
 	spanSettWr = document.createElement("td");
-		spanSettWr.style.width = "180px";
+		spanSettWr.style.width = "170px";
 	textSettWr = document.createElement("td");
 		textSettWr.style.padding = "5px";
 	spanSett = document.createElement("span");
@@ -68,6 +90,8 @@ function addSettRow(description, elemName) {
 		textSett[elemName] = document.createElement("input");
 		textSett[elemName].type = "text";
 		textSett[elemName].id = elemName;
+		textSett[elemName].style.border = "1px solid lightgray";
+		textSett[elemName].style.height = "20px";
 		textSett[elemName].style.width = "100%";
 		textSett[elemName].oninput = function(){settingTextChange(this);};
 	spanSettWr.appendChild(spanSett);
@@ -89,11 +113,11 @@ function settingTextChange(txtBox){
 		throwErr = true;
 	}
 	else if (parseInt(textSett["awwSettingsTop"].value, 10) <= 0) {
-		textSett["awwSettingsTop"].style.color = "#FF0000";
+		textSett["awwSettingsTop"].style.color = "storageSettings.text";
 		throwErr = true;
 	}
 	else {
-		textSett["awwSettingsTop"].style.color = "#000000";
+		textSett["awwSettingsTop"].style.color = "#31363B";
 		textSett["awwSettingsTop"].value = parseInt(textSett["awwSettingsTop"].value, 10)
 	}
 	//check left
@@ -106,7 +130,7 @@ function settingTextChange(txtBox){
 		throwErr = true;
 	}
 	else {
-		textSett["awwSettingsLeft"].style.color = "#000000";
+		textSett["awwSettingsLeft"].style.color = "#31363B";
 	}
 	//check Width
 	if (isNormalInteger(textSett["awwSettingsWidth"].value, 10) == false) {
@@ -118,7 +142,7 @@ function settingTextChange(txtBox){
 		throwErr = true;
 	}
 	else {
-		textSett["awwSettingsWidth"].style.color = "#000000";
+		textSett["awwSettingsWidth"].style.color = "#31363B";
 	}
 	//check　height
 	if (isNormalInteger(textSett["awwSettingsHeight"].value, 10) == false) {
@@ -130,7 +154,7 @@ function settingTextChange(txtBox){
 		throwErr = true;
 	}
 	else {
-		textSett["awwSettingsHeight"].style.color = "#000000";
+		textSett["awwSettingsHeight"].style.color = "#31363B";
 	}
 	
 	if (parseInt(textSett["awwSettingsHeight"].value, 10) + parseInt(textSett["awwSettingsTop"].value, 10) > window.innerHeight) {
@@ -139,8 +163,8 @@ function settingTextChange(txtBox){
 		throwErr = true;
 	}
 	else if (throwErr == false) {
-		textSett["awwSettingsHeight"].style.color = "#000000";
-		textSett["awwSettingsTop"].style.color = "#000000";
+		textSett["awwSettingsHeight"].style.color = "#31363B";
+		textSett["awwSettingsTop"].style.color = "#31363B";
 	}
 	if (parseInt(textSett["awwSettingsWidth"].value, 10) + parseInt(textSett["awwSettingsLeft"].value, 10) > window.innerWidth) {
 		textSett["awwSettingsWidth"].style.color = "#FF0000";
@@ -148,11 +172,18 @@ function settingTextChange(txtBox){
 		throwErr = true;
 	}
 	else if (throwErr == false) {
-		textSett["awwSettingsWidth"].style.color = "#000000";
-		textSett["awwSettingsLeft"].style.color = "#000000";
+		textSett["awwSettingsWidth"].style.color = "#31363B";
+		textSett["awwSettingsLeft"].style.color = "#31363B";
 	}
 	
-	if (throwErr == false) {changeSize(parseInt(textSett["awwSettingsTop"].value, 10), parseInt(textSett["awwSettingsLeft"].value, 10), parseInt(textSett["awwSettingsWidth"].value, 10), parseInt(textSett["awwSettingsHeight"].value, 10));}
+	if (throwErr == false) {
+		storageSettings.bg = textSett["awwSettingsBGCol"].value;
+		storageSettings.text = textSett["awwSettingsTextCol"].value;
+		storageSettings.high = textSett["awwSettingsHighCol"].value;
+		storageSettings.colA = textSett["awwSettingsACol"].value;
+		storageSettings.colB = textSett["awwSettingsBCol"].value;
+		changeSize(parseInt(textSett["awwSettingsTop"].value, 10), parseInt(textSett["awwSettingsLeft"].value, 10), parseInt(textSett["awwSettingsWidth"].value, 10), parseInt(textSett["awwSettingsHeight"].value, 10));
+	}
 }
 
 function buildSettingsDiv() {
@@ -166,7 +197,7 @@ function buildSettingsDiv() {
 			settingsWrapper.style.height = "auto";
 			settingsWrapper.style.backgroundColor = "#FFFFFF";
 			settingsWrapper.style.boxShadow = "0px 0px 20px 2px #000000";
-			settingsWrapper.style.top = window.innerHeight/2 - 85 + "px";
+			settingsWrapper.style.top = window.innerHeight/2 - 173 + "px";
 			settingsWrapper.style.left = window.innerWidth/2 - 125 + "px";
 			settingsWrapper.style.padding = "10px";
 		//generating table
@@ -178,24 +209,35 @@ function buildSettingsDiv() {
 		settingsTable.appendChild(addSettRow("Dialog height (px): ", "awwSettingsHeight"));
 		settingsTable.appendChild(addSettRow("Position form left (px): ", "awwSettingsLeft"));
 		settingsTable.appendChild(addSettRow("Position from top (px): ", "awwSettingsTop"));
+		settingsTable.appendChild(addSettRow("Background color: ", "awwSettingsBGCol"));
+		settingsTable.appendChild(addSettRow("Text color: ", "awwSettingsTextCol"));
+		settingsTable.appendChild(addSettRow("Highlight color: ", "awwSettingsHighCol"));
+		settingsTable.appendChild(addSettRow("Button color: ", "awwSettingsACol"));
+		settingsTable.appendChild(addSettRow("Border color: ", "awwSettingsBCol"));
 		var settingsButtonWrapper = document.createElement("div");
+		
+		var settingsCancel = document.createElement("input");
+			settingsCancel.type = "button";
+			settingsCancel.value = "Cancel";
+			settingsCancel.style.margin = "5px";
+			settingsCancel.style.width = "70px";
+			settingsCancel.style.height = "28px";
+			settingsCancel.style.border = "1px solid gray";
+			settingsCancel.style.cssFloat = "right";
+			settingsCancel.onclick = function(){settingsWrapper.style.display = "none";}
+		settingsButtonWrapper.appendChild(settingsCancel);
 		
 		var settingsOK = document.createElement("input");
 			settingsOK.type = "button";
 			settingsOK.value = "OK";
 			settingsOK.style.margin = "5px";
 			settingsOK.style.width = "70px";
+			settingsOK.style.height = "28px";
+			settingsOK.style.border = "1px solid gray";
 			settingsOK.style.cssFloat = "right";
 			settingsOK.onclick = function(){okchangeSize();}
 		settingsButtonWrapper.appendChild(settingsOK);
-		var settingsCancel = document.createElement("input");
-			settingsCancel.type = "button";
-			settingsCancel.value = "Cancel";
-			settingsCancel.style.margin = "5px";
-			settingsCancel.style.width = "70px";
-			settingsCancel.style.cssFloat = "right";
-			settingsCancel.onclick = function(){settingsWrapper.style.display = "none";}
-		settingsButtonWrapper.appendChild(settingsCancel);
+		
 		settingsWrapper.appendChild(settingsTable);
 		settingsWrapper.appendChild(settingsButtonWrapper);
 		settingsAlreadyShown = true;
@@ -217,7 +259,7 @@ function okchangeSize() {
 		throwErr = true;
 	}
 	else {
-		textSett["awwSettingsTop"].style.color = "#000000";
+		textSett["awwSettingsTop"].style.color = "#31363B";
 	}
 	//check left
 	if (isNormalInteger(textSett["awwSettingsLeft"].value, 10) == false) {
@@ -231,7 +273,7 @@ function okchangeSize() {
 		throwErr = true;
 	}
 	else {
-		textSett["awwSettingsLeft"].style.color = "#000000";
+		textSett["awwSettingsLeft"].style.color = "#31363B";
 	}
 	//check Width
 	if (isNormalInteger(textSett["awwSettingsWidth"].value, 10) == false) {
@@ -245,7 +287,7 @@ function okchangeSize() {
 		throwErr = true;
 	}
 	else {
-		textSett["awwSettingsWidth"].style.color = "#000000";
+		textSett["awwSettingsWidth"].style.color = "#31363B";
 	}
 	//check　height
 	if (isNormalInteger(textSett["awwSettingsHeight"].value, 10) == false) {
@@ -259,7 +301,7 @@ function okchangeSize() {
 		throwErr = true;
 	}
 	else {
-		textSett["awwSettingsHeight"].style.color = "#000000";
+		textSett["awwSettingsHeight"].style.color = "#31363B";
 	}
 	if (parseInt(textSett["awwSettingsHeight"].value, 10) + parseInt(textSett["awwSettingsTop"].value, 10) > window.innerHeight) {
 		errorMsg = errorMsg + "Dialog cannot be out of borders.\n";
@@ -268,8 +310,8 @@ function okchangeSize() {
 		throwErr = true;
 	}
 	else if (throwErr == false) {
-		textSett["awwSettingsHeight"].style.color = "#000000";
-		textSett["awwSettingsTop"].style.color = "#000000";
+		textSett["awwSettingsHeight"].style.color = "#31363B";
+		textSett["awwSettingsTop"].style.color = "#31363B";
 	}
 	if (parseInt(textSett["awwSettingsWidth"].value, 10) + parseInt(textSett["awwSettingsLeft"].value, 10) > window.innerWidth) {
 		errorMsg = errorMsg + "Dialog cannot be out of borders.\n";
@@ -278,15 +320,22 @@ function okchangeSize() {
 		throwErr = true;
 	}
 	else if (throwErr == false) {
-		textSett["awwSettingsWidth"].style.color = "#000000";
-		textSett["awwSettingsLeft"].style.color = "#000000";
+		textSett["awwSettingsWidth"].style.color = "#31363B";
+		textSett["awwSettingsLeft"].style.color = "#31363B";
 	}
 	if (throwErr == false) {
-		changeSize(parseInt(textSett["awwSettingsTop"].value, 10), parseInt(textSett["awwSettingsLeft"].value, 10), parseInt(textSett["awwSettingsWidth"].value, 10), parseInt(textSett["awwSettingsHeight"].value, 10));
-		localStorage.setItem("aww2_width", parseInt(textSett["awwSettingsWidth"].value, 10));
-		localStorage.setItem("aww2_height", parseInt(textSett["awwSettingsHeight"].value, 10));
-		localStorage.setItem("aww2_top", parseInt(textSett["awwSettingsTop"].value, 10));
-		localStorage.setItem("aww2_left", parseInt(textSett["awwSettingsLeft"].value, 10));
+		changeSize(parseInt(textSett["awwSettingsTop"].value, 10), parseInt(textSett["awwSettingsLeft"].value, 10), parseInt(textSett["awwSettingsWidth"].value, 10), parseInt(textSett["awwSettingsHeight"].value, 10), textSett["awwSettingsBGCol"].value, textSett["awwSettingsTextCol"].value, textSett["awwSettingsHighCol"].value, textSett["awwSettingsACol"].value, textSett["awwSettingsBCol"].value);
+		//SET
+		setStorage("width", parseInt(textSett["awwSettingsWidth"].value, 10));
+		setStorage("height", parseInt(textSett["awwSettingsHeight"].value, 10));
+		setStorage("top", parseInt(textSett["awwSettingsTop"].value, 10));
+		setStorage("left", parseInt(textSett["awwSettingsLeft"].value, 10));
+		
+		setStorage("bg", textSett["awwSettingsBGCol"].value);
+		setStorage("text", textSett["awwSettingsTextCol"].value);
+		setStorage("high", textSett["awwSettingsHighCol"].value);
+		setStorage("colA", textSett["awwSettingsACol"].value);
+		setStorage("colB", textSett["awwSettingsBCol"].value);
 		settingsWrapper.style.display = "none";
 	}
 	else {
@@ -299,21 +348,74 @@ function changeSize(top, left, width, height){
 	console.log("changing size...");
 	if (width < 350) width = 350;
 	if (height < 100) height = 100;
-	width = Math.floor((parseInt(width, 10) - 37)/(parseInt(thumbDialWidth, 10)+10))*(parseInt(thumbDialWidth, 10)+10)+37;
+	width = Math.floor((parseInt(width, 10) - (20+getScrollBarWidth()))/(parseInt(thumbDialWidth, 10)+10))*(parseInt(thumbDialWidth, 10)+10)+40;
 	awwFacedDialogObj.style.top = top + "px";
 	awwFacedDialogObj.style.left = left + "px";
 	awwFacedDialogObj.style.width = width + "px";
 	awwFacedDialogObj.style.height = height + "px";
-	tableWrap.style.height = (height - 72) + "px";
+	tableWrap.style.height = (height - (82+(showSearch*22))) + "px";
+	searchWrap.style.display = showSearch ? "block" : "none";
 	if (textBoxNr == 1) {
-		titleFace.style.width = (width - 295) + "px";
+		titleFace.style.width = (width - 323) + "px";
 	} else if (textBoxNr == 3) {
-		titleFace.style.width = ((width - 291)/3)-12 + "px";
-		upperCaption.style.width = ((width - 291)/3)-12 + "px";
-		lowerCaption.style.width = ((width - 291)/3)-12 + "px";
+		titleFace.style.width = ((width - 318)/3)-12 + "px";
+		upperCaption.style.width = ((width - 318)/3)-12 + "px";
+		lowerCaption.style.width = ((width - 318)/3)-12 + "px";
 		upperCaption.style.display = "inline";
 		lowerCaption.style.display = "inline";
 	}
+	awwFacedDialogObj.style.backgroundColor = storageSettings.bg;
+	titleFace.style.backgroundColor = storageSettings.bg;
+	upperCaption.style.backgroundColor = storageSettings.bg;
+	lowerCaption.style.backgroundColor = storageSettings.bg;
+	searchBox.style.backgroundColor = storageSettings.bg;
+	
+	titleFace.style.color = storageSettings.text;
+	upperCaption.style.color = storageSettings.text;
+	lowerCaption.style.color = storageSettings.text;
+	searchBox.style.color = storageSettings.text;
+	addFaceB.style.color = storageSettings.text;
+	cancel.style.color = storageSettings.text;
+	
+	addFaceB.style.backgroundColor = storageSettings.colA;
+	cancel.style.backgroundColor = storageSettings.colA;
+	
+	titleFace.style.borderColor = storageSettings.colB;
+	upperCaption.style.borderColor = storageSettings.colB;
+	lowerCaption.style.borderColor = storageSettings.colB;
+	searchBox.style.borderColor = storageSettings.colB;
+	addFaceB.style.borderColor = storageSettings.colB;
+	cancel.style.borderColor = storageSettings.colB;
+	wikiLink.style.color = storageSettings.colB;
+	
+	//textSett.style.backgroundColor = storageSettings.bg;
+}
+
+function getScrollBarWidth() {
+	//http://www.alexandre-gomes.com/?p=115
+  var inner = document.createElement('p');
+  inner.style.width = "100%";
+  inner.style.height = "200px";
+
+  var outer = document.createElement('div');
+  outer.style.position = "absolute";
+  outer.style.top = "0px";
+  outer.style.left = "0px";
+  outer.style.visibility = "hidden";
+  outer.style.width = "200px";
+  outer.style.height = "150px";
+  outer.style.overflow = "hidden";
+  outer.appendChild (inner);
+
+  document.body.appendChild (outer);
+  var w1 = inner.offsetWidth;
+  outer.style.overflow = 'scroll';
+  var w2 = inner.offsetWidth;
+  if (w1 == w2) w2 = outer.clientWidth;
+
+  document.body.removeChild (outer);
+
+  return (w1 - w2);
 }
 
 function createFacesDiv() {
@@ -322,54 +424,85 @@ function createFacesDiv() {
 	window.awwFacedDialogObj = document.createElement("div");
 	window.tableWrap = document.createElement("div");
 	var controls = document.createElement("div");
+	controls.style.margin = "10px";
+	controls.style.cssFloat = "left";
+	window.searchWrap = document.createElement("div");
+	searchWrap.style.margin = "0px 10px";
+	searchWrap.style.cssFloat = "right";
 	tableWrap.id = "awwFacesTableWrapper";
 	tableWrap.style.overflowY = "scroll";
-	tableWrap.style.margin = "10px 10px 5px 10px";
+	tableWrap.style.margin = "10px";
 	tableWrap.style.padding = "10px 0px";
 	awwFacedDialogObj.appendChild(tableWrap);
+	
+	window.searchBox = document.createElement("input");
+	searchBox.type = "text";
+	searchBox.id = "searchBoxId";
+	searchBox.style.margin = "0px";
+	searchBox.placeholder = "Search face...";
+	searchBox.style.height = "20px";
+	searchBox.style.width = "200px";
+	searchBox.style.paddingLeft = "3px";
+	searchBox.style.border = "1px solid lightgray";
+	searchBox.style.cssFloat = "right";
+	searchBox.oninput = function(){searchFilter(this);};
+	searchWrap.appendChild(searchBox);
+	awwFacedDialogObj.appendChild(searchWrap);
 	
 	window.titleFace = document.createElement("input");
 	titleFace.type = "text";
 	titleFace.id = "awwFaceId";
-	titleFace.style.margin = "5px 5px 10px 10px";
+	titleFace.style.margin = "0px 5px 0px 0px";
 	titleFace.placeholder = "Mouse-over text";
 	titleFace.style.height = "20px";
 	titleFace.style.paddingLeft = "3px";
+	titleFace.style.border = "1px solid lightgray";
+	titleFace.style.cssFloat = "left";
 	controls.appendChild(titleFace);
 	
 	window.upperCaption = document.createElement("input");
 	upperCaption.type = "text";
 	upperCaption.id = "upperCaption";
-	upperCaption.style.margin = "5px 5px 10px 5px";
+	upperCaption.style.margin = "0px 5px 0px 5px";
 	upperCaption.placeholder = "Top caption";
 	upperCaption.style.height = "20px";
 	upperCaption.style.paddingLeft = "3px";
+	upperCaption.style.border = "1px solid lightgray";
+	upperCaption.style.cssFloat = "left";
 	upperCaption.style.display = "none";
 	controls.appendChild(upperCaption);
 	
 	window.lowerCaption = document.createElement("input");
 	lowerCaption.type = "text";
 	lowerCaption.id = "lowerCaption";
-	lowerCaption.style.margin = "5px 5px 10px 5px";
+	lowerCaption.style.margin = "0px 5px 0px 5px";
 	lowerCaption.placeholder = "Bottom caption";
 	lowerCaption.style.height = "20px";
 	lowerCaption.style.paddingLeft = "3px";
+	lowerCaption.style.border = "1px solid lightgray";
+	lowerCaption.style.cssFloat = "left";
 	lowerCaption.style.display = "none";
 	controls.appendChild(lowerCaption);
 	
-	var addFaceB = document.createElement("input");
+	window.addFaceB = document.createElement("input");
 	addFaceB.type = "button";
 	addFaceB.value = "Add face"
-	addFaceB.style.margin = "2px 5px 7px 5px";
+	addFaceB.style.margin = "-3px 5px";
+	addFaceB.style.border = "1px solid gray";
+	addFaceB.style.height = "28px";
+	addFaceB.style.cssFloat = "left";
 	addFaceB.style.width = "80px";
 	addFaceB.onclick = function(){addFace();return false;};
 	addFaceB.style.padding = "2px";
 	controls.appendChild(addFaceB);
 	
-	var cancel = document.createElement("input");
+	window.cancel = document.createElement("input");
 	cancel.type = "button";
 	cancel.value = "Cancel"
-	cancel.style.margin = "2px 5px 7px 5px";
+	cancel.style.margin = "-3px 5px";
+	cancel.style.border = "1px solid gray";
+	cancel.style.height = "28px";
+	cancel.style.cssFloat = "left";
 	cancel.style.width = "80px";
 	cancel.onclick = function(){hideSelect()};
 	cancel.style.padding = "2px";
@@ -378,17 +511,34 @@ function createFacesDiv() {
 	window.wikiLink = document.createElement("a");
 	wikiLink.href = "http://www.reddit.com/r/awwnime/wiki/commentfaces";
 	wikiLink.innerHTML = "Faces wiki";
-	wikiLink.style.margin = "9px 5px 14px 5px";
+	wikiLink.style.margin = "5px 5px";
+	wikiLink.style.height = "12px";
+	wikiLink.style.width = "55px";
+	wikiLink.style.cssFloat = "left";
 	controls.appendChild(wikiLink);
+	
+	var search = document.createElement("img");
+	search.src = searchIcon;
+	search.alt = "search";
+	search.style.margin = "3px 5px";
+	search.style.cssFloat = "left";
+	search.style.cursor = "pointer";
+	//search.style.position = "absolute";
+	search.title = "Search faces...";
+	search.onclick = function(){toggleSearch();}
+	controls.appendChild(search);
 	
 	var settings = document.createElement("img");
 	settings.src = settingsIcon;
 	settings.alt = "settings";
-	settings.style.margin = "8px 10px 13px 5px";
-	settings.style.position = "absolute";
+	settings.style.margin = "3px 0px 3px 5px";
+	settings.style.cssFloat = "left";
+	settings.style.cursor = "pointer";
+	//settings.style.position = "absolute";
 	settings.title = "Settings...";
 	settings.onclick = function(){initializeSettings();}
 	controls.appendChild(settings);
+	buildSettingsDiv();
 	
 	awwFacedDialogObj.appendChild(controls)
 	objTo.appendChild(awwFacedDialogObj);
@@ -401,7 +551,28 @@ function createFacesDiv() {
 	awwFacedDialogObj.style.boxShadow = "0px 0px 20px 2px #000000";
 	awwFacedDialogObj.style.zIndex = "200";
 	appendFaces();
+	console.log("scrollbar width: " + getScrollBarWidth());
 	divAlreadyShown = true;
+}
+
+function toggleSearch() {
+	showSearch = !showSearch;
+	searchBox.value = "";
+	searchFilter(searchBox);
+	//GET
+	changeSize(getStorage("top"), getStorage("left"), getStorage("width"), getStorage("height"));
+}
+
+function searchFilter(box) {
+	searchThumbs = tableWrap.getElementsByTagName("div");
+	for (i=0; i<searchThumbs.length; i++) {
+		console.log(box.value);
+		if (searchThumbs[i].getElementsByTagName("a")[0].id.toLowerCase().search(box.value.toLowerCase()) == -1) {
+			searchThumbs[i].style.display = "none";
+		} else {
+			searchThumbs[i].style.display = "block";
+		}
+	}
 }
 
 function addFace() {
@@ -473,7 +644,7 @@ function faceClick(faceId) {
 	for (var i = 0; i < allFaces.length; i++) {
 		allFaces[i].style.boxShadow = "";
 	}
-	document.getElementById(faceId).style.boxShadow = "0px 0px 20px 10px #F9401A";
+	document.getElementById(faceId).style.boxShadow = "0px 0px 20px 10px " + storageSettings.high;
 	selectedFace = faceId;
 	//alert(faceId);
 }
@@ -485,7 +656,7 @@ function appendFaces() {
 	if (subreddit == "awwnime") {
 		faceIdChar = "#";
 		wikiLink.href = "http://www.reddit.com/r/awwnime/wiki/commentfaces";
-		thumbDialWidth = "150px";
+		thumbDialWidth = "165px";
 		thumbDialHeight = "115px";
 		bbCodeFunction = function(bbFace, bbTitle){
 			if (bbTitle == "") {
@@ -1912,6 +2083,62 @@ function appendFaces() {
 			objTo.appendChild(appendFaceThumb("railgun"));
 			objTo.appendChild(appendFaceThumb("right"));
 			objTo.appendChild(appendFaceThumb("worried"));
+	} else if (subreddit == "onetruetohsaka") {
+		faceIdChar = "#";
+		textBoxNr = 1;
+		wikiLink.href = "https://www.reddit.com/r/OneTrueTohsaka";
+		thumbDialWidth = "160px";
+		thumbDialHeight = "160px";
+		bbCodeFunction = function(bbFace, bbTitle){
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
+		};
+			objTo.appendChild(appendFaceThumb("agitated"));
+			objTo.appendChild(appendFaceThumb("angry"));
+			objTo.appendChild(appendFaceThumb("bigblush"));
+			objTo.appendChild(appendFaceThumb("bigglare"));
+			objTo.appendChild(appendFaceThumb("bigsmile"));
+			objTo.appendChild(appendFaceThumb("blush"));
+			objTo.appendChild(appendFaceThumb("carefree"));
+			objTo.appendChild(appendFaceThumb("embarrased"));
+			objTo.appendChild(appendFaceThumb("enraged"));
+			objTo.appendChild(appendFaceThumb("facepalm"));
+			objTo.appendChild(appendFaceThumb("frown"));
+			objTo.appendChild(appendFaceThumb("ignore"));
+			objTo.appendChild(appendFaceThumb("nervous"));
+			objTo.appendChild(appendFaceThumb("ponder"));
+			objTo.appendChild(appendFaceThumb("serious"));
+			objTo.appendChild(appendFaceThumb("sigh"));
+			objTo.appendChild(appendFaceThumb("hug"));
+			objTo.appendChild(appendFaceThumb("stop"));
+			objTo.appendChild(appendFaceThumb("straightface"));
+			objTo.appendChild(appendFaceThumb("suprised"));
+	} else if (subreddit == "esdeath") {
+		faceIdChar = "#";
+		textBoxNr = 1;
+		wikiLink.href = "https://www.reddit.com/r/Esdeath/comments/2iebyh/comment_faces/";
+		thumbDialWidth = "160px";
+		thumbDialHeight = "160px";
+		bbCodeFunction = function(bbFace, bbTitle){
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
+		};
+			objTo.appendChild(appendFaceThumb("pleased"));
+			objTo.appendChild(appendFaceThumb("followme"));
+			objTo.appendChild(appendFaceThumb("smug"));
+			objTo.appendChild(appendFaceThumb("grin"));
+			objTo.appendChild(appendFaceThumb("notamused"));
+			objTo.appendChild(appendFaceThumb("hug"));
+			objTo.appendChild(appendFaceThumb("blush"));
+			objTo.appendChild(appendFaceThumb("kiss"));
+			objTo.appendChild(appendFaceThumb("blush2"));
+			objTo.appendChild(appendFaceThumb("listenhere"));
 	} else if (subreddit == "gamindustri") {
 		faceIdChar = "#";
 		textBoxNr = 3;
@@ -1947,6 +2174,23 @@ function hideSelect() {
 	awwFacedDialogObj.style.display = "none";
 }
 
+function getStorage(key) {
+	if (localStorage.getItem("commentfaces_settings") == null) {
+		localStorage.setItem("commentfaces_settings", JSON.stringify(storageSettings));
+	}
+	storageSettings = JSON.parse(localStorage.getItem("commentfaces_settings"));
+	return storageSettings[key];
+}
+
+function setStorage(key, value) {
+	if (localStorage.getItem("commentfaces_settings") == null) {
+		localStorage.setItem("commentfaces_settings", JSON.stringify(storageSettings));
+	}
+	storageSettings = JSON.parse(localStorage.getItem("commentfaces_settings"));
+	storageSettings[key] = value;
+	localStorage.setItem("commentfaces_settings", JSON.stringify(storageSettings));
+}
+
 function showSelect(thisLink) {
 	var inputTextFields = document.getElementsByTagName("textarea");
 	for (var i = 0; i < inputTextFields.length; i++) {
@@ -1956,15 +2200,15 @@ function showSelect(thisLink) {
 	selectedText.length = inputTextFields[selectedText.boxIndex].selectionEnd - inputTextFields[selectedText.boxIndex].selectionStart;
 	console.log("Box index: " + selectedText.boxIndex + ", selection start: " + selectedText.start + ", selection length: " + selectedText.length);
 	if (divAlreadyShown == false) createFacesDiv();
-	if (localStorage.getItem("aww2_top") == null || localStorage.getItem("aww2_left") == null || localStorage.getItem("aww2_width") == null || localStorage.getItem("aww2_height") == null) {
+	/*if (localStorage.getItem("aww2_top") == null || localStorage.getItem("aww2_left") == null || localStorage.getItem("aww2_width") == null || localStorage.getItem("aww2_height") == null) {
 		localStorage.setItem("aww2_width", 842);
 		localStorage.setItem("aww2_height", 500);
 		localStorage.setItem("aww2_top", Math.round((window.innerHeight-500)/2));
 		localStorage.setItem("aww2_left", Math.round((window.innerWidth-842)/2));
 		changeSize(localStorage.getItem("aww2_top"), localStorage.getItem("aww2_left"), localStorage.getItem("aww2_width"), localStorage.getItem("aww2_height"));
-	}
-	else if (((parseInt(localStorage.getItem("aww2_top"), 10) + parseInt(localStorage.getItem("aww2_height"), 10)) < window.innerHeight) && ((parseInt(localStorage.getItem("aww2_left"), 10) + parseInt(localStorage.getItem("aww2_width"), 10)) < window.innerWidth)) {
-		changeSize(localStorage.getItem("aww2_top"), localStorage.getItem("aww2_left"), localStorage.getItem("aww2_width"), localStorage.getItem("aww2_height"));
+	}*/
+	if (((getStorage("top") + getStorage("height")) < window.innerHeight) && ((getStorage("left") + getStorage("width")) < window.innerWidth)) {
+		changeSize(getStorage("top"), getStorage("left"), getStorage("width"), getStorage("height"));
 	}
 	else {
 		console.log("Faces dialog cannot fit into the browser window. Temporarily sizing and moving the dialog...");

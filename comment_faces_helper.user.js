@@ -26,7 +26,7 @@
 // @include		http*://*.reddit.com/r/Esdeath/*
 // @include		http*://*.reddit.com/r/OneTrueTohsaka/*
 // @grant		  none
-// @version		1.22.1
+// @version		1.23
 // ==/UserScript==
 		
 var selectedFace = "";

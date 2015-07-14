@@ -26,7 +26,7 @@
 // @include		http*://*.reddit.com/r/Esdeath/*
 // @include		http*://*.reddit.com/r/OneTrueTohsaka/*
 // @grant		  none
-// @version		1.23
+// @version		1.23.1
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -2139,6 +2139,15 @@ function appendFaces() {
 			objTo.appendChild(appendFaceThumb("kiss"));
 			objTo.appendChild(appendFaceThumb("blush2"));
 			objTo.appendChild(appendFaceThumb("listenhere"));
+			objTo.appendChild(appendFaceThumb("hmm"));
+			objTo.appendChild(appendFaceThumb("shocked"));
+			objTo.appendChild(appendFaceThumb("forgiveness"));
+			objTo.appendChild(appendFaceThumb("stabby"));
+			objTo.appendChild(appendFaceThumb("notamused2"));
+			objTo.appendChild(appendFaceThumb("yadonefuckedup"));
+			objTo.appendChild(appendFaceThumb("lol"));
+			objTo.appendChild(appendFaceThumb("sad"));
+			
 	} else if (subreddit == "gamindustri") {
 		faceIdChar = "#";
 		textBoxNr = 3;

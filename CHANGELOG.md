@@ -14,7 +14,7 @@
  - support for /r/gamindustri and /r/OneTrueBiribiri
 - **1.21.2**-**1.21.6**
  - slight changes to awwnime, Saber, KanMusiNights and KanMusu
-- **1.21.1
+- **1.21.1**
  - updated awwnime, moescape and twodeeart
 - **1.19**, **1.19.1**, **1.20**, **1.21**
  - support for /r/fatestaynight, /r/saber and Nisekoi

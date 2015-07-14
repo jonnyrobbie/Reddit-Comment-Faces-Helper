@@ -10,7 +10,7 @@
 
 #Changelog:
 
-[https://github.com/jonnyrobbie/Reddit-Comment-Faces-Helper/blob/master/CHANGELOG](https://github.com/jonnyrobbie/Reddit-Comment-Faces-Helper/blob/master/CHANGELOG)
+[https://github.com/jonnyrobbie/Reddit-Comment-Faces-Helper/blob/master/CHANGELOG.md](https://github.com/jonnyrobbie/Reddit-Comment-Faces-Helper/blob/master/CHANGELOG.md)
 
 ---
 

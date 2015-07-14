@@ -16,6 +16,6 @@
 
 Reddit discussion thread: [http://www.reddit.com/r/awwnime/comments/1ft846/metacomment_faces_with_ease/](http://www.reddit.com/r/awwnime/comments/1ft846/metacomment_faces_with_ease/)
 
-The fastest way to contact me is through [reddit PM](https://www.reddit.com/message/compose/?to=rtargaryen)
+The fastest way to contact me is through [reddit PM](https://www.reddit.com/message/compose/?to=JonnyRobbie)
 
 In case of any problems, suggestions or anything else, PM me on reddit /u/JonnyRobbie

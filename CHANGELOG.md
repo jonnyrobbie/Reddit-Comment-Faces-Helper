@@ -1,5 +1,6 @@
 #Changelog:
-
+- **1.23.2**
+ - update /r/anime
 - **1.23.1**
  - more to /r/Esdeath
 - **1.23**

@@ -1,8 +1,6 @@
 #Changelog:
-- **1.23.2**
- - update /r/anime
-- **1.23.1**
- - more to /r/Esdeath
+- **1.23.1**-**1.23.3
+ - more to /r/Esdeath, /r/anime, /r/gamindustri
 - **1.23**
  - like totally big update
  - new feature: search/filter through faces

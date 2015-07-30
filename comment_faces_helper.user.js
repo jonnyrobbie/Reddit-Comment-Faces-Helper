@@ -26,7 +26,7 @@
 // @include		http*://*.reddit.com/r/Esdeath/*
 // @include		http*://*.reddit.com/r/OneTrueTohsaka/*
 // @grant		  none
-// @version		1.23.2
+// @version		1.23.3
 // ==/UserScript==
 
 /*
@@ -2154,6 +2154,22 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("smile"));
 		objTo.appendChild(appendFaceThumb("smirk"));
 		objTo.appendChild(appendFaceThumb("wink"));
+		objTo.appendChild(appendFaceThumb("awman"));
+		objTo.appendChild(appendFaceThumb("bear"));
+		objTo.appendChild(appendFaceThumb("chu"));
+		objTo.appendChild(appendFaceThumb("crying"));
+		objTo.appendChild(appendFaceThumb("eh"));
+		objTo.appendChild(appendFaceThumb("er"));
+		objTo.appendChild(appendFaceThumb("holdme"));
+		objTo.appendChild(appendFaceThumb("peace"));
+		objTo.appendChild(appendFaceThumb("rage"));
+		objTo.appendChild(appendFaceThumb("raspberry"));
+		objTo.appendChild(appendFaceThumb("really"));
+		objTo.appendChild(appendFaceThumb("saywhat"));
+		objTo.appendChild(appendFaceThumb("shock2"));
+		objTo.appendChild(appendFaceThumb("sigh"));
+		objTo.appendChild(appendFaceThumb("trouble"));
+		objTo.appendChild(appendFaceThumb("uhoh"));
 	}
 }
 

@@ -26,7 +26,7 @@
 // @include		http*://*.reddit.com/r/Esdeath/*
 // @include		http*://*.reddit.com/r/OneTrueTohsaka/*
 // @grant		  none
-// @version		1.23.3
+// @version		1.23.4
 // ==/UserScript==
 
 /*

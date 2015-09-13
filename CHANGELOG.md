@@ -1,4 +1,6 @@
 #Changelog:
+- **1.23.4**
+ - fixed a language issue
 - **1.23.1**-**1.23.3**
  - more to /r/Esdeath, /r/anime, /r/gamindustri
 - **1.23**

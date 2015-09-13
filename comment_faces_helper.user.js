@@ -2242,19 +2242,19 @@ var showSelectFunction = function(){showSelect(this);};
 function appendListenerToLink() {
 	console.log("Appending listener to 'Add Faces' links");
 	var links = document.getElementsByClassName("addFaceLink");
-	console.log("Found " + links.length + "'add' link(s)");
+	console.log("Found " + links.length + " 'add' link(s)");
 	for (var i = 0; i < links.length; i++) {
 		links[i].addEventListener("click", showSelectFunction);
 	}
 }
+
 function appendListenerToReply() {
 	console.log("Appending listener to 'reply' links");
-	var links = document.getElementsByTagName("a");
+	var links = document.getElementsByClassName("reply-button");
+	console.log("reply-button length: " + links.length);
 	for (var i = 0; i < links.length; i++) {
-		if (links[i].innerHTML == "reply") {
-			console.log("appending listener to reply...")
-			links[i].addEventListener("click", function(){appendListenerToLink();});
-		}
+		console.log("appending listener to reply...")
+		links[i].childNodes[0].addEventListener("click", function(){appendListenerToLink();});
 	}
 }
 

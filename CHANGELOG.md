@@ -1,5 +1,5 @@
 #Changelog:
-- **1.23.1**-**1.23.3
+- **1.23.1**-**1.23.3**
  - more to /r/Esdeath, /r/anime, /r/gamindustri
 - **1.23**
  - like totally big update

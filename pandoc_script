@@ -1,0 +1,4 @@
+#!/bin/bash
+pandoc -r markdown -w html -o README.md.html README.md
+pandoc -r markdown -w html -o CHANGELOG.md.html CHANGELOG.md
+echo "Converted successfully"

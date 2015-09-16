@@ -26,25 +26,8 @@
 // @include		http*://*.reddit.com/r/Esdeath/*
 // @include		http*://*.reddit.com/r/OneTrueTohsaka/*
 // @grant		  none
-// @version		1.23.4
+// @version		1.23.5
 // ==/UserScript==
-
-/*
- * KATE Find and replace Regex to mine faces from css:
- * 1) FIND:
- * 		\"\#([a-zA-Z0-9]+)\"
- * 	  REPLACE WITH:
- * 		\n$$$\1\n
- * 2) FIND:
- * 		^(?!\$\$\$).+
- * 	  DELETE
- * 3) VIM SORT AND REMOVE DUPLICATES (http://vim.wikia.com/wiki/Sort_lines):
- * 		:%sort u
- * 4) FIND:
- * 		\$\$\$([a-zA-Z0-9]+)\n
- * 	  REPLACE WITH:
- * 		objTo\.appendChild\(appendFaceThumb\(\"\1\"\)\)\;\n
-*/
 		
 var selectedFace = "";
 var faceIdChar = "";
@@ -1082,14 +1065,15 @@ function appendFaces() {
 			}
 			return "[" + bbCapt + "](#" + bbFace + bbHover + ")";
 		};
-		objTo.appendChild(appendFaceThumb("SPORTS"));
-		objTo.appendChild(appendFaceThumb("WRYYY"));
 		objTo.appendChild(appendFaceThumb("abashedbestia"));
 		objTo.appendChild(appendFaceThumb("akyuusqueel"));
 		objTo.appendChild(appendFaceThumb("amagamiplayfulbite"));
 		objTo.appendChild(appendFaceThumb("anko"));
 		objTo.appendChild(appendFaceThumb("annoyedkirito"));
 		objTo.appendChild(appendFaceThumb("arakawascream"));
+		objTo.appendChild(appendFaceThumb("araragi-1"));
+		objTo.appendChild(appendFaceThumb("araragi-2"));
+		objTo.appendChild(appendFaceThumb("asuka-shouting"));
 		objTo.appendChild(appendFaceThumb("asunanotamused"));
 		objTo.appendChild(appendFaceThumb("badassmugi"));
 		objTo.appendChild(appendFaceThumb("bakaa"));
@@ -1103,32 +1087,24 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("bestiathumbsup"));
 		objTo.appendChild(appendFaceThumb("biribiricat"));
 		objTo.appendChild(appendFaceThumb("bishoujo"));
+		objTo.appendChild(appendFaceThumb("blank-stare"));
+		objTo.appendChild(appendFaceThumb("bot-chan"));
 		objTo.appendChild(appendFaceThumb("breakingnews"));
 		objTo.appendChild(appendFaceThumb("brofist"));
 		objTo.appendChild(appendFaceThumb("bunnyisla"));
 		objTo.appendChild(appendFaceThumb("cat1"));
 		objTo.appendChild(appendFaceThumb("cat2"));
-		objTo.appendChild(appendFaceThumb("chaika"));
-		objTo.appendChild(appendFaceThumb("charlming"));
-		objTo.appendChild(appendFaceThumb("charlpumped"));
-		objTo.appendChild(appendFaceThumb("charlstunned"));
-		objTo.appendChild(appendFaceThumb("chitogheh"));
-		objTo.appendChild(appendFaceThumb("chiyomad"));
-		objTo.appendChild(appendFaceThumb("cokemasterrace"));
-		objTo.appendChild(appendFaceThumb("comewithmeifyouwanttobebestgirl"));
 		objTo.appendChild(appendFaceThumb("confused"));
-		objTo.appendChild(appendFaceThumb("containrage"));
 		objTo.appendChild(appendFaceThumb("crazedlaugh"));
-		objTo.appendChild(appendFaceThumb("crazyhatgirl"));
-		objTo.appendChild(appendFaceThumb("crazyhatgirlexcited"));
 		objTo.appendChild(appendFaceThumb("cry"));
 		objTo.appendChild(appendFaceThumb("csikon"));
 		objTo.appendChild(appendFaceThumb("cup1"));
 		objTo.appendChild(appendFaceThumb("cup2"));
-		objTo.appendChild(appendFaceThumb("curious"));
+		objTo.appendChild(appendFaceThumb("dead-eyed-stare"));
 		objTo.appendChild(appendFaceThumb("deadpan"));
 		objTo.appendChild(appendFaceThumb("dealwithit"));
 		objTo.appendChild(appendFaceThumb("definitelynotamused"));
+		objTo.appendChild(appendFaceThumb("deko-cry"));
 		objTo.appendChild(appendFaceThumb("dekotableflip"));
 		objTo.appendChild(appendFaceThumb("deranosebleed"));
 		objTo.appendChild(appendFaceThumb("disapproval"));
@@ -1152,6 +1128,7 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("evenhappierdera"));
 		objTo.appendChild(appendFaceThumb("evilgrin"));
 		objTo.appendChild(appendFaceThumb("excitedyui"));
+		objTo.appendChild(appendFaceThumb("exuberant-shu"));
 		objTo.appendChild(appendFaceThumb("eyebleed"));
 		objTo.appendChild(appendFaceThumb("facepalm"));
 		objTo.appendChild(appendFaceThumb("fedup"));
@@ -1162,7 +1139,9 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("flyingbunsofdoom"));
 		objTo.appendChild(appendFaceThumb("forcedsmile"));
 		objTo.appendChild(appendFaceThumb("forgotkeys"));
+		objTo.appendChild(appendFaceThumb("gamagori-hnng"));
 		objTo.appendChild(appendFaceThumb("garlock"));
+		objTo.appendChild(appendFaceThumb("gendo-pls"));
 		objTo.appendChild(appendFaceThumb("ginkoehh"));
 		objTo.appendChild(appendFaceThumb("gintamacrushed"));
 		objTo.appendChild(appendFaceThumb("gintamadead"));
@@ -1173,14 +1152,18 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("gintamasunlight"));
 		objTo.appendChild(appendFaceThumb("gintamathispleasesme"));
 		objTo.appendChild(appendFaceThumb("giveuponlife"));
+		objTo.appendChild(appendFaceThumb("glasses-push"));
 		objTo.appendChild(appendFaceThumb("grrrr"));
 		objTo.appendChild(appendFaceThumb("gununu"));
 		objTo.appendChild(appendFaceThumb("hajimepout"));
 		objTo.appendChild(appendFaceThumb("hanasakueurgh"));
-		objTo.appendChild(appendFaceThumb("happycharl"));
 		objTo.appendChild(appendFaceThumb("happydera"));
+		objTo.appendChild(appendFaceThumb("happycharl"));
 		objTo.appendChild(appendFaceThumb("happypoi"));
+		objTo.appendChild(appendFaceThumb("haruhi-annoyed"));
 		objTo.appendChild(appendFaceThumb("haruhiisnotamused"));
+		objTo.appendChild(appendFaceThumb("head-tilt"));
+		objTo.appendChild(appendFaceThumb("heart-thumbs-up"));
 		objTo.appendChild(appendFaceThumb("helmetbro"));
 		objTo.appendChild(appendFaceThumb("hinakonom"));
 		objTo.appendChild(appendFaceThumb("hisokaclown"));
@@ -1188,8 +1171,27 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("hunchedover"));
 		objTo.appendChild(appendFaceThumb("hyoukawink"));
 		objTo.appendChild(appendFaceThumb("hypeoverload"));
+		objTo.appendChild(appendFaceThumb("chaika"));
+		objTo.appendChild(appendFaceThumb("chaika-smile"));
+		objTo.appendChild(appendFaceThumb("charlming"));
+		objTo.appendChild(appendFaceThumb("charlpumped"));
+		objTo.appendChild(appendFaceThumb("charlstunned"));
+		objTo.appendChild(appendFaceThumb("chiho-wut"));
+		objTo.appendChild(appendFaceThumb("chitoge-pissed"));
+		objTo.appendChild(appendFaceThumb("chitogheh"));
+		objTo.appendChild(appendFaceThumb("chiyomad"));
+		objTo.appendChild(appendFaceThumb("chiyo-uhh"));
+		objTo.appendChild(appendFaceThumb("cokemasterrace"));
+		objTo.appendChild(appendFaceThumb("comewithmeifyouwanttobebestgirl"));
+		objTo.appendChild(appendFaceThumb("containrage"));
+		objTo.appendChild(appendFaceThumb("crazyhatgirl"));
+		objTo.appendChild(appendFaceThumb("crazyhatgirlexcited"));
+		objTo.appendChild(appendFaceThumb("curious"));
+		objTo.appendChild(appendFaceThumb("disbelief"));
+		objTo.appendChild(appendFaceThumb("dontdometh"));
 		objTo.appendChild(appendFaceThumb("icanteven"));
 		objTo.appendChild(appendFaceThumb("idoruwinkdesu"));
+		objTo.appendChild(appendFaceThumb("im-listening"));
 		objTo.appendChild(appendFaceThumb("infernocopu"));
 		objTo.appendChild(appendFaceThumb("insolentkek"));
 		objTo.appendChild(appendFaceThumb("islaforcedsmile"));
@@ -1200,6 +1202,7 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("jojosafari"));
 		objTo.appendChild(appendFaceThumb("josephcrying"));
 		objTo.appendChild(appendFaceThumb("justno"));
+		objTo.appendChild(appendFaceThumb("kanie-disgust"));
 		objTo.appendChild(appendFaceThumb("kaorihappy"));
 		objTo.appendChild(appendFaceThumb("katoupls"));
 		objTo.appendChild(appendFaceThumb("katoupout"));
@@ -1207,16 +1210,19 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("kininarimasu"));
 		objTo.appendChild(appendFaceThumb("konacat"));
 		objTo.appendChild(appendFaceThumb("konahappy"));
+		objTo.appendChild(appendFaceThumb("k-on-hug"));
 		objTo.appendChild(appendFaceThumb("kotori"));
 		objTo.appendChild(appendFaceThumb("kukuku"));
 		objTo.appendChild(appendFaceThumb("kumikouninterested"));
 		objTo.appendChild(appendFaceThumb("kurousagitears"));
 		objTo.appendChild(appendFaceThumb("kyonfacepalm"));
+		objTo.appendChild(appendFaceThumb("kyon-facepalm"));
 		objTo.appendChild(appendFaceThumb("lewd"));
 		objTo.appendChild(appendFaceThumb("mad"));
 		objTo.appendChild(appendFaceThumb("maidshock"));
 		objTo.appendChild(appendFaceThumb("mandom"));
 		objTo.appendChild(appendFaceThumb("manlyschoolgirls"));
+		objTo.appendChild(appendFaceThumb("manly-tears"));
 		objTo.appendChild(appendFaceThumb("mariawut"));
 		objTo.appendChild(appendFaceThumb("marikalewd"));
 		objTo.appendChild(appendFaceThumb("masaodidnothingwrong"));
@@ -1233,25 +1239,32 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("misakiwink"));
 		objTo.appendChild(appendFaceThumb("missedthepoint"));
 		objTo.appendChild(appendFaceThumb("momjitonguepoke"));
+		objTo.appendChild(appendFaceThumb("mugi-fish"));
 		objTo.appendChild(appendFaceThumb("mug1"));
 		objTo.appendChild(appendFaceThumb("mug2"));
 		objTo.appendChild(appendFaceThumb("mug3"));
 		objTo.appendChild(appendFaceThumb("mywaifumadeyouasandwich"));
+		objTo.appendChild(appendFaceThumb("nanami-hug"));
 		objTo.appendChild(appendFaceThumb("nerrr"));
 		objTo.appendChild(appendFaceThumb("niatilt"));
 		objTo.appendChild(appendFaceThumb("nichijouqq"));
+		objTo.appendChild(appendFaceThumb("nico-heart"));
 		objTo.appendChild(appendFaceThumb("nocomment"));
 		objTo.appendChild(appendFaceThumb("nononkek"));
 		objTo.appendChild(appendFaceThumb("nosepick"));
+		objTo.appendChild(appendFaceThumb("notalolicon"));
+		objTo.appendChild(appendFaceThumb("not-raining"));
 		objTo.appendChild(appendFaceThumb("nozakishock"));
 		objTo.appendChild(appendFaceThumb("nuidideverythingright"));
 		objTo.appendChild(appendFaceThumb("objection"));
 		objTo.appendChild(appendFaceThumb("ohgodwhathaveidone"));
 		objTo.appendChild(appendFaceThumb("ohmygod"));
 		objTo.appendChild(appendFaceThumb("ohnoudidnt"));
+		objTo.appendChild(appendFaceThumb("om-nom"));
 		objTo.appendChild(appendFaceThumb("orly"));
 		objTo.appendChild(appendFaceThumb("osaka"));
 		objTo.appendChild(appendFaceThumb("peasants"));
+		objTo.appendChild(appendFaceThumb("pika-dead"));
 		objTo.appendChild(appendFaceThumb("pissedinaba"));
 		objTo.appendChild(appendFaceThumb("pissedkaiji"));
 		objTo.appendChild(appendFaceThumb("pissedmiia"));
@@ -1265,12 +1278,14 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("rengehype"));
 		objTo.appendChild(appendFaceThumb("rerorero"));
 		objTo.appendChild(appendFaceThumb("rickastatic"));
+		objTo.appendChild(appendFaceThumb("s"));
 		objTo.appendChild(appendFaceThumb("saltymichiru"));
 		objTo.appendChild(appendFaceThumb("sayhwatagain"));
 		objTo.appendChild(appendFaceThumb("scaredmio"));
 		objTo.appendChild(appendFaceThumb("scarycharl"));
 		objTo.appendChild(appendFaceThumb("scrumptiouslymoe"));
 		objTo.appendChild(appendFaceThumb("selfishbestia"));
+		objTo.appendChild(appendFaceThumb("she-ded"));
 		objTo.appendChild(appendFaceThumb("sheerdisgust"));
 		objTo.appendChild(appendFaceThumb("shock"));
 		objTo.appendChild(appendFaceThumb("shocked"));
@@ -1285,16 +1300,22 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("smugshinoa"));
 		objTo.appendChild(appendFaceThumb("smugshinobu"));
 		objTo.appendChild(appendFaceThumb("somad"));
+		objTo.appendChild(appendFaceThumb("sonico-wink"));
 		objTo.appendChild(appendFaceThumb("soumadisdain"));
+		objTo.appendChild(appendFaceThumb("sparkle-ika"));
 		objTo.appendChild(appendFaceThumb("sparklyisla"));
+		objTo.appendChild(appendFaceThumb("SPORTS"));
 		objTo.appendChild(appendFaceThumb("stare"));
 		objTo.appendChild(appendFaceThumb("startled"));
 		objTo.appendChild(appendFaceThumb("stonedzack"));
 		objTo.appendChild(appendFaceThumb("stunnedryou"));
 		objTo.appendChild(appendFaceThumb("suave"));
 		objTo.appendChild(appendFaceThumb("sunglasses"));
+		objTo.appendChild(appendFaceThumb("super-blush"));
+		objTo.appendChild(appendFaceThumb("super-happy"));
 		objTo.appendChild(appendFaceThumb("surprisedandimpressed"));
 		objTo.appendChild(appendFaceThumb("surprisedblush"));
+		objTo.appendChild(appendFaceThumb("surprised-blush"));
 		objTo.appendChild(appendFaceThumb("surprisedwot"));
 		objTo.appendChild(appendFaceThumb("takeoeyesparkle"));
 		objTo.appendChild(appendFaceThumb("takeofiredup"));
@@ -1305,6 +1326,7 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("takeowut"));
 		objTo.appendChild(appendFaceThumb("teehee"));
 		objTo.appendChild(appendFaceThumb("thoughtful"));
+		objTo.appendChild(appendFaceThumb("thumbs-up"));
 		objTo.appendChild(appendFaceThumb("tiredfate"));
 		objTo.appendChild(appendFaceThumb("toohappy"));
 		objTo.appendChild(appendFaceThumb("torrentialdownpour"));
@@ -1312,6 +1334,8 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("traumatiseddog"));
 		objTo.appendChild(appendFaceThumb("trollarcher"));
 		objTo.appendChild(appendFaceThumb("typicalyuuko"));
+		objTo.appendChild(appendFaceThumb("u-dont-say"));
+		objTo.appendChild(appendFaceThumb("ugh-peasants"));
 		objTo.appendChild(appendFaceThumb("uglycry"));
 		objTo.appendChild(appendFaceThumb("uhhh"));
 		objTo.appendChild(appendFaceThumb("um"));
@@ -1319,6 +1343,7 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("urbansmile"));
 		objTo.appendChild(appendFaceThumb("utahagottrolled"));
 		objTo.appendChild(appendFaceThumb("uwannadie"));
+		objTo.appendChild(appendFaceThumb("u-wat-m8"));
 		objTo.appendChild(appendFaceThumb("vampirickirin"));
 		objTo.appendChild(appendFaceThumb("vashheadscratch"));
 		objTo.appendChild(appendFaceThumb("volibearQ"));
@@ -1326,12 +1351,17 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("watchadoin"));
 		objTo.appendChild(appendFaceThumb("what"));
 		objTo.appendChild(appendFaceThumb("whowouldathunkit"));
+		objTo.appendChild(appendFaceThumb("wide-face"));
 		objTo.appendChild(appendFaceThumb("worried"));
+		objTo.appendChild(appendFaceThumb("wow-really"));
+		objTo.appendChild(appendFaceThumb("WRYYY"));
 		objTo.appendChild(appendFaceThumb("wtfika"));
 		objTo.appendChild(appendFaceThumb("yamadashock"));
 		objTo.appendChild(appendFaceThumb("yandereyuno"));
 		objTo.appendChild(appendFaceThumb("yay"));
+		objTo.appendChild(appendFaceThumb("you-bore-me"));
 		objTo.appendChild(appendFaceThumb("yousaidsomethingdumb"));
+		objTo.appendChild(appendFaceThumb("yui-crying"));
 		objTo.appendChild(appendFaceThumb("yuitriggered"));
 		objTo.appendChild(appendFaceThumb("yunocaine"));
 		objTo.appendChild(appendFaceThumb("yuruyuriapprove"));

@@ -1,3 +1,18 @@
 #!/bin/bash
-wget -qO- https://b.thumbs.redditmedia.com/e0GAOLlC47rV07iMNWrXGO7ItckdolLZIGO6-YZyCko.css | sed -e 's/"#\([a-zA-Z0-9-]\+\)"/\n\$\$\$\1\n/g' | sed '/\$\$\$/!d' | sort -u | sed 's/\$\$\$\([a-zA-Z0-9-]\+\)/\tobjTo\.appendChild\(appendFaceThumb\(\"\1\"\)\)\;/g' > anime_prepared
+wget -qO- https://b.thumbs.redditmedia.com/e0GAOLlC47rV07iMNWrXGO7ItckdolLZIGO6-YZyCko.css | sed -e 's/"#\([a-zA-Z0-9-]\+\)"/\n\$\$\$\1\n/g' | sed '/\$\$\$/!d' | sed -e '/$$$s$/d' | sort -u | sed 's/\$\$\$\([a-zA-Z0-9-]\+\)/\t\tobjTo\.appendChild\(appendFaceThumb\(\"\1\"\)\)\;/g' > anime_prepared
 echo "Faces successfully saved..."
+
+#KATE Find and replace Regex to mine faces from css:
+#1) FIND:
+#	\"\#([a-zA-Z0-9-]+)\"
+#	REPLACE WITH:
+#	\n$$$\1\n
+#2) FIND:
+#	^(?!\$\$\$).+
+#	DELETE
+#3) VIM SORT AND REMOVE DUPLICATES (http://vim.wikia.com/wiki/Sort_lines):
+#	:%sort u
+#4) FIND:
+#	\$\$\$([a-zA-Z0-9-]+)\n
+#	REPLACE WITH:
+#	objTo\.appendChild\(appendFaceThumb\(\"\1\"\)\)\;\n

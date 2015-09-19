@@ -26,7 +26,7 @@
 // @include		http*://*.reddit.com/r/Esdeath/*
 // @include		http*://*.reddit.com/r/OneTrueTohsaka/*
 // @grant		  none
-// @version		1.23.5
+// @version		1.23.6
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -1094,12 +1094,17 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("bunnyisla"));
 		objTo.appendChild(appendFaceThumb("cat1"));
 		objTo.appendChild(appendFaceThumb("cat2"));
+		objTo.appendChild(appendFaceThumb("cokemasterrace"));
 		objTo.appendChild(appendFaceThumb("confused"));
+		objTo.appendChild(appendFaceThumb("containrage"));
 		objTo.appendChild(appendFaceThumb("crazedlaugh"));
+		objTo.appendChild(appendFaceThumb("crazyhatgirl"));
+		objTo.appendChild(appendFaceThumb("crazyhatgirlexcited"));
 		objTo.appendChild(appendFaceThumb("cry"));
 		objTo.appendChild(appendFaceThumb("csikon"));
 		objTo.appendChild(appendFaceThumb("cup1"));
 		objTo.appendChild(appendFaceThumb("cup2"));
+		objTo.appendChild(appendFaceThumb("curious"));
 		objTo.appendChild(appendFaceThumb("dead-eyed-stare"));
 		objTo.appendChild(appendFaceThumb("deadpan"));
 		objTo.appendChild(appendFaceThumb("dealwithit"));
@@ -1181,12 +1186,10 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("chitogheh"));
 		objTo.appendChild(appendFaceThumb("chiyomad"));
 		objTo.appendChild(appendFaceThumb("chiyo-uhh"));
-		objTo.appendChild(appendFaceThumb("cokemasterrace"));
 		objTo.appendChild(appendFaceThumb("comewithmeifyouwanttobebestgirl"));
 		objTo.appendChild(appendFaceThumb("containrage"));
 		objTo.appendChild(appendFaceThumb("crazyhatgirl"));
 		objTo.appendChild(appendFaceThumb("crazyhatgirlexcited"));
-		objTo.appendChild(appendFaceThumb("curious"));
 		objTo.appendChild(appendFaceThumb("disbelief"));
 		objTo.appendChild(appendFaceThumb("dontdometh"));
 		objTo.appendChild(appendFaceThumb("icanteven"));
@@ -1278,7 +1281,6 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("rengehype"));
 		objTo.appendChild(appendFaceThumb("rerorero"));
 		objTo.appendChild(appendFaceThumb("rickastatic"));
-		objTo.appendChild(appendFaceThumb("s"));
 		objTo.appendChild(appendFaceThumb("saltymichiru"));
 		objTo.appendChild(appendFaceThumb("sayhwatagain"));
 		objTo.appendChild(appendFaceThumb("scaredmio"));

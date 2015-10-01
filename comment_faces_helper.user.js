@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name		   Reddit comment faces helper
-// @description	Allows you to easily add comment faces from those subreddits: r/awwnime, r/pantsu, r/Moescape, r/TwoDeeArt, r/Patchuu, r/visualnovels, r/kemonomimi, r/manga, r/anime, r/SuperSonico, r/KanMusu, r/KanMusuNights, r/SchoolIdolFestival, r/LoveLive, r/OneTrueIdol, r/fatestaynight, r/saber, r/Nisekoi, r/OneTrueBiribiri, r/gamindustri, r/Esdeath, r/OneTrueTohsaka and r/kancolle
+// @description	Allows you to easily add comment faces from those subreddits: r/awwnime, r/pantsu, r/Moescape, r/TwoDeeArt, r/Patchuu, r/visualnovels, r/kemonomimi, r/manga, r/anime, r/SuperSonico, r/KanMusu, r/KanMusuNights, r/SchoolIdolFestival, r/LoveLive, r/OneTrueIdol, r/fatestaynight, r/saber, r/Nisekoi, r/OneTrueBiribiri, r/gamindustri, r/Esdeath, r/OneTrueTohsaka, r/kancolle and r/leagueoflegends
 // @namespace	  https://greasyfork.org/users/98-jonnyrobbie
 // @author		 JonnyRobbie
 // @include		http*://*.reddit.com/r/awwnime/*
@@ -26,6 +26,7 @@
 // @include		http*://*.reddit.com/r/Esdeath/*
 // @include		http*://*.reddit.com/r/OneTrueTohsaka/*
 // @include		http*://*.reddit.com/r/kancolle/*
+// @include		http*://*.reddit.com/r/leagueoflegends/*
 // @grant		  none
 // @version		1.23.7
 // ==/UserScript==
@@ -431,6 +432,7 @@ function createFacesDiv() {
 	searchWrap.style.margin = "0px 10px";
 	searchWrap.style.cssFloat = "right";
 	tableWrap.id = "awwFacesTableWrapper";
+	tableWrap.class = "md";
 	tableWrap.style.overflowY = "scroll";
 	tableWrap.style.margin = "10px";
 	tableWrap.style.padding = "10px 0px";
@@ -2277,6 +2279,47 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("whackamyou"));
 		objTo.appendChild(appendFaceThumb("yamaintro"));
 		objTo.appendChild(appendFaceThumb("zuicocky"));
+	} else if (subreddit == "leagueoflegends") {
+		faceIdChar = "#";
+		textBoxNr = 1;
+		wikiLink.href = "https://www.reddit.com/r/kancolle/wiki/commentflair";
+		thumbDialWidth = "110px";
+		thumbDialHeight = "110px";
+		bbCodeFunction = function(bbFace, bbTitle){
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
+		};
+		objTo.appendChild(appendFaceThumb("face-wink"));
+		objTo.appendChild(appendFaceThumb("face-ok"));
+		objTo.appendChild(appendFaceThumb("face-palm"));
+		objTo.appendChild(appendFaceThumb("face-angry"));
+		objTo.appendChild(appendFaceThumb("face-cry"));
+		objTo.appendChild(appendFaceThumb("face-success"));
+		objTo.appendChild(appendFaceThumb("face-draaaven"));
+		objTo.appendChild(appendFaceThumb("face-fiteme"));
+		objTo.appendChild(appendFaceThumb("face-love"));
+		objTo.appendChild(appendFaceThumb("face-yuck"));
+		objTo.appendChild(appendFaceThumb("face-dwi"));
+		objTo.appendChild(appendFaceThumb("face-flip"));
+		objTo.appendChild(appendFaceThumb("face-party"));
+		objTo.appendChild(appendFaceThumb("face-tear"));
+		objTo.appendChild(appendFaceThumb("face-troll"));
+		objTo.appendChild(appendFaceThumb("face-support"));
+		objTo.appendChild(appendFaceThumb("face-yeah"));
+		objTo.appendChild(appendFaceThumb("face-eww"));
+		objTo.appendChild(appendFaceThumb("face-wat"));
+		objTo.appendChild(appendFaceThumb("face-yandere"));
+		objTo.appendChild(appendFaceThumb("face-popcorn"));
+		objTo.appendChild(appendFaceThumb("face-happy"));
+		objTo.appendChild(appendFaceThumb("face-fabulous"));
+		objTo.appendChild(appendFaceThumb("face-sleepy"));
+		objTo.appendChild(appendFaceThumb("face-whoa"));
+		objTo.appendChild(appendFaceThumb("face-aliens"));
+		objTo.appendChild(appendFaceThumb("face-hmm"));
+		objTo.appendChild(appendFaceThumb("face-crickets"));
 	}
 }
 

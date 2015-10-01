@@ -436,6 +436,7 @@ function createFacesDiv() {
 	tableWrap.style.overflowY = "scroll";
 	tableWrap.style.margin = "10px";
 	tableWrap.style.padding = "10px 0px";
+	tableWrap.style.maxWidth = "500em";
 	awwFacedDialogObj.appendChild(tableWrap);
 	
 	window.searchBox = document.createElement("input");

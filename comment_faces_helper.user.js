@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name		   Reddit comment faces helper
-// @description	Allows you to easily add comment faces from those subreddits: r/awwnime, r/pantsu, r/Moescape, r/TwoDeeArt, r/Patchuu, r/visualnovels, r/kemonomimi, r/manga, r/anime, r/SuperSonico, r/KanMusu, r/KanMusuNights, r/SchoolIdolFestival, r/LoveLive ankd r/OneTrueIdol
+// @description	Allows you to easily add comment faces from those subreddits: r/awwnime, r/pantsu, r/Moescape, r/TwoDeeArt, r/Patchuu, r/visualnovels, r/kemonomimi, r/manga, r/anime, r/SuperSonico, r/KanMusu, r/KanMusuNights, r/SchoolIdolFestival, r/LoveLive, r/OneTrueIdol, r/fatestaynight, r/saber, r/Nisekoi, r/OneTrueBiribiri, r/gamindustri, r/Esdeath and r/OneTrueTohsaka
 // @namespace	  https://greasyfork.org/users/98-jonnyrobbie
 // @author		 JonnyRobbie
 // @include		http*://*.reddit.com/r/awwnime/*

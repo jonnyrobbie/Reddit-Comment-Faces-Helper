@@ -432,7 +432,7 @@ function createFacesDiv() {
 	searchWrap.style.margin = "0px 10px";
 	searchWrap.style.cssFloat = "right";
 	tableWrap.id = "awwFacesTableWrapper";
-	tableWrap.class = "md";
+	tableWrap.className = "md";
 	tableWrap.style.overflowY = "scroll";
 	tableWrap.style.margin = "10px";
 	tableWrap.style.padding = "10px 0px";

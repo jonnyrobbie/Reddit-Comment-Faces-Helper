@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name		   Reddit comment faces helper
-// @description	Allows you to easily add comment faces from those subreddits: r/awwnime, r/pantsu, r/Moescape, r/TwoDeeArt, r/Patchuu, r/visualnovels, r/kemonomimi, r/manga, r/anime, r/SuperSonico, r/KanMusu, r/KanMusuNights, r/SchoolIdolFestival, r/LoveLive, r/OneTrueIdol, r/fatestaynight, r/saber, r/Nisekoi, r/OneTrueBiribiri, r/gamindustri, r/Esdeath and r/OneTrueTohsaka
+// @description	Allows you to easily add comment faces from those subreddits: r/awwnime, r/pantsu, r/Moescape, r/TwoDeeArt, r/Patchuu, r/visualnovels, r/kemonomimi, r/manga, r/anime, r/SuperSonico, r/KanMusu, r/KanMusuNights, r/SchoolIdolFestival, r/LoveLive, r/OneTrueIdol, r/fatestaynight, r/saber, r/Nisekoi, r/OneTrueBiribiri, r/gamindustri, r/Esdeath, r/OneTrueTohsaka and r/kancolle
 // @namespace	  https://greasyfork.org/users/98-jonnyrobbie
 // @author		 JonnyRobbie
 // @include		http*://*.reddit.com/r/awwnime/*
@@ -25,8 +25,9 @@
 // @include		http*://*.reddit.com/r/gamindustri/*
 // @include		http*://*.reddit.com/r/Esdeath/*
 // @include		http*://*.reddit.com/r/OneTrueTohsaka/*
+// @include		http*://*.reddit.com/r/kancolle/*
 // @grant		  none
-// @version		1.23.6
+// @version		1.23.7
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -2202,6 +2203,80 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("sigh"));
 		objTo.appendChild(appendFaceThumb("trouble"));
 		objTo.appendChild(appendFaceThumb("uhoh"));
+	} else if (subreddit == "kancolle") {
+		faceIdChar = "#";
+		textBoxNr = 1;
+		wikiLink.href = "https://www.reddit.com/r/kancolle/wiki/commentflair";
+		thumbDialWidth = "240px";
+		thumbDialHeight = "190px";
+		bbCodeFunction = function(bbFace, bbTitle){
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
+		};
+		objTo.appendChild(appendFaceThumb("akagi"));
+		objTo.appendChild(appendFaceThumb("aki"));
+		objTo.appendChild(appendFaceThumb("dai"));
+		objTo.appendChild(appendFaceThumb("dead"));
+		objTo.appendChild(appendFaceThumb("den"));
+		objTo.appendChild(appendFaceThumb("goya1"));
+		objTo.appendChild(appendFaceThumb("goya2"));
+		objTo.appendChild(appendFaceThumb("goya3"));
+		objTo.appendChild(appendFaceThumb("hachi1"));
+		objTo.appendChild(appendFaceThumb("hatsu"));
+		objTo.appendChild(appendFaceThumb("hiei1"));
+		objTo.appendChild(appendFaceThumb("hiei2"));
+		objTo.appendChild(appendFaceThumb("hiei3"));
+		objTo.appendChild(appendFaceThumb("iku1"));
+		objTo.appendChild(appendFaceThumb("iku2"));
+		objTo.appendChild(appendFaceThumb("iku3"));
+		objTo.appendChild(appendFaceThumb("imuya"));
+		objTo.appendChild(appendFaceThumb("jintsuu"));
+		objTo.appendChild(appendFaceThumb("junyou"));
+		objTo.appendChild(appendFaceThumb("kaga"));
+		objTo.appendChild(appendFaceThumb("kaga2"));
+		objTo.appendChild(appendFaceThumb("kongou"));
+		objTo.appendChild(appendFaceThumb("lessbait"));
+		objTo.appendChild(appendFaceThumb("maruyu"));
+		objTo.appendChild(appendFaceThumb("naka"));
+		objTo.appendChild(appendFaceThumb("no"));
+		objTo.appendChild(appendFaceThumb("okay"));
+		objTo.appendChild(appendFaceThumb("ooyodo"));
+		objTo.appendChild(appendFaceThumb("patches"));
+		objTo.appendChild(appendFaceThumb("pjsalt"));
+		objTo.appendChild(appendFaceThumb("pot"));
+		objTo.appendChild(appendFaceThumb("sendai"));
+		objTo.appendChild(appendFaceThumb("shima"));
+		objTo.appendChild(appendFaceThumb("shioi"));
+		objTo.appendChild(appendFaceThumb("shioi2"));
+		objTo.appendChild(appendFaceThumb("sleep"));
+		objTo.appendChild(appendFaceThumb("sleep2"));
+		objTo.appendChild(appendFaceThumb("ttk"));
+		objTo.appendChild(appendFaceThumb("ura"));
+		objTo.appendChild(appendFaceThumb("yari"));
+		objTo.appendChild(appendFaceThumb("yayoi"));
+		objTo.appendChild(appendFaceThumb("yes"));
+		objTo.appendChild(appendFaceThumb("yuki"));
+		objTo.appendChild(appendFaceThumb("yuudachi1"));
+		objTo.appendChild(appendFaceThumb("yuudachi2"));
+		objTo.appendChild(appendFaceThumb("akaensei"));
+		objTo.appendChild(appendFaceThumb("beaver"));
+		objTo.appendChild(appendFaceThumb("bubbles"));
+		objTo.appendChild(appendFaceThumb("chikumask"));
+		objTo.appendChild(appendFaceThumb("dokan"));
+		objTo.appendChild(appendFaceThumb("elephant"));
+		objTo.appendChild(appendFaceThumb("hibishrug"));
+		objTo.appendChild(appendFaceThumb("idlebunny"));
+		objTo.appendChild(appendFaceThumb("kenka"));
+		objTo.appendChild(appendFaceThumb("kuchikumaru"));
+		objTo.appendChild(appendFaceThumb("monitor"));
+		objTo.appendChild(appendFaceThumb("passagro"));
+		objTo.appendChild(appendFaceThumb("raiden"));
+		objTo.appendChild(appendFaceThumb("whackamyou"));
+		objTo.appendChild(appendFaceThumb("yamaintro"));
+		objTo.appendChild(appendFaceThumb("zuicocky"));
 	}
 }
 

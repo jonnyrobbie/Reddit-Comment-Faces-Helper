@@ -1,5 +1,5 @@
 #Changelog:
-- **1.23.5**-**1.23.6**
+- **1.23.5**-**1.23.8**
  - added some to /r/anime
 - **1.23.4**
  - fixed a language issue

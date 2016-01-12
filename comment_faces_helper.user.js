@@ -28,7 +28,7 @@
 // @include		http*://*.reddit.com/r/kancolle/*
 // @include		http*://*.reddit.com/r/leagueoflegends/*
 // @grant		  none
-// @version		1.23.7
+// @version		1.23.8
 // ==/UserScript==
 		
 var selectedFace = "";

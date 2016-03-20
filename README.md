@@ -35,6 +35,11 @@ Changelog:
 
 [https://github.com/jonnyrobbie/Reddit-Comment-Faces-Helper/blob/master/CHANGELOG.md](https://github.com/jonnyrobbie/Reddit-Comment-Faces-Helper/blob/master/CHANGELOG.md)
 
+Why a userscript and not Add-on, Extension, etc, ...?
+=====================================================
+
+Userscripts are platform independant. It allows me to maintain only a single repository, a single codebase for all browsers. I don't have to recompile, repackage, port and whatever for every browser separately. Add-ons can provide some benefits for larger projects, but this userscript is small enough.
+
 ---
 
 Reddit discussion thread: [http://www.reddit.com/r/awwnime/comments/1ft846/metacomment_faces_with_ease/](http://www.reddit.com/r/awwnime/comments/1ft846/metacomment_faces_with_ease/)

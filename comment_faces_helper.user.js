@@ -28,7 +28,7 @@
 // @include		http*://*.reddit.com/r/kancolle/*
 // @include		http*://*.reddit.com/r/leagueoflegends/*
 // @grant		  none
-// @version		1.23.11
+// @version		1.23.12
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -745,6 +745,7 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("jumpforjoy"));
 		objTo.appendChild(appendFaceThumb("funky"));
 		objTo.appendChild(appendFaceThumb("grin"));
+        objTo.appendChild(appendFaceThumb("smug"));
 		objTo.appendChild(appendFaceThumb("SuperLewd", 78, 100)) //Two additional parametres force-resize the image. Try to fit it in 150px*100px
 	}
 	else if (subreddit == "pantsu") {

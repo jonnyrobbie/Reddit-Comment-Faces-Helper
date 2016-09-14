@@ -2109,6 +2109,60 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("alter"));
 		objTo.appendChild(appendFaceThumb("unamused"));
 		objTo.appendChild(appendFaceThumb("yesplease"));
+    } else if (subreddit == "karanokyoukai") {
+		faceIdChar = "#";
+		textBoxNr = 3;
+		wikiLink.href = "http://www.reddit.com/r/Saber/comments/2w1g5n/rejoice_you_can_now_have_text_on_sabers_lovely/";
+		thumbDialWidth = "205px";
+		thumbDialHeight = "120px";
+		bbCodeFunction = function(bbFace, bbTitle, bbUpper, bbLower){
+			var bbHover = "";
+			var bbCapt = "";
+			if (bbTitle != "") {
+				bbHover = " \"" + bbTitle + "\"";
+			}
+			if (bbLower != "") {
+				bbCapt = "**" + bbLower + "**";
+			}
+			if (bbUpper != "") {
+				bbCapt = bbCapt + bbUpper;
+			}
+			return "[" + bbCapt + "](#" + bbFace + bbHover + ")";
+		};
+		objTo.appendChild(appendFaceThumb("blush"));
+		objTo.appendChild(appendFaceThumb("ohno"));
+		objTo.appendChild(appendFaceThumb("face"));
+		objTo.appendChild(appendFaceThumb("peace"));
+		objTo.appendChild(appendFaceThumb("glum"));
+		objTo.appendChild(appendFaceThumb("psychotic"));
+		objTo.appendChild(appendFaceThumb("grump"));
+		objTo.appendChild(appendFaceThumb("rekt"));
+		objTo.appendChild(appendFaceThumb("horror"));
+		objTo.appendChild(appendFaceThumb("seensomeshit"));
+		objTo.appendChild(appendFaceThumb("itsjustketchup"));
+		objTo.appendChild(appendFaceThumb("shipitlikefedex"));
+		objTo.appendChild(appendFaceThumb("kawaii"));
+		objTo.appendChild(appendFaceThumb("shutuplad"));
+		objTo.appendChild(appendFaceThumb("madlaugh"));
+		objTo.appendChild(appendFaceThumb("smileforthecamera"));
+		objTo.appendChild(appendFaceThumb("memes"));
+		objTo.appendChild(appendFaceThumb("tmi"));
+		objTo.appendChild(appendFaceThumb("needahug"));
+		objTo.appendChild(appendFaceThumb("toukojoestar"));
+		objTo.appendChild(appendFaceThumb("notamused"));
+		objTo.appendChild(appendFaceThumb("what"));
+		objTo.appendChild(appendFaceThumb("bestguy"));
+		objTo.appendChild(appendFaceThumb("nonononono"));
+		objTo.appendChild(appendFaceThumb("fitemeirl"));
+		objTo.appendChild(appendFaceThumb("pray"));
+		objTo.appendChild(appendFaceThumb("levelup"));
+		objTo.appendChild(appendFaceThumb("punchi"));
+		objTo.appendChild(appendFaceThumb("lifepilesup"));
+		objTo.appendChild(appendFaceThumb("thankyou"));
+		objTo.appendChild(appendFaceThumb("mana"));
+		objTo.appendChild(appendFaceThumb("waitwhat"));
+		objTo.appendChild(appendFaceThumb("neverturnback"));
+		objTo.appendChild(appendFaceThumb("zoom"));
 	} else if (subreddit == "nisekoi") {
 		faceIdChar = "#";
 				textBoxNr = 1;

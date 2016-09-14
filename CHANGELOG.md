@@ -1,4 +1,6 @@
 #Changelog:
+- **1.24**
+ -support for /r/karanokyoukai
 - **1.23.12**
  - #smug to awwnime
 - **1.23.5**-**1.23.11**

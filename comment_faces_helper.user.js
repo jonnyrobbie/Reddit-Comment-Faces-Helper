@@ -27,8 +27,9 @@
 // @include		http*://*.reddit.com/r/OneTrueTohsaka/*
 // @include		http*://*.reddit.com/r/kancolle/*
 // @include		http*://*.reddit.com/r/leagueoflegends/*
+// @include		http*://*.reddit.com/r/karanokyoukai/*
 // @grant		  none
-// @version		1.23.12
+// @version		1.24
 // ==/UserScript==
 		
 var selectedFace = "";

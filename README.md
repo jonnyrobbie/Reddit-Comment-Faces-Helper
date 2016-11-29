@@ -8,6 +8,9 @@ This script adds 'Add a comment face' link to the comment area. Clicking that, y
 How to install user scripts:
 ============================
 
+**Install this userscript from greasyfork! Don't try to install it from GitHub, please.**
+Follow here: [https://greasyfork.org/en/scripts/1256-reddit-comment-faces-helper](https://greasyfork.org/en/scripts/1256-reddit-comment-faces-helper)
+
  - Firefox and related browsers: [Greasemonkey](https://addons.mozilla.org/firefox/addon/greasemonkey/).
  - Google Chrome, Chromium, and related browsers: [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo).
  - Opera (version 15 and later): [Tampermonkey](https://addons.opera.com/extensions/details/tampermonkey-beta/) or [Violentmonkey](https://addons.opera.com/extensions/details/violent-monkey/).

@@ -1,4 +1,7 @@
 #Changelog:
+- **1.25**
+ -new batch in /r/anime
+ -We'll see how it goes with reddit removing the custom CSS
 - **1.24**
  -support for /r/karanokyoukai
 - **1.23.12**

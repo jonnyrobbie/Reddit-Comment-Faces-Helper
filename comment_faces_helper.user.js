@@ -29,7 +29,7 @@
 // @include		http*://*.reddit.com/r/leagueoflegends/*
 // @include		http*://*.reddit.com/r/karanokyoukai/*
 // @grant		  none
-// @version		1.25.1
+// @version		1.25.2
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -751,7 +751,7 @@ function appendFaces() {
 	}
 	else if (subreddit == "pantsu") {
 		faceIdChar = "#";
-		wikiLink.href = "http://www.reddit.com/r/pantsu/comments/17bqzs/over_1000_readers_have_some_comment_faces/";
+		wikiLink.href = "https://www.reddit.com/r/pantsu/wiki/commentfaces";
 		thumbDialWidth = "170px";
 		thumbDialHeight = "140px";
 		bbCodeFunction = function(bbFace, bbTitle){

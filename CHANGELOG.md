@@ -1,6 +1,7 @@
 #Changelog:
-- **1.25.1**
+- **1.25.1, 1.25.2**
  -#lolipolice to /r/pantsu
+ -pantsu wiki link
 - **1.25**
  -new batch in /r/anime
  -We'll see how it goes with reddit removing the custom CSS

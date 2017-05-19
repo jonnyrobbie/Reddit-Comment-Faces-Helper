@@ -29,7 +29,7 @@
 // @include		http*://*.reddit.com/r/leagueoflegends/*
 // @include		http*://*.reddit.com/r/karanokyoukai/*
 // @grant		  none
-// @version		1.25
+// @version		1.25.1
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -771,6 +771,7 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("disapproval"));
 		objTo.appendChild(appendFaceThumb("mmm"));
 		objTo.appendChild(appendFaceThumb("nooo"));
+		objTo.appendChild(appendFaceThumb("lolipolice"));
 	}
 	else if (subreddit == "manga") {
 		faceIdChar = "//#";

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name		   Reddit comment faces helper
-// @description	Allows you to easily add comment faces from those subreddits: r/awwnime, r/pantsu, r/Moescape, r/TwoDeeArt, r/Patchuu, r/visualnovels, r/kemonomimi, r/manga, r/anime, r/SuperSonico, r/KanMusu, r/KanMusuNights, r/SchoolIdolFestival, r/LoveLive, r/OneTrueIdol, r/fatestaynight, r/saber, r/Nisekoi, r/OneTrueBiribiri, r/gamindustri, r/Esdeath, r/OneTrueTohsaka, r/kancolle and r/leagueoflegends
+// @description	Allows you to easily add comment faces from those subreddits: r/awwnime, r/pantsu, r/Moescape, r/TwoDeeArt, r/Patchuu, r/visualnovels, r/kemonomimi, r/manga, r/anime, r/SuperSonico, r/KanMusu, r/KanMusuNights, r/SchoolIdolFestival, r/LoveLive, r/OneTrueIdol, r/fatestaynight, r/saber, r/Nisekoi, r/OneTrueBiribiri, r/gamindustri, r/Esdeath, r/OneTrueTohsaka, r/kancolle,  r/leagueoflegends and r/Chibi
 // @namespace	  https://greasyfork.org/users/98-jonnyrobbie
 // @author		 JonnyRobbie
 // @include		http*://*.reddit.com/r/awwnime/*
@@ -28,8 +28,9 @@
 // @include		http*://*.reddit.com/r/kancolle/*
 // @include		http*://*.reddit.com/r/leagueoflegends/*
 // @include		http*://*.reddit.com/r/karanokyoukai/*
+// @include		http*://*.reddit.com/r/Chibi/*
 // @grant		  none
-// @version		1.25.2
+// @version		1.26
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -2474,6 +2475,27 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("face-aliens"));
 		objTo.appendChild(appendFaceThumb("face-hmm"));
 		objTo.appendChild(appendFaceThumb("face-crickets"));
+	} else if (subreddit == "chibi") {
+		faceIdChar = "#";
+		wikiLink.href = "https://www.reddit.com/r/Chibi/comments/6d63kk/comment_faces_are_on_the_way/";
+		thumbDialWidth = "140px";
+		thumbDialHeight = "140px";
+		bbCodeFunction = function(bbFace, bbTitle){
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
+		};
+		objTo.appendChild(appendFaceThumb("flustered"));
+		objTo.appendChild(appendFaceThumb("itai"));
+		objTo.appendChild(appendFaceThumb("listening"));
+		objTo.appendChild(appendFaceThumb("bleh"));
+		objTo.appendChild(appendFaceThumb("senpai"));
+		objTo.appendChild(appendFaceThumb("ooo"));
+		objTo.appendChild(appendFaceThumb("fufu"));
+		objTo.appendChild(appendFaceThumb("uhoh"));
+		objTo.appendChild(appendFaceThumb("gab"));
 	}
 }
 

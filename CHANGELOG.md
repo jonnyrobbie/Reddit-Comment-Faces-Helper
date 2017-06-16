@@ -1,4 +1,6 @@
 #Changelog:
+- **1.26.1**
+ -fix issue #5 for mangled line
 - **1.26**
  -support for /r/Chibi
 - **1.25.1, 1.25.2**

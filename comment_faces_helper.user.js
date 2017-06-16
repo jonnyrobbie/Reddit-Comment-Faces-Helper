@@ -30,7 +30,7 @@
 // @include		http*://*.reddit.com/r/karanokyoukai/*
 // @include		http*://*.reddit.com/r/Chibi/*
 // @grant		  none
-// @version		1.26
+// @version		1.26.1
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -1411,7 +1411,8 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("csikon"));
 		objTo.appendChild(appendFaceThumb("ohnoudidnt"));
 		objTo.appendChild(appendFaceThumb("yuruyuriapprove"));
-		objTo.appendChild(appendFaceThumb("nico-heart,gintamaspillage"));
+		objTo.appendChild(appendFaceThumb("nico-heart"));
+		objTo.appendChild(appendFaceThumb("gintamaspillage"));
 		objTo.appendChild(appendFaceThumb("biribiricat"));
 		objTo.appendChild(appendFaceThumb("comewithmeifyouwanttobebestgirl"));
 		objTo.appendChild(appendFaceThumb("kumikouninterested"));

@@ -30,7 +30,7 @@
 // @include		http*://*.reddit.com/r/karanokyoukai/*
 // @include		http*://*.reddit.com/r/Chibi/*
 // @grant		  none
-// @version		1.26.1
+// @version		1.27
 // ==/UserScript==
 		
 var selectedFace = "";
@@ -2564,14 +2564,15 @@ function main() {
 	appendListenerToReply();
 }
 
-var showSelectFunction = function(){showSelect(this);};
-
 function appendListenerToLink() {
 	console.log("Appending listener to 'Add Faces' links");
 	var links = document.getElementsByClassName("addFaceLink");
 	console.log("Found " + links.length + " 'add' link(s)");
 	for (var i = 0; i < links.length; i++) {
-		links[i].addEventListener("click", showSelectFunction);
+		//also known as I have no fucking idea how this fixed the issue, I was just mashing my keyboard and refreshing the page.
+		//most likely still to newbie wannabe to understand what `this` keyword really means.
+		var xthis = links[i];
+		links[i].addEventListener("click", function(){showSelect(xthis)});
 	}
 }
 

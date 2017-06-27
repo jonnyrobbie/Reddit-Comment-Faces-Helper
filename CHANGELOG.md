@@ -1,4 +1,6 @@
 #Changelog:
+- **1.27**
+ -fix for some sandboxing? issue
 - **1.26.1**
  -fix issue #5 for mangled line
 - **1.26**

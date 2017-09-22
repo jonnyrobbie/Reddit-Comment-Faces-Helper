@@ -25,7 +25,7 @@ Once user scripts are enabled in your browser, browse to a script on Greasy Fork
 Supported in these subreddits:
 ==============================
 
-/r/awwnime; /r/pantsu; /r/Moescape; /r/TwoDeeArt; /r/Patchuu; /r/anime; /r/visualnovels; /r/kemonomimi; /r/manga; /r/SuperSonico; /r/KanMusu; /r/SchoolIdolFestival; /r/KanMusuNights; /r/LoveLive; /r/OneTrueIdol; /r/fatestaynight; /r/saber; /r/Nisekoi; /r/gamindustri; /r/OneTrueBiribiri; /r/Esdeath; /r/OneTrueTohsaka
+/r/awwnime; /r/pantsu; /r/Moescape; /r/TwoDeeArt; /r/Patchuu; /r/anime; /r/visualnovels; /r/kemonomimi; /r/manga; /r/SuperSonico; /r/KanMusu; /r/SchoolIdolFestival; /r/KanMusuNights; /r/LoveLive; /r/OneTrueIdol; /r/fatestaynight; /r/saber; /r/Nisekoi; /r/gamindustri; /r/OneTrueBiribiri; /r/Esdeath; /r/OneTrueTohsaka /r/PCMasterRace
 
 Did some faces change? Were some new added? Just send me a message.
 

@@ -29,6 +29,7 @@
 // @include		http*://*.reddit.com/r/leagueoflegends/*
 // @include		http*://*.reddit.com/r/karanokyoukai/*
 // @include		http*://*.reddit.com/r/Chibi/*
+// @include		http*://*.reddit.com/r/pcmasterrace/*
 // @grant		  none
 // @version		1.27
 // ==/UserScript==
@@ -2497,6 +2498,23 @@ function appendFaces() {
 		objTo.appendChild(appendFaceThumb("fufu"));
 		objTo.appendChild(appendFaceThumb("uhoh"));
 		objTo.appendChild(appendFaceThumb("gab"));
+	} else if (subreddit == "pcmasterrace") {
+		faceIdChar = "#";
+		wikiLink.href = "https://www.reddit.com/r/pcmasterrace/wiki/config/stylesheet";
+		thumbDialWidth = "140px";
+		thumbDialHeight = "140px";
+		bbCodeFunction = function(bbFace, bbTitle){
+			if (bbTitle == "") {
+				return "[](#" + bbFace + ")";
+			} else {
+				return "[](#" + bbFace + " \"" + bbTitle + "\")";
+			}
+		};
+		objTo.appendChild(appendFaceThumb("scaryface"));
+		objTo.appendChild(appendFaceThumb("booth"));
+		objTo.appendChild(appendFaceThumb("store"));
+		objTo.appendChild(appendFaceThumb("approved"));
+		objTo.appendChild(appendFaceThumb("denied"));
 	}
 }
 
